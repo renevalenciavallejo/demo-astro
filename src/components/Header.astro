@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.svg";
+import changeLanguage from "../assets/images/change_language.svg";
+---
+
+<header
+  class="h-12 min-w-[20rem] px-14 flex items-center justify-between text-shadow_gray_500 font-test text-sm"
+>
+  <div><Image src={logo} alt="Swetro" /></div>
+  <div>
+    <nav>
+      <ul class="list-none">
+        <li
+          class="inline bg-shadow_gray_100 py-2 px-4 rounded-lg font-semibold text-shadow_gray_800"
+        >
+          <a href="/" class="no-underline hover:underline">Home</a>
+        </li>
+        <li class="inline px-2">
+          <a href="/" class="no-underline hover:underline">Races & challenges</a
+          >
+        </li>
+        <li class="inline px-2">
+          <a href="/" class="no-underline hover:underline">About us</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="flex items-center">
+    <div class="flex items-center pr-4 mr-2 border-r border-[#E0E0E0]">
+      <img src={changeLanguage.src} alt="Change language" class="mr-1" />
+      <a href="/" class="font-semibold no-underline hover:underline"> ES</a>
+    </div>
+
+    <div>
+      <nav>
+        <ul class="list-none">
+          <li class="inline px-2">
+            <a href="/" class="no-underline hover:underline">Login</a>
+          </li>
+          <li class="inline px-2">
+            <a href="/" class="no-underline hover:underline">Register</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
