@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["poppins", ...defaultTheme.fontFamily.sans],
-        test: ["Open Sans", ...defaultTheme.fontFamily.sans],
+        open_sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         cobalt_blue_600: "#0054ff",
