@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import usersLeft from "../assets/images/section_2_users_left.png";
-import usersRight from "../assets/images/section_2_users_right.png";
-import watch from "../assets/images/section_3_watch.png";
-import check from "../assets/images/section_4_check.svg";
-import money from "../assets/images/section_5_money.svg";
-import phone from "../assets/images/section_5_phone.png";
+import usersLeft from "../assets/images/section-2-users-left.png";
+import usersRight from "../assets/images/section-2-users-right.png";
+import watch from "../assets/images/section-3-watch.png";
+import check from "../assets/images/section-4-check.svg";
+import money from "../assets/images/section-5-money.svg";
+import phone from "../assets/images/section-5-phone.png";
+import garmin from "../assets/images/logo-garmin.svg";
+import suunto from "../assets/images/logo-suunto.svg";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -82,10 +84,12 @@ import phone from "../assets/images/section_5_phone.png";
       class="flex flex-col items-center justify-center h-[36.6875rem] px-14 bg-cobalt_blue_100"
     >
       <div class="text-center">
-        <h3 class="text-[40px] leading-[3rem]">
-          Connect to <span class="font-bold italic">Swetro</span>
+        <h3 class="w-[385px] text-[40px] leading-[3rem]">
+          Connect to <span class="font-bold">Swetro</span>
+          <span class="text-2xl leading-[3rem] font-normal mt-4">
+            in 3 simple steps</span
+          >
         </h3>
-        <h3 class="text-2xl font-normal mt-4">in 3 simple steps</h3>
       </div>
       <div class="flex items-center mt-8">
         <article class="w-[22.5rem] h-40 m-2 p-7 bg-white rounded-xl shadow-md">
@@ -130,15 +134,61 @@ import phone from "../assets/images/section_5_phone.png";
     <section
       class="flex items-center justify-center h-[19rem] px-14 bg-cobalt_blue_600"
     >
-      <Image src={money} alt="Money symbol" />
-      <h4 class="w-[330px] text-[40px] leading-[3rem] text-white ml-2">
-        Get rewarded <span class="font-bold italic">for getting fit</span>
-      </h4>
+      <div class="flex items-center">
+        <Image src={money} alt="Money symbol" />
+        <h4 class="w-[285px] text-[40px] leading-[3rem] text-white ml-2">
+          Get rewarded <span class="font-bold italic">for getting fit</span>
+        </h4>
+      </div>
 
-      <Image src={phone} alt="Swetro app" />
+      <div class="relative top-[-37px] block m-0 p-0">
+        <Image src={phone} alt="Swetro app" />
+      </div>
     </section>
-    <section class="bg-blue-300">Section 6</section>
-    <section class="bg-blue-200 h-[48.0625rem]">Section 7</section>
+    <section
+      class="flex flex-col items-center justify-center h-[30.4375rem] px-14 bg-cobalt_blue_100"
+    >
+      <div class="text-center">
+        <h3 class="text-[40px] leading-[3rem]">Compatible devices:</h3>
+      </div>
+      <div class="mt-8">
+        <div
+          class="flex items-baseline justify-center w-[47.75rem] h-28 m-2 p-0 bg-white rounded-xl shadow-md"
+        >
+          <div class="w-[10.625rem] h-[1.375] m-8">
+            <Image src={garmin} alt="Garmin logo" />
+          </div>
+          <div class="w-1 min-h-[40%] border-r-2 border-[#E0E0E0]"></div>
+          <div class="w-[9.375rem] h-[1.375] m-8">
+            <Image src={suunto} alt="Suunto logo" />
+          </div>
+        </div>
+      </div>
+      <div class="mt-[45px]">
+        <a
+          href="/"
+          class="px-7 py-2.5 rounded-md bg-cobalt_blue_600 text-base text-white font-semibold"
+        >
+          Register now</a
+        >
+      </div>
+    </section>
+    <section
+      class="flex flex-col items-center justify-center h-[48.0625rem] px-14 bg-black"
+    >
+      <div class="text-white text-center">
+        <h3 class="w-[585px] text-[40px] leading-[3rem]">
+          Get motivated and start achieving your <span class="font-bold italic"
+            >fitness goals</span
+          >
+        </h3>
+        <h4 class="mt-7 text-2xl leading-[3rem] font-normal">
+          Available activities:
+        </h4>
+      </div>
+      <div></div>
+      <h4>Races & Challenges</h4>
+    </section>
   </main>
   <footer class="border border-white bg-blue-100 h-[14.9375rem]">Footer</footer>
 </Layout>
