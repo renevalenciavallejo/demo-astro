@@ -1,5 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import usersLeft from "../assets/images/section_2_users_left.png";
+import usersRight from "../assets/images/section_2_users_right.png";
+import watch from "../assets/images/section_3_watch.png";
+import check from "../assets/images/section_4_check.svg";
+import money from "../assets/images/section_5_money.svg";
+import phone from "../assets/images/section_5_phone.png";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -25,10 +32,111 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
     </section>
-    <section class="bg-blue-700 h-[19.125rem]">Section 2</section>
-    <section class="bg-blue-600 h-[19.125rem]">Section 3</section>
-    <section class="bg-blue-500">Section 4</section>
-    <section class="bg-blue-400 h-[19rem]">Section 5</section>
+    <section class="h-[19.125rem] px-14 bg-black">
+      <div class="grid grid-cols-5 h-full items-center">
+        <div>
+          <div class="float-left">
+            <Image src={usersLeft} alt="People doing sport" />
+          </div>
+        </div>
+        <div class="col-span-3">
+          <p class="text-white text-center">
+            <span>
+              Competition is not about <span
+                class="text-glory_green_400 italic"
+              >
+                winning or losing.</span
+              ></span
+            >
+            <br />
+            <span> It's about pushing ourselves</span><br />
+            <span> to be the best we can be.</span>
+          </p>
+        </div>
+        <div>
+          <div class="float-right">
+            <Image src={usersRight} alt="People doing sport" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="flex items-center justify-center h-[19.125rem] px-14 mt-2 bg-white"
+    >
+      <Image src={watch} alt="Fitness device" />
+      <div class="w-[377px] ml-10">
+        <h2 class="text-[40px] leading-[3rem] font-bold">
+          Sync your device <span class="font-medium italic"> and go!</span>
+        </h2>
+        <div class="mt-[45px]">
+          <a
+            href="/"
+            class="px-7 py-2.5 rounded-md bg-cobalt_blue_600 text-base text-white font-semibold"
+          >
+            Register now</a
+          >
+        </div>
+      </div>
+    </section>
+    <section
+      class="flex flex-col items-center justify-center h-[36.6875rem] px-14 bg-cobalt_blue_100"
+    >
+      <div class="text-center">
+        <h3 class="text-[40px] leading-[3rem]">
+          Connect to <span class="font-bold italic">Swetro</span>
+        </h3>
+        <h3 class="text-2xl font-normal mt-4">in 3 simple steps</h3>
+      </div>
+      <div class="flex items-center mt-8">
+        <article class="w-[22.5rem] h-40 m-2 p-7 bg-white rounded-xl shadow-md">
+          <div class="flex items-center">
+            <Image src={check} alt="Check" />
+            <h4 class="ml-2.5 text-2xl font-medium">Step 1</h4>
+          </div>
+          <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
+            Create your Swetro profile and sync your fitness tracker.
+          </p>
+        </article>
+
+        <article class="w-[22.5rem] h-40 m-2 p-7 bg-white rounded-xl shadow-md">
+          <div class="flex items-center">
+            <Image src={check} alt="Check" />
+            <h4 class="ml-2.5 text-2xl font-medium">Step 2</h4>
+          </div>
+          <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
+            Join a challenge, commit to a goal, and start working out.
+          </p>
+        </article>
+
+        <article class="w-[22.5rem] h-40 m-2 p-7 bg-white rounded-xl shadow-md">
+          <div class="flex items-center">
+            <Image src={check} alt="Check" />
+            <h4 class="ml-2.5 text-2xl font-medium">Step 3</h4>
+          </div>
+          <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
+            Earn cash rewards by completing the challenge.
+          </p>
+        </article>
+      </div>
+      <div class="mt-[45px]">
+        <a
+          href="/"
+          class="px-7 py-2.5 rounded-md bg-cobalt_blue_600 text-base text-white font-semibold"
+        >
+          Register now</a
+        >
+      </div>
+    </section>
+    <section
+      class="flex items-center justify-center h-[19rem] px-14 bg-cobalt_blue_600"
+    >
+      <Image src={money} alt="Money symbol" />
+      <h4 class="w-[330px] text-[40px] leading-[3rem] text-white ml-2">
+        Get rewarded <span class="font-bold italic">for getting fit</span>
+      </h4>
+
+      <Image src={phone} alt="Swetro app" />
+    </section>
     <section class="bg-blue-300">Section 6</section>
     <section class="bg-blue-200 h-[48.0625rem]">Section 7</section>
   </main>
