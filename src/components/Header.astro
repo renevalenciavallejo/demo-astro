@@ -5,14 +5,14 @@ import changeLanguage from "../assets/images/change-language.svg";
 ---
 
 <header
-  class="h-12 min-w-[20rem] px-14 flex items-center justify-between text-shadow_gray_500 font-open_sans text-sm"
+  class="flex items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500"
 >
   <div><Image src={logo} alt="Swetro" /></div>
-  <div>
+  <div class="hidden md:block">
     <nav>
       <ul class="list-none">
         <li
-          class="inline bg-shadow_gray_100 py-2 px-4 rounded-lg font-semibold text-shadow_gray_800"
+          class="inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
         >
           <a href="/" class="no-underline hover:underline">Home</a>
         </li>
@@ -26,15 +26,15 @@ import changeLanguage from "../assets/images/change-language.svg";
       </ul>
     </nav>
   </div>
-  <div class="flex items-center">
-    <div class="flex items-center pr-4 mr-2 border-r border-[#E0E0E0]">
-      <img src={changeLanguage.src} alt="Change language" class="mr-1" />
-      <a href="/" class="font-semibold no-underline hover:underline"> ES</a>
-    </div>
-
-    <div>
+  <div class="hidden md:block pr-4 mr-2">
+    <div class="flex items-center h-12">
+      <Image src={changeLanguage} alt="Change language" />
+      <a href="/" class="mr-3 font-semibold no-underline hover:underline">
+        ES</a
+      >
+      <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div>
       <nav>
-        <ul class="list-none">
+        <ul class="list-none ml-2">
           <li class="inline px-2">
             <a href="/" class="no-underline hover:underline">Login</a>
           </li>
