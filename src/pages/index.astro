@@ -1,7 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ChallengeCard from "../components/ChallengeCard.astro";
+
+import section1Background from "../assets/images/section-1-background.png";
+import section1BackgroundDesktop from "../assets/images/section-1-background-desktop.png";
+import users from "../assets/images/section-2-users.png";
 import usersLeft from "../assets/images/section-2-users-left.png";
 import usersRight from "../assets/images/section-2-users-right.png";
 import watch from "../assets/images/section-3-watch.png";
@@ -10,24 +14,42 @@ import money from "../assets/images/section-5-money.svg";
 import phone from "../assets/images/section-5-phone.png";
 import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
+import section8Background from "../assets/images/section-8-background.png";
 import email from "../assets/images/section-8-email.svg";
+
+const optimizedSection1Background = await getImage({
+  src: section1Background,
+});
+
+const optimizedSection1BackgroundDesktop = await getImage({
+  src: section1BackgroundDesktop,
+});
+
+const r1 = optimizedSection1Background.src;
+const r2 = optimizedSection1BackgroundDesktop.src;
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <section
-      class="flex items-center h-[35.6875rem] px-4 md:px-14 bg-cobalt_blue_600"
+      class="flex items-center h-[35.6875rem] px-4 md:px-14 bg-cobalt_blue_600 bg-cover bg-no-repeat bg-bottom background-image"
     >
-      <div class="w-full md:w-[44.125rem]">
+      <Image
+        src={section1BackgroundDesktop}
+        alt="Money symbol"
+        class="object-cover w-full h-full absolute inset-0"
+      />
+      <div class="w-[16.5625rem] lg:w-[44.125rem]">
         <h1
-          class="text-[2.5rem] md:text-[4rem] leading-[3rem] md:leading-[5rem] font-bold text-white"
+          class="text-[2.5rem] lg:text-[4rem] leading-[3rem] lg:leading-[5rem] font-bold text-white"
         >
           Virtual race platform and fantasy league
         </h1>
         <h2
           class="mt-2 text-[1.5rem] leading-[1.75rem] md:leading-[2rem] font-normal text-white italic"
         >
-          <span class="font-medium md:font-normal text-glory_green_400"
+          <span
+            class="font-medium md:font-normal text-glory_green_400 block lg:inline"
             >for real-life</span
           >
            physical activities.
@@ -43,14 +65,15 @@ import email from "../assets/images/section-8-email.svg";
       </div>
     </section>
     <section
-      class="flex lg:grid lg:grid-cols-4 items-center h-[49.0625rem] md:h-[19.125rem] px-4 md:px-14 bg-black text-white"
+      class="flex flex-col md:flex-row items-center md:justify-center h-[49.0625rem] md:h-[19.125rem] px-4 md:px-14 bg-black text-white"
     >
-      <div class="hidden lg:block">
-        <div class="float-left">
-          <Image src={usersLeft} alt="Swetro users" />
-        </div>
+      <div class="hidden min-[1160px]:block">
+        <Image src={usersLeft} alt="Swetro users" />
       </div>
-      <div class="lg:col-span-2 text-center">
+      <div class="md:hidden my-20">
+        <Image src={users} alt="Swetro users" />
+      </div>
+      <div class="text-center min-[1160px]:mx-20">
         <p
           class="text-2xl md:text-[1.5rem] leading-[1.875rem] md:leading-[1.75rem]"
         >
@@ -59,17 +82,15 @@ import email from "../assets/images/section-8-email.svg";
           >
         </p>
         <p
-          class="text-[2rem] md:text-[2.5rem] leading-[2.5rem] md:leading-[3rem] font-medium mt-3"
+          class="text-[2rem] md:text-[2.5rem] leading-[2.5rem] md:leading-[3rem] font-medium mt-4"
         >
           It's about pushing ourselves <span class="block font-bold"
             >to be the best we can be.</span
           >
         </p>
       </div>
-      <div class="hidden lg:block">
-        <div class="float-right">
-          <Image src={usersRight} alt="Swetro users" />
-        </div>
+      <div class="hidden min-[1160px]:block">
+        <Image src={usersRight} alt="Swetro users" />
       </div>
     </section>
     <section
@@ -155,7 +176,7 @@ import email from "../assets/images/section-8-email.svg";
         >
       </div>
     </section>
-    <!--     <section
+    <!-- <section
       class="flex items-center justify-center h-[19rem] px-14 bg-cobalt_blue_600"
     >
       <div class="flex items-center">
@@ -217,9 +238,10 @@ import email from "../assets/images/section-8-email.svg";
         <ChallengeCard />
       </div>
       <h4>Races & Challenges</h4>
-    </section>
-    <section
-      class="flex flex-col items-center justify-center h-[27.5625rem] px-14 bg-black bg-[url('/images/section-8-background.png')]"
+    </section> -->
+    <!-- <section
+      class="flex flex-col items-center justify-center h-[27.5625rem] px-14 bg-black"
+      style={`background-image: url(${optimizedSection8Background.src});`}
     >
       <div class="text-center">
         <h3 class="text-[40px] leading-[3rem] text-white">Contact us</h3>
