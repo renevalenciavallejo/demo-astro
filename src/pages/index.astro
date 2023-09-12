@@ -9,7 +9,7 @@ import usersRight from "../assets/images/section-2-users-right.png";
 import watch from "../assets/images/section-3-watch.png";
 import check from "../assets/images/section-4-check.svg";
 import money from "../assets/images/section-5-money.svg";
-import phone from "../assets/images/section-5-phone.png";
+import phone from "../assets/images/section-5-phone-desktop.png";
 import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
 import section8Background from "../assets/images/section-8-background.png";
@@ -57,7 +57,7 @@ import email from "../assets/images/section-8-email.svg";
       <Image
         src={users}
         alt="Swetro users"
-        class="md:hidden mt-16 mb-20 min-[500px]:w-[34.375rem]"
+        class="md:hidden mt-16 mb-20 min-[440px]:w-[25.4375rem]"
       />
       <div class="text-center min-[1190px]:mx-20">
         <p
@@ -120,7 +120,7 @@ import email from "../assets/images/section-8-email.svg";
       </div>
       <div class="flex flex-row flex-wrap items-center justify-center mt-8">
         <article
-          class="w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
+          class="w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
         >
           <div class="flex items-center">
             <Image src={check} alt="Step 1" />
@@ -132,7 +132,7 @@ import email from "../assets/images/section-8-email.svg";
         </article>
 
         <article
-          class="w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
+          class="w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
         >
           <div class="flex items-center">
             <Image src={check} alt="Check" />
@@ -144,7 +144,7 @@ import email from "../assets/images/section-8-email.svg";
         </article>
 
         <article
-          class="w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
+          class="w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
         >
           <div class="flex items-center">
             <Image src={check} alt="Check" />
@@ -165,19 +165,19 @@ import email from "../assets/images/section-8-email.svg";
       </div>
     </section>
     <section
-      class="flex flex-col md:flex-row items-center justify-center h-[42.3125rem] md:h-[19rem] px-4 md:px-14 bg-cobalt_blue_600"
+      class="flex flex-row items-center justify-center h-[19rem] px-4 md:px-14 bg-cobalt_blue_600 bg-[url(/images/section-5-background-desktop.webp)]"
     >
-      <Image src={money} alt="Reward" />
-      <h4 class="ml-2 text-[2.5rem] leading-[3rem] font-normal text-white">
-        Get rewarded <span class="block font-bold italic">for getting fit</span>
-      </h4>
-      <!-- <div class="relative top-[30px] left-[20px] block m-0 p-0">
-        <Image src={phone} alt="Swetro app" />
-      </div> -->
-
-      <!-- <div class="relative top-[-37px] block m-0 p-0">
-        <Image src={phone} alt="Swetro app" />
-      </div> -->
+      <div class="flex flex-row flex-wrap justify-center">
+        <Image src={money} alt="Reward" />
+        <h4 class="text-[2.5rem] leading-[3rem] font-normal text-white">
+          Get rewarded <span class="block font-bold italic"
+            >for getting fit</span
+          >
+        </h4>
+      </div>
+      <div class="hidden min-[858px]:block relative top-[-36px]">
+        <Image src={phone} alt="Swetro app" class="w-[22.9375rem]" />
+      </div>
     </section>
     <section
       class="flex flex-col items-center justify-center px-4 py-20 md:px-14 bg-cobalt_blue_100"
@@ -189,7 +189,7 @@ import email from "../assets/images/section-8-email.svg";
       </div>
       <div class="mt-8">
         <div
-          class="flex flex-wrap items-baseline justify-center w-[21.375rem] md:w-[47.75rem] m-2 p-0 bg-white rounded-xl shadow-md"
+          class="flex flex-wrap items-baseline justify-center w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[29rem] m-2 p-0 bg-white rounded-xl shadow-md"
         >
           <div class="w-[10.625rem] h-[1.375] m-8">
             <Image src={garmin} alt="Garmin logo" />
