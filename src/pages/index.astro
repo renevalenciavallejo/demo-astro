@@ -3,8 +3,6 @@ import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ChallengeCard from "../components/ChallengeCard.astro";
 
-import section1Background from "../assets/images/section-1-background.png";
-import section1BackgroundDesktop from "../assets/images/section-1-background-desktop.png";
 import users from "../assets/images/section-2-users.png";
 import usersLeft from "../assets/images/section-2-users-left.png";
 import usersRight from "../assets/images/section-2-users-right.png";
@@ -16,40 +14,24 @@ import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
 import section8Background from "../assets/images/section-8-background.png";
 import email from "../assets/images/section-8-email.svg";
-
-const optimizedSection1Background = await getImage({
-  src: section1Background,
-});
-
-const optimizedSection1BackgroundDesktop = await getImage({
-  src: section1BackgroundDesktop,
-});
-
-const r1 = optimizedSection1Background.src;
-const r2 = optimizedSection1BackgroundDesktop.src;
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <section
-      class="flex items-center h-[35.6875rem] px-4 md:px-14 bg-cobalt_blue_600 bg-cover bg-no-repeat bg-bottom background-image"
+      class="flex items-center h-[35.6875rem] px-4 md:px-14 bg-cobalt_blue_600 bg-[url(/images/section-1-background.webp)] min-[640px]:bg-[url(/images/section-1-background-desktop.webp)] bg-right min-[640px]:bg-center"
     >
-      <Image
-        src={section1BackgroundDesktop}
-        alt="Money symbol"
-        class="object-cover w-full h-full absolute inset-0"
-      />
-      <div class="w-[16.5625rem] lg:w-[44.125rem]">
+      <div class="w-[16.5625rem] min-[560px]:w-[27.8125rem] lg:w-[44.125rem]">
         <h1
           class="text-[2.5rem] lg:text-[4rem] leading-[3rem] lg:leading-[5rem] font-bold text-white"
         >
           Virtual race platform and fantasy league
         </h1>
         <h2
-          class="mt-2 text-[1.5rem] leading-[1.75rem] md:leading-[2rem] font-normal text-white italic"
+          class="mt-2 text-[1.5rem] leading-[1.75rem] min-[560px]:leading-[2rem] font-normal text-white italic"
         >
           <span
-            class="font-medium md:font-normal text-glory_green_400 block lg:inline"
+            class="font-medium min-[560px]:font-normal text-glory_green_400 block min-[560px]:inline"
             >for real-life</span
           >
            physical activities.
@@ -65,15 +47,19 @@ const r2 = optimizedSection1BackgroundDesktop.src;
       </div>
     </section>
     <section
-      class="flex flex-col md:flex-row items-center md:justify-center h-[49.0625rem] md:h-[19.125rem] px-4 md:px-14 bg-black text-white"
+      class="flex flex-col md:flex-row items-center md:justify-center h-[42.8125rem] md:h-[19.125rem] px-4 md:px-14 bg-black text-white"
     >
-      <div class="hidden min-[1160px]:block">
-        <Image src={usersLeft} alt="Swetro users" />
-      </div>
-      <div class="md:hidden my-20">
-        <Image src={users} alt="Swetro users" />
-      </div>
-      <div class="text-center min-[1160px]:mx-20">
+      <Image
+        src={usersLeft}
+        alt="Swetro users"
+        class="hidden min-[1200px]:block"
+      />
+      <Image
+        src={users}
+        alt="Swetro users"
+        class="md:hidden mt-16 mb-20 min-[500px]:w-[34.375rem]"
+      />
+      <div class="text-center min-[1190px]:mx-20">
         <p
           class="text-2xl md:text-[1.5rem] leading-[1.875rem] md:leading-[1.75rem]"
         >
@@ -89,9 +75,11 @@ const r2 = optimizedSection1BackgroundDesktop.src;
           >
         </p>
       </div>
-      <div class="hidden min-[1160px]:block">
-        <Image src={usersRight} alt="Swetro users" />
-      </div>
+      <Image
+        src={usersRight}
+        alt="Swetro users"
+        class="hidden min-[1200px]:block"
+      />
     </section>
     <section
       class="flex flex-col md:flex-row items-center md:justify-center h-[37.0625rem] md:h-[19.125rem] px-4 md:px-14 md:mt-2 bg-white"
@@ -120,7 +108,7 @@ const r2 = optimizedSection1BackgroundDesktop.src;
       </div>
     </section>
     <section
-      class="flex flex-col items-center justify-center min-h-[59.25rem] md:min-h-[36.6875rem] px-4 md:px-14 bg-cobalt_blue_100"
+      class="flex flex-col items-center justify-center px-4 py-20 md:px-14 bg-cobalt_blue_100"
     >
       <div class="text-center">
         <h3 class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal">
@@ -176,43 +164,45 @@ const r2 = optimizedSection1BackgroundDesktop.src;
         >
       </div>
     </section>
-    <!-- <section
-      class="flex items-center justify-center h-[19rem] px-14 bg-cobalt_blue_600"
+    <section
+      class="flex flex-col md:flex-row items-center justify-center h-[42.3125rem] md:h-[19rem] px-4 md:px-14 bg-cobalt_blue_600"
     >
-      <div class="flex items-center">
-        <Image src={money} alt="Money symbol" />
-        <h4 class="w-[285px] text-[40px] leading-[3rem] text-white ml-2">
-          Get rewarded <span class="font-bold italic">for getting fit</span>
-        </h4>
-      </div>
-
-      <div class="relative top-[-37px] block m-0 p-0">
+      <Image src={money} alt="Reward" />
+      <h4 class="ml-2 text-[2.5rem] leading-[3rem] font-normal text-white">
+        Get rewarded <span class="block font-bold italic">for getting fit</span>
+      </h4>
+      <!-- <div class="relative top-[30px] left-[20px] block m-0 p-0">
         <Image src={phone} alt="Swetro app" />
-      </div>
+      </div> -->
+
+      <!-- <div class="relative top-[-37px] block m-0 p-0">
+        <Image src={phone} alt="Swetro app" />
+      </div> -->
     </section>
     <section
-      class="flex flex-col items-center justify-center h-[30.4375rem] px-14 bg-cobalt_blue_100"
+      class="flex flex-col items-center justify-center px-4 py-20 md:px-14 bg-cobalt_blue_100"
     >
       <div class="text-center">
-        <h3 class="text-[40px] leading-[3rem]">Compatible devices:</h3>
+        <h3 class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal">
+          Compatible devices
+        </h3>
       </div>
       <div class="mt-8">
         <div
-          class="flex items-baseline justify-center w-[47.75rem] h-28 m-2 p-0 bg-white rounded-xl shadow-md"
+          class="flex flex-wrap items-baseline justify-center w-[21.375rem] md:w-[47.75rem] m-2 p-0 bg-white rounded-xl shadow-md"
         >
           <div class="w-[10.625rem] h-[1.375] m-8">
             <Image src={garmin} alt="Garmin logo" />
           </div>
-          <div class="w-1 min-h-[40%] border-r-2 border-[#E0E0E0]"></div>
           <div class="w-[9.375rem] h-[1.375] m-8">
             <Image src={suunto} alt="Suunto logo" />
           </div>
         </div>
       </div>
-      <div class="mt-[45px]">
+      <div class="mt-[2.8125rem]">
         <a
           href="/"
-          class="px-7 py-2.5 rounded-md bg-cobalt_blue_600 text-base text-white font-semibold"
+          class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
         >
           Register now</a
         >
@@ -232,13 +222,13 @@ const r2 = optimizedSection1BackgroundDesktop.src;
           Available activities:
         </h4>
       </div>
-      <div class="flex items-center justify-between mt-7">
+      <!-- <div class="flex items-center justify-between mt-7">
         <ChallengeCard />
         <ChallengeCard />
         <ChallengeCard />
-      </div>
+      </div> -->
       <h4>Races & Challenges</h4>
-    </section> -->
+    </section>
     <!-- <section
       class="flex flex-col items-center justify-center h-[27.5625rem] px-14 bg-black"
       style={`background-image: url(${optimizedSection8Background.src});`}
