@@ -4,24 +4,32 @@ import running from "../assets/images/challenge-card-running.png";
 ---
 
 <article
-  class="w-[22.75rem] h-[13.875rem] m-3 p-8 bg-white rounded-xl shadow-md"
+  class="flex flex-col justify-between w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[22.5rem] h-[13.875rem] m-3 p-5 text-shadow_gray_800 bg-white rounded-xl shadow-md"
 >
-  <div class="flex items-center">
-    <div
-      class="w-[15.4375rem] h-[4.25rem] text-[28px] leading-[1.875rem] font-bold italic"
+  <div class="flex items-center justify-between">
+    <h2
+      class="text-[1.5rem] min-[360px]:text-[1.75rem] leading-[1.875rem] font-bold italic"
     >
       Media maratón de Bogotá - 21k
-    </div>
-    <div>
-      <Image src={running} alt="Running" />
-    </div>
+    </h2>
+    <Image src={running} alt="Running" />
   </div>
-  <div></div>
-  <!-- <div class="flex items-center">
-    
-    <h4 class="ml-2.5 text-2xl font-medium">Step 3</h4>
+  <div>
+    <ul>
+      <li class="my-1 text-xs font-medium">
+        <span class="font-bold">Start:</span> February 12, 2024
+      </li>
+      <li class="my-1 text-xs font-medium">
+        <span class="font-bold">End:</span> February 12, 2024
+      </li>
+    </ul>
   </div>
-  <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
-    Earn cash rewards by completing the challenge.
-  </p> -->
+  <div>
+    <a
+      href="/"
+      class="block px-7 py-1.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white text-center"
+    >
+      Join</a
+    >
+  </div>
 </article>

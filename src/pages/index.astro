@@ -110,14 +110,14 @@ import email from "../assets/images/section-8-email.svg";
     <section
       class="flex flex-col items-center justify-center px-4 py-20 md:px-14 bg-cobalt_blue_100"
     >
-      <div class="text-center">
-        <h3 class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal">
-          Connect to <span class="font-bold">Swetro</span>
-          <span class="block text-[1.5rem] leading-[3rem] font-normal md:mt-2">
-            in 3 simple steps</span
-          >
-        </h3>
-      </div>
+      <h3
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
+      >
+        Connect to <span class="font-bold">Swetro</span>
+        <span class="block text-[1.5rem] leading-[3rem] font-normal md:mt-2">
+          in 3 simple steps</span
+        >
+      </h3>
       <div class="flex flex-row flex-wrap items-center justify-center mt-8">
         <article
           class="w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[22.5rem] h-40 m-2 p-7 rounded-xl shadow-md bg-white"
@@ -182,11 +182,11 @@ import email from "../assets/images/section-8-email.svg";
     <section
       class="flex flex-col items-center justify-center px-4 py-20 md:px-14 bg-cobalt_blue_100"
     >
-      <div class="text-center">
-        <h3 class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal">
-          Compatible devices
-        </h3>
-      </div>
+      <h3
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
+      >
+        Compatible devices
+      </h3>
       <div class="mt-8">
         <div
           class="flex flex-wrap items-baseline justify-center w-[18.75rem] min-[360px]:w-[21.375rem] md:w-[29rem] m-2 p-0 bg-white rounded-xl shadow-md"
@@ -209,27 +209,28 @@ import email from "../assets/images/section-8-email.svg";
       </div>
     </section>
     <section
-      class="flex flex-col items-center justify-center h-[48.0625rem] px-14 bg-black"
+      class="flex flex-col items-center justify-center px-4 py-20 md:px-14 text-white bg-black"
     >
-      <div class="text-white text-center">
-        <h3 class="w-[585px] text-[40px] leading-[3rem]">
-          Get motivated and start achieving your <span class="font-bold italic"
-            >fitness goals</span
-          >
-        </h3>
-
-        <h4 class="mt-7 text-2xl leading-[3rem] font-normal">
-          Available activities:
-        </h4>
+      <h3
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
+      >
+        Get motivated and start <span class="inline md:block"
+          >achieving your <span class="font-bold italic">fitness goals</span
+          ></span
+        >
+      </h3>
+      <h4 class="mt-7 text-2xl leading-[3rem] font-normal">
+        Available activities:
+      </h4>
+      <div class="flex flex-row flex-wrap items-center justify-center mt-8">
+        <ChallengeCard />
+        <ChallengeCard />
+        <ChallengeCard />
+        <ChallengeCard />
       </div>
-      <!-- <div class="flex items-center justify-between mt-7">
-        <ChallengeCard />
-        <ChallengeCard />
-        <ChallengeCard />
-      </div> -->
       <h4>Races & Challenges</h4>
-    </section>
-    <!-- <section
+
+      <!-- <section
       class="flex flex-col items-center justify-center h-[27.5625rem] px-14 bg-black"
       style={`background-image: url(${optimizedSection8Background.src});`}
     >
@@ -249,5 +250,6 @@ import email from "../assets/images/section-8-email.svg";
         </div>
       </div>
     </section> -->
+    </section>
   </main>
 </Layout>
