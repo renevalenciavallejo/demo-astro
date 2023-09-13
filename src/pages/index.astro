@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ChallengeCard from "../components/ChallengeCard.astro";
 
@@ -12,7 +12,6 @@ import money from "../assets/images/section-5-money.svg";
 import phone from "../assets/images/section-5-phone-desktop.png";
 import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
-import section8Background from "../assets/images/section-8-background.png";
 import email from "../assets/images/section-8-email.svg";
 ---
 
@@ -222,34 +221,36 @@ import email from "../assets/images/section-8-email.svg";
       <h4 class="mt-7 text-2xl leading-[3rem] font-normal">
         Available activities:
       </h4>
-      <div class="flex flex-row flex-wrap items-center justify-center mt-8">
+      <div class="flex flex-row flex-wrap items-center justify-center my-8">
         <ChallengeCard />
         <ChallengeCard />
         <ChallengeCard />
         <ChallengeCard />
       </div>
-      <h4>Races & Challenges</h4>
 
-      <!-- <section
-      class="flex flex-col items-center justify-center h-[27.5625rem] px-14 bg-black"
-      style={`background-image: url(${optimizedSection8Background.src});`}
+      <h4 class="text-glory_green_400">Races & Challenges</h4>
+    </section>
+    <section
+      class="flex flex-col items-center justify-center h-[34.625rem] min-[640px]:h-[27.5625rem] px-4 py-20 md:px-14 text-white bg-black bg-[url(/images/section-8-background.webp)] min-[640px]:bg-[url(/images/section-8-background-desktop.webp)] bg-left bg-cover"
     >
-      <div class="text-center">
-        <h3 class="text-[40px] leading-[3rem] text-white">Contact us</h3>
-      </div>
+      <h4
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
+      >
+        Contact us
+      </h4>
       <div class="mt-8">
         <div
-          class="flex items-center justify-center w-[32rem] h-24 m-2 p-0 bg-white rounded-xl shadow-md text-base"
+          class="flex items-center justify-center p-7 min-[640px]:p-7.5 text-base text-shadow_gray_800 bg-white rounded-xl shadow-md"
         >
-          <Image src={email} alt="Email" />
-          <span class="ml-2">
-            Get support by email: <span class="font-medium"
+          <Image src={email} alt="Email" class="mr-2" />
+          <div>
+            Get support by email: <span
+              class="font-semibold block min-[640px]:inline"
               >hello@swetro.com</span
             >
-          </span>
+          </div>
         </div>
       </div>
-    </section> -->
     </section>
   </main>
 </Layout>
