@@ -1,6 +1,26 @@
 ---
 import { Image } from "astro:assets";
 import running from "../assets/images/challenge-card-running.png";
+import cycling from "../assets/images/challenge-card-cycling.png";
+import { format } from "date-fns";
+
+export interface Props {
+  title: string;
+  activityType: string;
+  startTime: Date;
+  endTime: Date;
+}
+
+const { title, activityType, startTime, endTime } = Astro.props;
+const maxLength = 28;
+
+const truncatedTitle =
+  title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
+
+let activityImage = cycling;
+if (activityType === "Running") {
+  activityImage = running;
+}
 ---
 
 <article
@@ -10,17 +30,19 @@ import running from "../assets/images/challenge-card-running.png";
     <h2
       class="text-[1.5rem] min-[360px]:text-[1.75rem] leading-[1.875rem] font-bold italic"
     >
-      Media maratón de Bogotá - 21k
+      {truncatedTitle}
     </h2>
-    <Image src={running} alt="Running" />
+    <Image src={activityImage} alt={activityType} />
   </div>
   <div>
     <ul>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">Start:</span> February 12, 2024
+        <span class="font-bold">Start:</span>
+        {format(startTime, " MMM d, yyyy h:mm:ss aa")}
       </li>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">End:</span> February 12, 2024
+        <span class="font-bold">End:</span>
+        {format(endTime, " MMM d, yyyy h:mm:ss aa")}
       </li>
     </ul>
   </div>

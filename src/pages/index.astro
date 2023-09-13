@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import ChallengeCard from "../components/ChallengeCard.astro";
 
@@ -13,6 +14,8 @@ import phone from "../assets/images/section-5-phone-desktop.png";
 import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
 import email from "../assets/images/section-8-email.svg";
+
+const activeChallenges = await getCollection("active-challenges");
 ---
 
 <Layout title="Welcome to Astro.">
@@ -222,10 +225,16 @@ import email from "../assets/images/section-8-email.svg";
         Join a challenge:
       </h4>
       <div class="flex flex-row flex-wrap items-center justify-center my-8">
-        <ChallengeCard />
-        <ChallengeCard />
-        <ChallengeCard />
-        <ChallengeCard />
+        {
+          activeChallenges.map((item) => (
+            <ChallengeCard
+              title={item.data.title}
+              activityType={item.data.activityType}
+              startTime={item.data.startTime}
+              endTime={item.data.endTime}
+            />
+          ))
+        }
       </div>
 
       <h4 class="text-glory_green_400">More races & challenges</h4>
