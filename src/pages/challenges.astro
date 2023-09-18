@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro"
+import ListActivitiesChallenges from "../components/ListActivitiesChallenges.jsx"
+
+const data = await getCollection("active-challenges");
+
+const activitiesChallenges = [...new Set(data.map(x=> x.data))];
+---
+
+<Layout title="Welcome to Astro.">      
+    <section class="bg-no-repeat flex flex-row items-center justify-center h-[19rem] px-4 md:px-14 bg-black bg-[url(/images/challenges-section-1-background-desktop.webp)]">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56 overflow-auto">
+            <h1 class="mb-4 text-4xl tracking-tight leading-none text-white md:text-5xl lg:text-6xl mt-64 sm:pt-64 sm:mt-0">Start a challenge today, <br/> <strong>be the first and win the prize.</strong></h1>
+        </div>
+    </section>
+
+    <ListActivitiesChallenges activitiesChallenges={activitiesChallenges} client:load/>
+    
+</Layout>
