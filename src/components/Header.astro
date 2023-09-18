@@ -27,7 +27,7 @@ import language from "../assets/images/change-language.svg";
 <header
   class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
 >
-  <div>
+  <div class="w-[183px]">
     <a href="/">
       <span class="sr-only">Swetro</span>
       <Image src={logo} alt="Swetro logo" />
@@ -90,31 +90,31 @@ import language from "../assets/images/change-language.svg";
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-1 pt-6 pb-4">
             <a
-              href="#"
+              href="/"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
               >Home</a
             >
             <a
-              href="#"
+              href="/"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
               >Races & challenges</a
             >
             <a
-              href="#"
+              href="/"
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
               >About us</a
             >
           </div>
           <div class="space-y-1 pt-3">
             <a
-              href="#"
+              href="https://app.swetro.com/account/login"
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Login</a
+              >Sign in</a
             >
             <a
-              href="#"
+              href="https://app.swetro.com/account/register"
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Register</a
+              >Sign up</a
             >
           </div>
         </div>
@@ -139,9 +139,9 @@ import language from "../assets/images/change-language.svg";
       </ul>
     </nav>
   </div>
-  <div class="hidden md:block pr-4 mr-2">
+  <div class="hidden md:block">
     <div class="flex items-center h-12">
-      <Image src={language} alt="Language" class="mr-1" />
+      <Image src={language} alt="Language" class="pr-1" />
       <button
         id="dropdownNavbarLink"
         data-dropdown-toggle="dropdownNavbar"
@@ -164,13 +164,13 @@ import language from "../assets/images/change-language.svg";
       <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div>
       <nav>
         <ul class="list-none ml-2">
-          <li class="inline px-2">
+          <li class="inline px-1">
             <a
               href="https://app.swetro.com/account/login"
               class="no-underline hover:underline font-bold">Sign in</a
             >
           </li>
-          <li class="inline pl-2">
+          <li class="inline pl-1">
             <a
               href="https://app.swetro.com/account/register"
               class="no-underline hover:underline">Sign up</a
