@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -27,8 +26,11 @@ module.exports = {
         glory_green_600: "#b2e100",
         glory_green_400: "#caff00",
         glory_green_000: "#efffb4",
+        customYellow: '#caff00',
+        customPink: '#ffc3f5'
       },
     },
   },
   plugins: [require("flowbite/plugin")],
 };
+
