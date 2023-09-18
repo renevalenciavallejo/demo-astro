@@ -3,6 +3,7 @@ import "@fontsource/poppins";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource-variable/open-sans";
+import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -15,14 +16,18 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
+  <!-- <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-  </head>
+  </head> -->
+  <Head
+    title={title}
+    description="Join Swetro's virtual running and cycling races and challenges. Earn rewards for your physical activity."
+  />
   <body class="mx-auto max-w-7xl text-shadow_gray_800">
     <Header />
     <slot class="bg-black"/>  
