@@ -15,7 +15,9 @@ import garmin from "../assets/images/logo-garmin.svg";
 import suunto from "../assets/images/logo-suunto.svg";
 import email from "../assets/images/section-8-email.svg";
 
-const activeChallenges = await getCollection("active-challenges");
+const newChallenges = await getCollection("challenges", ({ data }) => {
+  return data.showOnHomePage === true;
+});
 ---
 
 <Layout title="Swetro: Join Virtual Running and Cycling Races to Win Rewards">
@@ -226,18 +228,24 @@ const activeChallenges = await getCollection("active-challenges");
       </h4>
       <div class="flex flex-row flex-wrap items-center justify-center my-8">
         {
-          activeChallenges.map((item) => (
-            <ChallengeCard
-              title={item.data.title}
-              activityType={item.data.activityType}
-              startTime={item.data.startTime}
-              endTime={item.data.endTime}
-            />
-          ))
+          newChallenges
+            .sort((a, b) => a.data.startTime - b.data.startTime)
+            .map((item) => (
+              <ChallengeCard
+                title={item.data.title}
+                activityType={item.data.activityType}
+                startTime={item.data.startTime}
+                endTime={item.data.endTime}
+              />
+            ))
         }
       </div>
 
-      <h4 class="text-glory_green_400">More races & challenges</h4>
+      <h4 class="text-glory_green_400">
+        <a href="/challenges" class="no-underline hover:underline"
+          >More races & challenges</a
+        >
+      </h4>
     </section>
     <section
       class="flex flex-col items-center justify-center h-[34.625rem] min-[640px]:h-[27.5625rem] px-4 py-20 md:px-14 text-white bg-black bg-[url(/images/section-8-background.webp)] min-[640px]:bg-[url(/images/section-8-background-desktop.webp)] bg-left bg-cover"

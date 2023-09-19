@@ -1,20 +1,26 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro"
-import ListActivitiesChallenges from "../components/ListActivitiesChallenges.jsx"
+import Layout from "../layouts/Layout.astro";
+import ChallengeCardList from "../components/ChallengeCardList.jsx";
 
-const data = await getCollection("active-challenges");
-
-const activitiesChallenges = [...new Set(data.map(x=> x.data))];
+const data = await getCollection("challenges");
+const challenges = [...new Set(data.map((x) => x.data))];
 ---
 
-<Layout title="Welcome to Astro.">      
-    <section class="bg-no-repeat flex flex-row items-center justify-center h-[19rem] px-4 md:px-14 bg-black bg-[url(/images/challenges-section-1-background-desktop.webp)]">
-        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56 overflow-auto">
-            <h1 class="mb-4 text-4xl tracking-tight leading-none text-white md:text-5xl lg:text-6xl mt-64 sm:pt-64 sm:mt-0">Start a challenge today, <br/> <strong>be the first and win the prize.</strong></h1>
-        </div>
+<Layout title="Races & challenges - Swetro">
+  <main>
+    <section
+      class="flex flex-row items-center justify-center h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-black bg-[url(/images/challenges-section-1-background-desktop.webp)] bg-no-repeat"
+    >
+      <h1
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center text-white"
+      >
+        Join a challenge today, <span
+          class="inline md:block font-normal md:font-bold"
+          >achieve your goals and win cash</span
+        >
+      </h1>
     </section>
-
-    <ListActivitiesChallenges activitiesChallenges={activitiesChallenges} client:load/>
-    
+    <ChallengeCardList activitiesChallenges={challenges} client:load />
+  </main>
 </Layout>
