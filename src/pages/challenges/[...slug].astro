@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
@@ -10,12 +11,33 @@ export async function getStaticPaths() {
 }
 
 const challenge = Astro.props;
+
+let backgroundImage = "";
+switch (challenge.data.activityType) {
+  case "Cycling":
+    backgroundImage =
+      "/images/challenge-section-1-background-cycling-desktop.webp";
+    break;
+  case "Running":
+    backgroundImage =
+      "/images/challenge-section-1-background-running-desktop.webp";
+    break;
+  default:
+    backgroundImage =
+      "/images/challenge-section-1-background-default-desktop.webp";
+    break;
+}
 ---
 
-<h1>{challenge.data.title}</h1>
-<p>
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore quisquam
-  reprehenderit facilis aliquid saepe voluptates nihil, corporis impedit vitae
-  quidem provident dolore praesentium corrupti facere, dolores vero deleniti,
-  necessitatibus ea?
-</p>
+<Layout title={`${challenge.data.title} - Swetro`}>
+  <main>
+    <section
+      class="flex flex-row items-center justify-center h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-black bg-center"
+      style={`background-image: url(${backgroundImage});`}
+    >
+      <h1 class="font-normal text-center text-white">
+        {challenge.data.title}
+      </h1>
+    </section>
+  </main>
+</Layout>
