@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import ChallengeCardList from "../components/ChallengeCardList.jsx";
+import Layout from "../../layouts/Layout.astro";
+import ChallengeCardList from "../../components/ChallengeCardList.jsx";
 
 const data = await getCollection("challenges");
 const challenges = [...new Set(data.map((x) => x.data))];

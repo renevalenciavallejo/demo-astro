@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const challenges = await getCollection("challenges");
+  return challenges.map((challenge) => ({
+    params: { slug: challenge.slug },
+    props: challenge,
+  }));
+}
+
+const challenge = Astro.props;
+---
+
+<h1>{challenge.data.title}</h1>
+<p>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore quisquam
+  reprehenderit facilis aliquid saepe voluptates nihil, corporis impedit vitae
+  quidem provident dolore praesentium corrupti facere, dolores vero deleniti,
+  necessitatibus ea?
+</p>

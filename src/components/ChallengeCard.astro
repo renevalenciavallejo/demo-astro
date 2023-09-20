@@ -9,9 +9,10 @@ export interface Props {
   activityType: string;
   startTime: Date;
   endTime: Date;
+  slug: string;
 }
 
-const { title, activityType, startTime, endTime } = Astro.props;
+const { title, activityType, startTime, endTime, slug } = Astro.props;
 const maxLength = 28;
 
 const truncatedTitle =
@@ -48,7 +49,7 @@ if (activityType === "Running") {
   </div>
   <div>
     <a
-      href="/"
+      href={`/challenges/${slug}`}
       class="block px-7 py-1.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white text-center"
     >
       Join</a

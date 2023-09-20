@@ -229,13 +229,16 @@ const newChallenges = await getCollection("challenges", ({ data }) => {
       <div class="flex flex-row flex-wrap items-center justify-center my-8">
         {
           newChallenges
-            .sort((a, b) => a.data.startTime - b.data.startTime)
+            .sort(
+              (a, b) => a.data.startTime.valueOf() - b.data.startTime.valueOf()
+            )
             .map((item) => (
               <ChallengeCard
                 title={item.data.title}
                 activityType={item.data.activityType}
                 startTime={item.data.startTime}
                 endTime={item.data.endTime}
+                slug={item.slug}
               />
             ))
         }
