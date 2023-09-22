@@ -45,12 +45,6 @@ function ChallengeDetail() {
     }
   };
 
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
   return (
     <>
       <style>
@@ -177,11 +171,11 @@ function ChallengeDetail() {
                 <h2>Pot:</h2>
                 <p>500,00 USD</p>
               </div>
-
-              <div>
+              
+              {/*<div>
                 <h2>Participants:</h2>
                 <p>14</p>
-              </div>
+              </div>*/}
             </div>
           </div>
 
@@ -374,7 +368,6 @@ function ChallengeDetail() {
                       </label>
                     </div>
                   </li>
-                  {/* Otros elementos li aquí */}
                 </ul>
               </div>
             </div>
