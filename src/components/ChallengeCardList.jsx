@@ -46,16 +46,25 @@ function ChallengeCardList({ activitiesChallenges }) {
     }
   };
 
+  const orderByStartTimeAscendente = (a, b) => {
+    const fechaA = new Date(a.startTime).getTime();
+    const fechaB = new Date(b.startTime).getTime();
+
+    return fechaA - fechaB;
+  };
+
   const filterTypesActivitiesChallenges = (typeActivityChallenge) => {
     if (typeActivityChallenge === "All races & challenges") {
-      setActivities(activitiesChallenges);
+      setActivities(activitiesChallenges.sort(orderByStartTimeAscendente));
       return;
     }
 
-    const filteredActivitiesChallenges = activitiesChallenges.filter(
-      (activityChallenge) =>
-        activityChallenge.activityType == typeActivityChallenge
-    );
+    const filteredActivitiesChallenges = activitiesChallenges
+      .filter(
+        (activityChallenge) =>
+          activityChallenge.activityType == typeActivityChallenge
+      )
+      .sort(orderByStartTimeAscendente);
     setActivities(filteredActivitiesChallenges);
   };
 
@@ -76,7 +85,7 @@ function ChallengeCardList({ activitiesChallenges }) {
       </style>
 
       <section className="bg-black w-full overflow-x-auto sm:px-10">
-        <div className="flex space-x-4 p-4 sm:pl-10 sm:justify-center lg:justify-start md:justify-center pt-32 pt:mt-0">
+        <div className="flex space-x-4 p-4 sm:pl-10 sm:justify-center lg:justify-start md:justify-center pt-0 pt:mt-0">
           <div className="flex-shrink-0">
             <button
               className="bg-transparent border border-gray-300 rounded-10 hover:bg-white focus:bg-white hover:text-black text-white font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black"
@@ -175,7 +184,7 @@ function ChallengeCardList({ activitiesChallenges }) {
 
       <section className="bg-black flex justify-center flex-row flex-wrap pb-4 sm:px-16 lg:justify-start">
         {activities.map((activite) => (
-          <ChallengeCard key={activite.id} activiteChallenge={activite} />
+          <ChallengeCard key={activite.id} activiteChallenge={activite}/>
         ))}
       </section>
     </>
