@@ -1,8 +1,18 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/images/logo.svg";
+import logo from "@assets/images/logo.svg";
+import {
+  getLangFromUrl,
+  getPathAfterLang,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
 
 const date = new Date();
+const currentPath = getPathAfterLang(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <footer
@@ -12,7 +22,7 @@ const date = new Date();
     <Image src={logo} alt="Swetro" />
 
     <p class="mt-5 text-xs leading-[1.25rem] font-normal text-shadow_gray_500">
-      Copyright {date.getFullYear()} Swetro Company. <br />
+      Copyright {date.getFullYear()} Swetro. <br />
        All rights reserved.
     </p>
   </div>
@@ -22,26 +32,32 @@ const date = new Date();
     <div class="mb-3 mr-7">
       <h4 class="font-bold">Menu</h4>
       <ul class="mt-2 text-shadow_gray_500">
-        <li><a href="/" class="no-underline hover:underline">Home</a></li>
         <li>
-          <a href="/challenges" class="no-underline hover:underline"
-            >Races & challenges</a
+          <a href={translatePath("/")} class="no-underline hover:underline"
+            >{t("nav.home")}</a
           >
         </li>
-        <li><a href="/" class="no-underline hover:underline">About us</a></li>
+        <li>
+          <a
+            href={translatePath("/challenges")}
+            class="no-underline hover:underline">{t("nav.challenges")}</a
+          >
+        </li>
       </ul>
     </div>
     <div>
-      <h4 class="font-bold">Support</h4>
+      <h4 class="font-bold">{t("nav.support")}</h4>
       <ul class="mt-2 text-shadow_gray_500">
         <li>
-          <a href="/privacy-policy" class="no-underline hover:underline"
-            >Privacy policy</a
+          <a
+            href={translatePath("/privacy-policy")}
+            class="no-underline hover:underline">{t("nav.privacy-policy")}</a
           >
         </li>
         <li>
-          <a href="/terms-of-use" class="no-underline hover:underline"
-            >Terms of use</a
+          <a
+            href={translatePath("/terms-of-use")}
+            class="no-underline hover:underline">{t("nav.terms-of-use")}</a
           >
         </li>
       </ul>

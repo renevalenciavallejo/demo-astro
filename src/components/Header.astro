@@ -1,9 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/images/logo.svg";
-import language from "../assets/images/change-language.svg";
+import logo from "@assets/images/logo.svg";
+import {
+  getLangFromUrl,
+  getPathAfterLang,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
 
-const currentPath = Astro.url.pathname;
+const currentPath = getPathAfterLang(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <script>
@@ -29,8 +37,8 @@ const currentPath = Astro.url.pathname;
 <header
   class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
 >
-  <div class="w-[183px]">
-    <a href="/">
+  <div>
+    <a href={translatePath("/")}>
       <span class="sr-only">Swetro</span>
       <Image src={logo} alt="Swetro logo" />
     </a>
@@ -101,11 +109,6 @@ const currentPath = Astro.url.pathname;
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
               >Races & challenges</a
             >
-            <a
-              href="/"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >About us</a
-            >
           </div>
           <div class="space-y-1 pt-3">
             <a
@@ -131,26 +134,26 @@ const currentPath = Astro.url.pathname;
             ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
             : "inline px-2"}
         >
-          <a href="/" class="no-underline hover:underline">Home</a>
+          <a href={translatePath("/")} class="no-underline hover:underline"
+            >{t("nav.home")}</a
+          >
         </li>
         <li
           class={currentPath === "/challenges"
             ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
             : "inline px-2"}
         >
-          <a href="/challenges" class="no-underline hover:underline"
-            >Races & challenges</a
+          <a
+            href={translatePath("/challenges")}
+            class="no-underline hover:underline">{t("nav.challenges")}</a
           >
-        </li>
-        <li class="inline px-2">
-          <a href="/" class="no-underline hover:underline">About us</a>
         </li>
       </ul>
     </nav>
   </div>
   <div class="hidden md:block">
     <div class="flex items-center h-12">
-      <Image src={language} alt="Language" class="pr-1" />
+      <!-- <Image src={language} alt="Language" class="pr-1" />
       <button
         id="dropdownNavbarLink"
         data-dropdown-toggle="dropdownNavbar"
@@ -170,19 +173,20 @@ const currentPath = Astro.url.pathname;
           </li>
         </ul>
       </div>
-      <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div>
+      <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div> -->
       <nav>
         <ul class="list-none ml-2">
           <li class="inline px-1">
             <a
-              href="https://app.swetro.com/account/login"
-              class="no-underline hover:underline font-bold">Sign in</a
+              href="https://app.swetro.com/account/register"
+              class="no-underline hover:underline font-bold"
+              >{t("nav.sign-up")}</a
             >
           </li>
           <li class="inline pl-1">
             <a
-              href="https://app.swetro.com/account/register"
-              class="no-underline hover:underline">Sign up</a
+              href="https://app.swetro.com/account/login"
+              class="no-underline hover:underline">{t("nav.sign-in")}</a
             >
           </li>
         </ul>
