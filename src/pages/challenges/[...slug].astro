@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import calendar from "../../assets/images/calendar.svg";
+import ChallengeDetail from "../../components/ChallengeDetail.jsx"
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
@@ -32,12 +35,71 @@ switch (challenge.data.activityType) {
 <Layout title={`${challenge.data.title} - Swetro`}>
   <main>
     <section
-      class="flex flex-row items-center justify-center h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-black bg-center"
+      class="h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-center sm:bg-[50%] md:bg-[75%] lg:bg-[100%]"
       style={`background-image: url(${backgroundImage});`}
     >
-      <h1 class="font-normal text-center text-white">
-        {challenge.data.title}
-      </h1>
+      <div class="hidden sm:flex flex-row items-center justify-between pt-9">
+        <button
+          class="flex items-center bg-transparent White hover:underline text-sm font-['Poppins'] font-semibold leading-[24px] text-white w-min pr-1 pl-1 rounded-lg"
+        >
+          <svg
+            class="w-4 h-4 mr-2"
+            fill="White"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          <span>Volver</span>
+        </button>
+        <div class="flex flex-col">
+          <div
+            class="bg-white flex flex-row gap-1 h-6 shrink-0 items-center px-2 rounded-lg"
+          >
+            <img
+              src="https://file.rendit.io/n/KLV1qEP4C9QslCHotBIy.svg"
+              class="w-4 shrink-0"
+            />
+            <h4 class="font-['Poppins'] font-semibold text-[#161616]">
+              Duration: 5 days
+            </h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-center pt-20 sm:pt-0">
+        <h1
+          class="text-center text-5xl font-['Poppins'] font-bold leading-[56px] text-white mt-28"
+        >
+          <span class="inline font-bold">
+            {challenge.data.title}
+          </span>
+        </h1>
+        <div class="flex flex-row items-center mt-3">
+          <Image
+            src={calendar}
+            alt="calendar"
+            class="w-23 h-23 sm:w-5 sm:h-5 mr-2"
+          />
+          <div class="flex flex-col lg:flex-row">
+            <h3 class="text-white text-sm flex mr-7">
+              <span class="inline md:block font-bold pr-1">Start:</span>
+               February 07, 2024.
+            </h3>
+            <h3 class="text-white text-sm flex">
+              <span class="inline md:block font-bold pr-1">End:</span> February
+              07, 2024.
+            </h3>
+          </div>
+        </div>
+      </div>   
     </section>
+
+    <ChallengeDetail client:load/>
   </main>
 </Layout>
