@@ -75,7 +75,7 @@ function ChallengeCard({activiteChallenge}) {
                 </div>
                 <div>
                 <a
-                    href="/"
+                    href=""
                     className="block px-7 py-1.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white text-center"
                 >
                     Join
@@ -84,8 +84,8 @@ function ChallengeCard({activiteChallenge}) {
             </article>
         
             <aside className="flex justify-center mb-4 pb-4">
-                <ImgChallenge activiteChallenge={activityType} className="" />
-                <label className="font-medium text-base leading-normal font-poppins ml-2">{participants} Cyclists participating</label>
+                {/*<ImgChallenge activiteChallenge={activityType} className="" />
+                <label className="font-medium text-base leading-normal font-poppins ml-2">{participants} Cyclists participating</label>*/}
             </aside>            
         </section>
       </>
