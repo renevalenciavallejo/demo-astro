@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
 import { format } from "date-fns";
 
 export interface Props {
@@ -9,10 +10,10 @@ export interface Props {
   activityType: string;
   startTime: Date;
   endTime: Date;
-  slug: string;
+  url: string;
 }
 
-const { title, activityType, startTime, endTime, slug } = Astro.props;
+const { title, activityType, startTime, endTime, url } = Astro.props;
 const maxLength = 28;
 
 const truncatedTitle =
@@ -22,6 +23,9 @@ let activityImage = cycling;
 if (activityType === "Running") {
   activityImage = running;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <article
@@ -38,21 +42,21 @@ if (activityType === "Running") {
   <div>
     <ul>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">Start:</span>
+        <span class="font-bold">{t("challenge-card.startTime")}:</span>
         {format(startTime, " MMM d, yyyy h:mm:ss aa")}
       </li>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">End:</span>
+        <span class="font-bold">{t("challenge-card.endTime")}:</span>
         {format(endTime, " MMM d, yyyy h:mm:ss aa")}
       </li>
     </ul>
   </div>
   <div>
     <a
-      href={`/challenges/${slug}`}
+      href={url}
       class="block px-7 py-1.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white text-center"
     >
-      Join</a
+      {t("challenge-card.button")}</a
     >
   </div>
 </article>

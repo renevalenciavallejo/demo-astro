@@ -1,5 +1,7 @@
 ---
 id: 38
+slug: run-60K-in-two-weeks-38
+lang: "en"
 showOnHomePage: false
 title: "Ride 150K in two weeks"
 activityType: "Cycling"

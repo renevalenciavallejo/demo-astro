@@ -71,7 +71,7 @@ const translatePath = useTranslatedPath(lang);
       class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4"
     >
       <div class="flex justify-between">
-        <a href="/">
+        <a href={translatePath("/")}>
           <span class="sr-only">Swetro</span>
           <Image src={logo} alt="Swetro logo" class="-mt-[3px]" />
         </a>
@@ -100,26 +100,26 @@ const translatePath = useTranslatedPath(lang);
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-1 pt-6 pb-4">
             <a
-              href="/"
+              href={translatePath("/")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Home</a
+              >{t("nav.home")}</a
             >
             <a
-              href="/challenges"
+              href={translatePath("/challenges")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Races & challenges</a
+              >{t("nav.challenges")}</a
             >
           </div>
           <div class="space-y-1 pt-3">
             <a
-              href="https://app.swetro.com/account/login"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Sign in</a
-            >
-            <a
               href="https://app.swetro.com/account/register"
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >Sign up</a
+              >{t("nav.sign-up")}</a
+            >
+            <a
+              href="https://app.swetro.com/account/login"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.sign-in")}</a
             >
           </div>
         </div>

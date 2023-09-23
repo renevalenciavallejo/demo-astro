@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ChallengeCard from "@components/ChallengeCard.astro";
+import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 
 import users from "@assets/images/section-2-users.png";
 import usersLeft from "@assets/images/section-2-users-left.png";
@@ -15,8 +16,11 @@ import garmin from "@assets/images/logo-garmin.svg";
 import suunto from "@assets/images/logo-suunto.svg";
 import email from "@assets/images/section-8-email.svg";
 
-const newChallenges = await getCollection("challenges", ({ data }) => {
-  return data.showOnHomePage === true;
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+const challenges = await getCollection("challenges", ({ data }) => {
+  return data.lang === lang && data.showOnHomePage === true;
 });
 ---
 
@@ -228,7 +232,7 @@ const newChallenges = await getCollection("challenges", ({ data }) => {
       </h4>
       <div class="flex flex-row flex-wrap items-center justify-center my-8">
         {
-          newChallenges
+          challenges
             .sort(
               (a, b) => a.data.startTime.valueOf() - b.data.startTime.valueOf()
             )
@@ -238,7 +242,7 @@ const newChallenges = await getCollection("challenges", ({ data }) => {
                 activityType={item.data.activityType}
                 startTime={item.data.startTime}
                 endTime={item.data.endTime}
-                slug={item.slug}
+                url={translatePath(`/challenges/${item.slug}`)}
               />
             ))
         }
