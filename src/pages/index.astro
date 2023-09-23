@@ -249,8 +249,9 @@ const challenges = await getCollection("challenges", ({ data }) => {
       </div>
 
       <h4 class="text-glory_green_400">
-        <a href="/challenges" class="no-underline hover:underline"
-          >More races & challenges</a
+        <a
+          href={translatePath("/challenges")}
+          class="no-underline hover:underline">More races & challenges</a
         >
       </h4>
     </section>

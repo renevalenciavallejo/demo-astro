@@ -1,6 +1,6 @@
 ---
 id: 35
-slug: run-25K-in-one-week-35
+slug: run-25k-in-one-week-35
 lang: "en"
 showOnHomePage: true
 title: "Run 25K in one week"

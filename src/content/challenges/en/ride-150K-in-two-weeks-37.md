@@ -1,6 +1,6 @@
 ---
 id: 37
-slug: ride-150K-in-two-weeks-37
+slug: ride-150k-in-two-weeks-37
 lang: "en"
 showOnHomePage: true
 title: "Ride 150K in two weeks"

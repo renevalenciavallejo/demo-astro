@@ -1,6 +1,6 @@
 ---
 id: 36
-slug: run-60K-in-two-weeks-36
+slug: run-60k-in-two-weeks-36
 lang: "en"
 showOnHomePage: true
 title: "Run 60K in two weeks"

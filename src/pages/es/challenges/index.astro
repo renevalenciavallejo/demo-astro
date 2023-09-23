@@ -12,7 +12,7 @@ const challenges = await getCollection("challenges", ({ data }) => {
 });
 ---
 
-<Layout title="Races & challenges - Swetro">
+<Layout title="Carreras y retos - Swetro">
   <main>
     <section
       class="flex flex-row items-center justify-center h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-black bg-[url(/images/challenges-section-1-background-desktop.webp)] bg-no-repeat"
@@ -20,15 +20,16 @@ const challenges = await getCollection("challenges", ({ data }) => {
       <h1
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center text-white"
       >
-        Join a challenge today, <span
+        Únete a un desafío hoy, <span
           class="inline md:block font-normal md:font-bold"
-          >achieve your goals and win cash</span
-        >
+          >alcanza tus metas y gana dinero
+        </span>
       </h1>
     </section>
     <ChallengeCardList
       challenges={challenges}
       baseUrl={translatePath("/challenges")}
+      lang={lang}
       client:load
     />
   </main>
