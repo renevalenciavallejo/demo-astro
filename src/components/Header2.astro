@@ -1,0 +1,196 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/images/logo.svg";
+import {
+  getLangFromUrl,
+  getPathAfterLang,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
+
+const currentPath = getPathAfterLang(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<script>
+  import { Collapse } from "flowbite";
+
+  const $targetMenu = document.getElementById("mega-menu-full");
+
+  const $triggerOpenMenu = document.getElementById("btn-open-menu");
+  const $triggerCloseMenu = document.getElementById("btn-close-menu");
+
+  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
+  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
+
+  $triggerOpenMenu?.addEventListener("click", () => {
+    collapseOpen.expand();
+  });
+
+  $triggerCloseMenu?.addEventListener("click", () => {
+    collapseClose.collapse();
+  });
+</script>
+
+<header
+  class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
+>
+  <div>
+    <a href={translatePath("/")}>
+      <span class="sr-only">Swetro</span>
+      <Image src={logo} alt="Swetro logo" />
+    </a>
+  </div>
+  <button
+    id="btn-open-menu"
+    type="button"
+    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg md:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
+    aria-controls="mega-menu-full"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Open menu</span>
+    <svg
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+  </button>
+  <div id="mega-menu-full" class="hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-10"></div>
+    <div
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4"
+    >
+      <div class="flex justify-between">
+        <a href={translatePath("/")}>
+          <span class="sr-only">Swetro</span>
+          <Image src={logo} alt="Swetro logo" class="-mt-[3px]" />
+        </a>
+        <button
+          id="btn-close-menu"
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+        >
+          <span class="sr-only">Close menu</span>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-1 pt-6 pb-4">
+            <a
+              href={translatePath("/")}
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.home")}</a
+            >
+            <a
+              href={translatePath("/challenges")}
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.challenges")}</a
+            >
+          </div>
+          <div class="space-y-1 pt-3">
+            <a
+              href="https://app.swetro.com/account/register"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.sign-up")}</a
+            >
+            <a
+              href="https://app.swetro.com/account/login"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.sign-in")}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden md:block">
+    <nav>
+      <ul class="list-none">
+        <li
+          class={currentPath === "/"
+            ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+            : "inline px-2"}
+        >
+          <a href={translatePath("/")} class="no-underline hover:underline"
+            >{t("nav.home")}</a
+          >
+        </li>
+        <li
+          class={currentPath === "/challenges"
+            ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+            : "inline px-2"}
+        >
+          <a
+            href={translatePath("/challenges")}
+            class="no-underline hover:underline">{t("nav.challenges")}</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="hidden md:block">
+    <div class="flex items-center h-12">
+      <!-- <Image src={language} alt="Language" class="pr-1" />
+      <button
+        id="dropdownNavbarLink"
+        data-dropdown-toggle="dropdownNavbar"
+        class="flex items-center justify-between w-full mr-3 py-2 pl-3 pr-4 text-shadow_gray_500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
+        >EN
+      </button>
+      <div
+        id="dropdownNavbar"
+        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-24"
+      >
+        <ul
+          class="py-2 text-sm text-shadow_gray_500"
+          aria-labelledby="dropdownLargeButton"
+        >
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Spanish</a>
+          </li>
+        </ul>
+      </div>
+      <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div> -->
+      <nav>
+        <ul class="list-none ml-2">
+          <li class="inline px-1">
+            <a
+              href="https://app.swetro.com/account/register"
+              class="no-underline hover:underline font-bold"
+              >{t("nav.sign-up")}</a
+            >
+          </li>
+          <li class="inline pl-1">
+            <a
+              href="https://app.swetro.com/account/login"
+              class="no-underline hover:underline">{t("nav.sign-in")}</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
