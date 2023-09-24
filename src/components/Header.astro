@@ -35,22 +35,18 @@ const translatePath = useTranslatedPath(lang);
       </button>
     </div>
     <ul
-      class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6"
+      class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
     >
       <li>
-        <a class="text-sm text-gray-400 hover:text-gray-500" href="#">Home</a>
-      </li>
-
-      <li><a class="text-sm text-blue-600 font-bold" href="#">About Us</a></li>
-
-      <li>
-        <a class="text-sm text-gray-400 hover:text-gray-500" href="#"
-          >Services</a
+        <a href={translatePath("/")} class="no-underline hover:underline"
+          >{t("nav.home")}</a
         >
       </li>
 
       <li>
-        <a class="text-sm text-gray-400 hover:text-gray-500" href="#">Pricing</a
+        <a
+          href={translatePath("/challenges")}
+          class="no-underline hover:underline">{t("nav.challenges")}</a
         >
       </li>
     </ul>

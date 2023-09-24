@@ -14,26 +14,6 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<script>
-  import { Collapse } from "flowbite";
-
-  const $targetMenu = document.getElementById("mega-menu-full");
-
-  const $triggerOpenMenu = document.getElementById("btn-open-menu");
-  const $triggerCloseMenu = document.getElementById("btn-close-menu");
-
-  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
-  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
-
-  $triggerOpenMenu?.addEventListener("click", () => {
-    collapseOpen.expand();
-  });
-
-  $triggerCloseMenu?.addEventListener("click", () => {
-    collapseClose.collapse();
-  });
-</script>
-
 <header
   class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
 >
@@ -194,3 +174,23 @@ const translatePath = useTranslatedPath(lang);
     </div>
   </div>
 </header>
+
+<script>
+  import { Collapse } from "flowbite";
+
+  const $targetMenu = document.getElementById("mega-menu-full");
+
+  const $triggerOpenMenu = document.getElementById("btn-open-menu");
+  const $triggerCloseMenu = document.getElementById("btn-close-menu");
+
+  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
+  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
+
+  $triggerOpenMenu?.addEventListener("click", () => {
+    collapseOpen.expand();
+  });
+
+  $triggerCloseMenu?.addEventListener("click", () => {
+    collapseClose.collapse();
+  });
+</script>
