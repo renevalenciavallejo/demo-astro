@@ -27,7 +27,7 @@ const translatePath = useTranslatedPath(lang);
   <button
     id="btn-open-menu"
     type="button"
-    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg lg:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
+    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg md:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
     aria-controls="mega-menu-full"
     aria-expanded="false"
   >
@@ -107,7 +107,7 @@ const translatePath = useTranslatedPath(lang);
       </div>
     </div>
   </div>
-  <div class="hidden lg:block">
+  <div class="hidden md:block">
     <div class="flex items-center h-12">
       <nav>
         <ul class="list-none flex space-x-3">
@@ -135,7 +135,7 @@ const translatePath = useTranslatedPath(lang);
               id="dropdownNavbarLink"
               data-dropdown-toggle="dropdownNavbar"
               class="flex items-center justify-between w-full py-2 pl-3 pr-4 rounded md:hover:bg-transparent md:border-0 hover:underline md:p-0 md:w-auto"
-              >{t("nav.lang")}
+              >{languages[lang]}
               <svg
                 class="w-2.5 h-2.5 ml-2.5"
                 aria-hidden="true"
