@@ -92,30 +92,24 @@ const translatePath = useTranslatedPath(lang);
             >
           </div>
           <div>
-            <!-- <a href={translatePath("/")}>{t("nav.home")}</a>
-            <a href={translatePath("/challenges")}>{t("nav.challenges")}</a>
-            <a href="#">{languages[lang]}</a> -->
             <ul class="flex flex-col font-medium mt-4">
               <li class="border-b">
                 <a
-                  href="#"
+                  href={translatePath("/")}
                   class="block py-3 pr-4 rounded hover:bg-gray-100"
-                  aria-current="page">Home</a
+                  aria-current="page">{t("nav.home")}</a
+                >
+              </li>
+              <li class="border-b">
+                <a
+                  href={translatePath("/challenges")}
+                  class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  >{t("nav.challenges")}</a
                 >
               </li>
               <li class="border-b">
                 <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
-                  >Services</a
-                >
-              </li>
-              <li class="border-b">
-                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
-                  >Pricing</a
-                >
-              </li>
-              <li class="border-b">
-                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
-                  >Contact</a
+                  >{languages[lang]}</a
                 >
               </li>
             </ul>
