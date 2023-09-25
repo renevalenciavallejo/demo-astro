@@ -29,6 +29,7 @@ const challenges = await getCollection("challenges", ({ data }) => {
     <ChallengeCardList
       challenges={challenges}
       baseUrl={translatePath("/challenges")}
+      lang={lang}
       client:load
     />
   </main>
