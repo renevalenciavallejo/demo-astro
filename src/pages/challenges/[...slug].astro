@@ -18,6 +18,8 @@ export async function getStaticPaths() {
 
 const challenge = Astro.props;
 
+//Obtener isDetail de la url para saber en donde estamos
+const isDetail = true;
 let colorCalendar = "";
 let imgTitle = challenge.data.activityType === "Cycling" ? cicle : run;
 let backgroundImage = "";
@@ -124,7 +126,8 @@ switch (challenge.data.activityType) {
       </div>
     </section>
   
-    <ChallengeDetailButtons IsDetails={true}/>
+    <ChallengeDetailButtons IsDetails={isDetail}/>
+
     <ChallengeDetail />
 
     <section class="bg-black flex justify-center pt-16 pb-32">

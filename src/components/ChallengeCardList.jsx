@@ -8,7 +8,7 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
   let t = useTranslations(lang);
 
   const [selectedFilter, setSelectedFilter] = useState(
-    t("challenge-menu-all.button")
+    t("challenge-list-filter-all")
   );
 
   const filterChallenges = (type) => {
@@ -23,7 +23,7 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
   };
 
   const filteredChallenges =
-    selectedFilter === t("challenge-menu-all.button")
+    selectedFilter === t("challenge-list-filter-all")
       ? challenges
       : challenges.filter(
           (challenge) => challenge.data.activityType === selectedFilter
@@ -65,46 +65,46 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
           <div className="flex-shrink-0">
             <button
               className={`border border-gray-300 rounded-10 hover:bg-white focus:bg-white hover:text-black font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black ${
-                selectedFilter === t("challenge-menu-all.button")
+                selectedFilter === t("challenge-list-filter-all")
                   ? "bg-white text-black"
                   : "bg-black text-white"
               }`}
               onClick={() => {
-                filterChallenges(t("challenge-menu-all.button"))}}
+                filterChallenges(t("challenge-list-filter-all"))}}
             >
-              {t("challenge-menu-all.button")}
+              {t("challenge-list-filter-all")}
             </button>
           </div>
 
           <div className="flex-shrink-0">
             <button
               className={`btn-list border border-gray-300 rounded-10 hover:text-black hover:bg-customYellow focus:bg-customYellow font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black ${
-                selectedFilter === t("challenge-menu-running.button") 
+                selectedFilter === t("challenge-list-filter-running") 
                 ? "bg-customYellow text-black" 
                 : "bg-black text-white"
               }`}
-              onClick={() => filterChallenges(t("challenge-menu-running.button"))}
+              onClick={() => filterChallenges(t("challenge-list-filter-running"))}
             >
               <img className={`w-6 h-6 pr-1 ${
-                selectedFilter === t("challenge-menu-running.button") ? "icon-btn" : "" 
+                selectedFilter === t("challenge-list-filter-running") ? "icon-btn" : "" 
               }`} src={run.src} alt="run" />
-              {t("challenge-menu-running.button")}
+              {t("challenge-list-filter-running")}
             </button>
           </div>
 
           <div className="flex-shrink-0">
             <button
               className={`btn-list border border-gray-300 rounded-10 hover:text-black hover:bg-customPink focus:bg-customPink font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black ${
-                selectedFilter === t("challenge-menu-cycling.button") 
+                selectedFilter === t("challenge-list-filter-cycling") 
                 ? "bg-customPink text-black" 
                 : "bg-black text-white"
               }`}
-              onClick={() => filterChallenges(t("challenge-menu-cycling.button"))}
+              onClick={() => filterChallenges(t("challenge-list-filter-cycling"))}
             >
               <img className={`w-6 h-6 pr-1 ${
-                selectedFilter === t("challenge-menu-cycling.button") ? "icon-btn" : "" 
+                selectedFilter === t("challenge-list-filter-cycling") ? "icon-btn" : "" 
               }`} src={cicle.src} alt="cycle" />
-              {t("challenge-menu-cycling.button")}
+              {t("challenge-list-filter-cycling")}
             </button>
           </div>
         </div>
