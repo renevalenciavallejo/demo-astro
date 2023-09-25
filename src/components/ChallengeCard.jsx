@@ -71,11 +71,15 @@ function ChallengeCard({ challenge, baseUrl }) {
           <div>
             <ul>
               <li className="my-1 text-xs font-medium">
-                <span className="font-bold">{t("challenge-card.startTime")}:</span>
+                <span className="font-bold">
+                  {t("challenge-card.startTime")}:
+                </span>
                 {format(startTime, " MMM d, yyyy h:mm:ss aa")}
               </li>
               <li className="my-1 text-xs font-medium">
-                <span className="font-bold">{t("challenge-card.endTime")}:</span>
+                <span className="font-bold">
+                  {t("challenge-card.endTime")}:
+                </span>
                 {format(endTime, " MMM d, yyyy h:mm:ss aa")}
               </li>
             </ul>

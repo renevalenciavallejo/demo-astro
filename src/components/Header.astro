@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@assets/images/logo.svg";
+import { languages } from "../i18n/ui";
 import {
   getLangFromUrl,
   getPathAfterLang,
@@ -14,26 +15,6 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<script>
-  import { Collapse } from "flowbite";
-
-  const $targetMenu = document.getElementById("mega-menu-full");
-
-  const $triggerOpenMenu = document.getElementById("btn-open-menu");
-  const $triggerCloseMenu = document.getElementById("btn-close-menu");
-
-  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
-  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
-
-  $triggerOpenMenu?.addEventListener("click", () => {
-    collapseOpen.expand();
-  });
-
-  $triggerCloseMenu?.addEventListener("click", () => {
-    collapseClose.collapse();
-  });
-</script>
-
 <header
   class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
 >
@@ -46,7 +27,7 @@ const translatePath = useTranslatedPath(lang);
   <button
     id="btn-open-menu"
     type="button"
-    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg md:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
+    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg md:hidden"
     aria-controls="mega-menu-full"
     aria-expanded="false"
   >
@@ -68,7 +49,7 @@ const translatePath = useTranslatedPath(lang);
   <div id="mega-menu-full" class="hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
     <div
-      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4"
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-4 px-4 md:px-14"
     >
       <div class="flex justify-between">
         <a href={translatePath("/")}>
@@ -78,7 +59,7 @@ const translatePath = useTranslatedPath(lang);
         <button
           id="btn-close-menu"
           type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+          class="inline-flex items-center z-10 p-1 w-10 h-10 -mt-3 justify-center rounded-lg md:hidden"
         >
           <span class="sr-only">Close menu</span>
           <svg
@@ -97,96 +78,174 @@ const translatePath = useTranslatedPath(lang);
         </button>
       </div>
       <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
-          <div class="space-y-1 pt-6 pb-4">
-            <a
-              href={translatePath("/")}
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.home")}</a
-            >
-            <a
-              href={translatePath("/challenges")}
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.challenges")}</a
-            >
-          </div>
-          <div class="space-y-1 pt-3">
-            <a
-              href="https://app.swetro.com/account/register"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.sign-up")}</a
-            >
+        <div class="-my-6">
+          <div>
             <a
               href="https://app.swetro.com/account/login"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              class="block px-5 py-2.5 mt-5 mb-3 text-sm text-center font-semibold text-shadow_gray_800 bg-white border border-gray-300 focus:outline-none hover:bg-shadow_gray_100 focus:ring-4 focus:ring-gray-200 rounded-lg"
               >{t("nav.sign-in")}</a
             >
+            <a
+              href="https://app.swetro.com/account/register"
+              class="block px-5 py-2.5 text-sm text-center font-semibold text-white bg-blue-700 border focus:outline-none hover:bg-blue-800 focus:ring-4 focus:ring-gray-200 rounded-lg"
+              >{t("nav.sign-up")}</a
+            >
+          </div>
+          <div>
+            <ul class="flex flex-col font-medium mt-4">
+              <li class="border-b">
+                <a
+                  href={translatePath("/")}
+                  class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  aria-current="page">{t("nav.home")}</a
+                >
+              </li>
+              <li class="border-b">
+                <a
+                  href={translatePath("/challenges")}
+                  class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  >{t("nav.challenges")}</a
+                >
+              </li>
+            </ul>
+            <div
+              id="accordion-flush"
+              data-accordion="collapse"
+              data-active-classes="bg-white text-shadow_gray_500"
+              data-inactive-classes="text-shadow_gray_500"
+            >
+              <h2 id="accordion-flush-heading-1">
+                <button
+                  type="button"
+                  class="flex items-center justify-between w-full py-3 font-medium text-left border-b"
+                  data-accordion-target="#accordion-flush-body-1"
+                  aria-expanded="false"
+                  aria-controls="accordion-flush-body-1"
+                >
+                  <span>{languages[lang]}</span>
+                  <svg
+                    data-accordion-icon
+                    class="w-3 h-3 rotate-180 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5 5 1 1 5"></path>
+                  </svg>
+                </button>
+              </h2>
+              <div
+                id="accordion-flush-body-1"
+                class="hidden"
+                aria-labelledby="accordion-flush-heading-1"
+              >
+                <div class="py-3 border-b">
+                  <ul>
+                    {
+                      Object.entries(languages).map(([lang, label]) => (
+                        <li>
+                          <a
+                            href={translatePath("/", lang)}
+                            class="block px-4 py-3 pr-4 rounded hover:bg-gray-100"
+                          >
+                            {label}
+                          </a>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="hidden md:block">
-    <nav>
-      <ul class="list-none">
-        <li
-          class={currentPath === "/"
-            ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
-            : "inline px-2"}
-        >
-          <a href={translatePath("/")} class="no-underline hover:underline"
-            >{t("nav.home")}</a
-          >
-        </li>
-        <li
-          class={currentPath === "/challenges"
-            ? "inline py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
-            : "inline px-2"}
-        >
-          <a
-            href={translatePath("/challenges")}
-            class="no-underline hover:underline">{t("nav.challenges")}</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="hidden md:block">
     <div class="flex items-center h-12">
-      <!-- <Image src={language} alt="Language" class="pr-1" />
-      <button
-        id="dropdownNavbarLink"
-        data-dropdown-toggle="dropdownNavbar"
-        class="flex items-center justify-between w-full mr-3 py-2 pl-3 pr-4 text-shadow_gray_500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"
-        >EN
-      </button>
-      <div
-        id="dropdownNavbar"
-        class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-24"
-      >
-        <ul
-          class="py-2 text-sm text-shadow_gray_500"
-          aria-labelledby="dropdownLargeButton"
-        >
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Spanish</a>
-          </li>
-        </ul>
-      </div>
-      <div class="w-1 min-h-[40%] border-r border-[#E0E0E0]"></div> -->
       <nav>
-        <ul class="list-none ml-2">
-          <li class="inline px-1">
+        <ul class="list-none flex space-x-3">
+          <li
+            class={currentPath === "/"
+              ? "py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+              : "py-2"}
+          >
+            <a href={translatePath("/")} class="no-underline hover:underline"
+              >{t("nav.home")}</a
+            >
+          </li>
+          <li
+            class={currentPath === "/challenges"
+              ? "py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+              : "py-2"}
+          >
+            <a
+              href={translatePath("/challenges")}
+              class="no-underline hover:underline">{t("nav.challenges")}</a
+            >
+          </li>
+          <li class="py-2">
+            <button
+              id="dropdownNavbarLink"
+              data-dropdown-toggle="dropdownNavbar"
+              class="flex items-center justify-between w-full py-2 pl-3 pr-4 rounded md:hover:bg-transparent md:border-0 hover:underline md:p-0 md:w-auto"
+              >{languages[lang]}
+              <svg
+                class="w-2.5 h-2.5 ml-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"></path>
+              </svg></button
+            >
+            <div
+              id="dropdownNavbar"
+              class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+            >
+              <ul class="py-2 text-sm" aria-labelledby="dropdownLargeButton">
+                {
+                  Object.entries(languages).map(([lang, label]) => (
+                    <li>
+                      <a
+                        href={translatePath("/", lang)}
+                        class="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {label}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </li>
+          <li class="py-2">
+            <span class="border-r border-[#E0E0E0] h-4"></span>
+          </li>
+          <li class="py-2">
+            <a
+              href="https://app.swetro.com/account/login"
+              class="no-underline hover:underline">{t("nav.sign-in")}</a
+            >
+          </li>
+          <li class="py-2">
             <a
               href="https://app.swetro.com/account/register"
               class="no-underline hover:underline font-bold"
               >{t("nav.sign-up")}</a
-            >
-          </li>
-          <li class="inline pl-1">
-            <a
-              href="https://app.swetro.com/account/login"
-              class="no-underline hover:underline">{t("nav.sign-in")}</a
             >
           </li>
         </ul>
@@ -194,3 +253,23 @@ const translatePath = useTranslatedPath(lang);
     </div>
   </div>
 </header>
+
+<script>
+  import { Collapse } from "flowbite";
+
+  const $targetMenu = document.getElementById("mega-menu-full");
+
+  const $triggerOpenMenu = document.getElementById("btn-open-menu");
+  const $triggerCloseMenu = document.getElementById("btn-close-menu");
+
+  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
+  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
+
+  $triggerOpenMenu?.addEventListener("click", () => {
+    collapseOpen.expand();
+  });
+
+  $triggerCloseMenu?.addEventListener("click", () => {
+    collapseClose.collapse();
+  });
+</script>
