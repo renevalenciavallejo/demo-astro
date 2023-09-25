@@ -49,7 +49,7 @@ const translatePath = useTranslatedPath(lang);
   <div id="mega-menu-full" class="hidden" role="dialog" aria-modal="true">
     <div class="fixed inset-0 z-10"></div>
     <div
-      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4"
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-4 px-4 md:px-14"
     >
       <div class="flex justify-between">
         <a href={translatePath("/")}>
@@ -59,7 +59,7 @@ const translatePath = useTranslatedPath(lang);
         <button
           id="btn-close-menu"
           type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+          class="inline-flex items-center z-10 p-1 w-10 h-10 -mt-3 justify-center rounded-lg md:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
         >
           <span class="sr-only">Close menu</span>
           <svg
@@ -107,17 +107,12 @@ const translatePath = useTranslatedPath(lang);
                   >{t("nav.challenges")}</a
                 >
               </li>
-              <!-- <li class="border-b">
-                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
-                  >{languages[lang]}</a
-                >
-              </li> -->
             </ul>
             <div
               id="accordion-flush"
               data-accordion="collapse"
-              data-active-classes="bg-white text-gray-900"
-              data-inactive-classes="text-gray-500"
+              data-active-classes="bg-white text-shadow_gray_500"
+              data-inactive-classes="text-shadow_gray_500"
             >
               <h2 id="accordion-flush-heading-1">
                 <button
@@ -150,13 +145,21 @@ const translatePath = useTranslatedPath(lang);
                 class="hidden"
                 aria-labelledby="accordion-flush-heading-1"
               >
-                <div class="py-5 border-b border-gray-20">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Fugiat voluptatibus praesentium voluptate sint saepe
-                    tempora. Id saepe deserunt, illo magni nam, praesentium,
-                    voluptate excepturi minus at numquam nobis accusamus quidem!
-                  </p>
+                <div class="py-3 border-b">
+                  <ul>
+                    {
+                      Object.entries(languages).map(([lang, label]) => (
+                        <li>
+                          <a
+                            href={translatePath("/", lang)}
+                            class="block px-4 py-3 pr-4 rounded hover:bg-gray-100"
+                          >
+                            {label}
+                          </a>
+                        </li>
+                      ))
+                    }
+                  </ul>
                 </div>
               </div>
             </div>
