@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@assets/images/logo.svg";
+import { languages } from "../i18n/ui";
 import {
   getLangFromUrl,
   getPathAfterLang,
@@ -14,169 +15,200 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<header>
-  <nav
-    class="relative px-4 md:px-14 py-4 flex justify-between items-center bg-white"
-  >
+<header
+  class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
+>
+  <div>
     <a href={translatePath("/")}>
       <span class="sr-only">Swetro</span>
       <Image src={logo} alt="Swetro logo" />
     </a>
-    <div class="lg:hidden">
-      <button class="navbar-burger flex items-center text-shadow_gray_500 p-3">
-        <svg
-          class="block h-4 w-4 fill-current"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Open menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </button>
-    </div>
-    <ul
-      class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
+  </div>
+  <button
+    id="btn-open-menu"
+    type="button"
+    class="inline-flex items-center z-10 p-1 w-10 h-10 justify-center rounded-lg md:hidden hover:bg-shadow_gray_100 focus:outline-none focus:ring-1 focus:ring-gray-200"
+    aria-controls="mega-menu-full"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Open menu</span>
+    <svg
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      aria-hidden="true"
     >
-      <li>
-        <a href={translatePath("/")} class="no-underline hover:underline"
-          >{t("nav.home")}</a
-        >
-      </li>
-
-      <li>
-        <a
-          href={translatePath("/challenges")}
-          class="no-underline hover:underline">{t("nav.challenges")}</a
-        >
-      </li>
-    </ul>
-    <a
-      class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
-      href="#">Sign In</a
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+  </button>
+  <div id="mega-menu-full" class="hidden" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 z-10"></div>
+    <div
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white p-4"
     >
-    <a
-      class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-      href="#">Sign up</a
-    >
-  </nav>
-  <div class="navbar-menu relative z-50 hidden">
-    <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-    <nav
-      class="fixed top-0 left-0 bottom-0 flex flex-col w-full py-6 px-4 md:px-14 bg-white border-r overflow-y-auto"
-    >
-      <div class="flex items-center mb-8">
-        <a href={translatePath("/")} class="mr-auto">
+      <div class="flex justify-between">
+        <a href={translatePath("/")}>
           <span class="sr-only">Swetro</span>
-          <Image src={logo} alt="Swetro logo" />
+          <Image src={logo} alt="Swetro logo" class="-mt-[3px]" />
         </a>
-        <button class="navbar-close mr-2">
+        <button
+          id="btn-close-menu"
+          type="button"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700"
+        >
+          <span class="sr-only">Close menu</span>
           <svg
-            class="h-6 w-6 text-shadow_gray_500 cursor-pointer hover:text-shadow_gray_800"
-            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
+            stroke-width="1.5"
             stroke="currentColor"
+            aria-hidden="true"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              stroke-width="2"
               d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-      <div>
-        <ul>
-          <li class="mb-1">
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-1 pt-6 pb-4">
             <a
-              class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-              href="#">Home</a
+              href={translatePath("/")}
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.home")}</a
+            >
+            <a
+              href={translatePath("/challenges")}
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.challenges")}</a
+            >
+          </div>
+          <div class="space-y-1 pt-3">
+            <a
+              href="https://app.swetro.com/account/register"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.sign-up")}</a
+            >
+            <a
+              href="https://app.swetro.com/account/login"
+              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
+              >{t("nav.sign-in")}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden md:block">
+    <div class="flex items-center h-12">
+      <nav>
+        <ul class="list-none flex space-x-3">
+          <li
+            class={currentPath === "/"
+              ? "py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+              : "py-2"}
+          >
+            <a href={translatePath("/")} class="no-underline hover:underline"
+              >{t("nav.home")}</a
             >
           </li>
-          <li class="mb-1">
+          <li
+            class={currentPath === "/challenges"
+              ? "py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
+              : "py-2"}
+          >
             <a
-              class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-              href="#">About Us</a
+              href={translatePath("/challenges")}
+              class="no-underline hover:underline">{t("nav.challenges")}</a
             >
           </li>
-          <li class="mb-1">
+          <li class="py-2">
+            <button
+              id="dropdownNavbarLink"
+              data-dropdown-toggle="dropdownNavbar"
+              class="flex items-center justify-between w-full py-2 pl-3 pr-4 rounded md:hover:bg-transparent md:border-0 hover:underline md:p-0 md:w-auto"
+              >{t("nav.lang")}
+              <svg
+                class="w-2.5 h-2.5 ml-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"></path>
+              </svg></button
+            >
+            <div
+              id="dropdownNavbar"
+              class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+            >
+              <ul class="py-2 text-sm" aria-labelledby="dropdownLargeButton">
+                {
+                  Object.entries(languages).map(([lang, label]) => (
+                    <li>
+                      <a
+                        href={translatePath("/", lang)}
+                        class="block px-4 py-2 hover:bg-gray-100"
+                      >
+                        {label}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </li>
+          <li class="py-2">
+            <span class="border-r border-[#E0E0E0] h-4"></span>
+          </li>
+          <li class="py-2">
             <a
-              class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-              href="#">Services</a
+              href="https://app.swetro.com/account/login"
+              class="no-underline hover:underline">{t("nav.sign-in")}</a
             >
           </li>
-          <li class="mb-1">
+          <li class="py-2">
             <a
-              class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-              href="#">Pricing</a
-            >
-          </li>
-          <li class="mb-1">
-            <a
-              class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-              href="#">Contact</a
+              href="https://app.swetro.com/account/register"
+              class="no-underline hover:underline font-bold"
+              >{t("nav.sign-up")}</a
             >
           </li>
         </ul>
-      </div>
-      <div class="mt-auto">
-        <div class="pt-6">
-          <a
-            class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-            href="#">Sign in</a
-          >
-          <a
-            class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-xl"
-            href="#">Sign Up</a
-          >
-        </div>
-        <p class="my-4 text-xs text-center text-gray-400">
-          <span>Copyright © 2021</span>
-        </p>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>
 
 <script>
-  // Burger menus
-  document.addEventListener("DOMContentLoaded", function () {
-    // open
-    const burger = document.querySelectorAll(".navbar-burger");
-    const menu = document.querySelectorAll(".navbar-menu");
+  import { Collapse } from "flowbite";
 
-    if (burger.length && menu.length) {
-      for (var i = 0; i < burger.length; i++) {
-        burger[i].addEventListener("click", function () {
-          for (var j = 0; j < menu.length; j++) {
-            menu[j].classList.toggle("hidden");
-          }
-        });
-      }
-    }
+  const $targetMenu = document.getElementById("mega-menu-full");
 
-    // close
-    const close = document.querySelectorAll(".navbar-close");
-    const backdrop = document.querySelectorAll(".navbar-backdrop");
+  const $triggerOpenMenu = document.getElementById("btn-open-menu");
+  const $triggerCloseMenu = document.getElementById("btn-close-menu");
 
-    if (close.length) {
-      for (var i = 0; i < close.length; i++) {
-        close[i].addEventListener("click", function () {
-          for (var j = 0; j < menu.length; j++) {
-            menu[j].classList.toggle("hidden");
-          }
-        });
-      }
-    }
+  const collapseOpen = new Collapse($targetMenu, $triggerOpenMenu);
+  const collapseClose = new Collapse($targetMenu, $triggerCloseMenu);
 
-    if (backdrop.length) {
-      for (var i = 0; i < backdrop.length; i++) {
-        backdrop[i].addEventListener("click", function () {
-          for (var j = 0; j < menu.length; j++) {
-            menu[j].classList.toggle("hidden");
-          }
-        });
-      }
-    }
+  $triggerOpenMenu?.addEventListener("click", () => {
+    collapseOpen.expand();
+  });
+
+  $triggerCloseMenu?.addEventListener("click", () => {
+    collapseClose.collapse();
   });
 </script>
