@@ -79,7 +79,24 @@ const translatePath = useTranslatedPath(lang);
       </div>
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
-          <div class="space-y-1 pt-6 pb-4">
+          <div>
+            <a
+              href="https://app.swetro.com/account/login"
+              class="block px-5 py-2.5 mt-5 mb-3 text-sm text-center font-semibold text-shadow_gray_800 bg-white border border-gray-300 focus:outline-none hover:bg-shadow_gray_100 focus:ring-4 focus:ring-gray-200 rounded-lg"
+              >{t("nav.sign-in")}</a
+            >
+            <a
+              href="https://app.swetro.com/account/register"
+              class="block px-5 py-2.5 text-sm text-center font-semibold text-white bg-blue-700 border focus:outline-none hover:bg-blue-800 focus:ring-4 focus:ring-gray-200 rounded-lg"
+              >{t("nav.sign-up")}</a
+            >
+          </div>
+          <div>
+            <!-- <a href={translatePath("/")} class="no-underline hover:underline"
+              >{t("nav.home")}</a
+            > -->
+          </div>
+          <!-- <div class="space-y-1 pt-6 pb-4">
             <a
               href={translatePath("/")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
@@ -102,7 +119,7 @@ const translatePath = useTranslatedPath(lang);
               class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
               >{t("nav.sign-in")}</a
             >
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
