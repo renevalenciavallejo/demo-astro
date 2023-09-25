@@ -2,21 +2,24 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import calendar from "../../assets/images/calendar.svg";
 import run from "../../assets/images/run.svg";
 import cicle from "../../assets/images/cicle.svg";
-import ChallengeDetail from "../../components/ChallengeDetail.jsx";
+import ChallengeDetail from "../../components/ChallengeDetail.astro";
+import ChallengeDetailButtons from "../../components/ChallengeDetailButtons.astro"
+
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
   return challenges.map((challenge) => ({
-    params: { slug: challenge.slug },
+    params: { slug: challenge.slug},
     props: challenge,
   }));
 }
 
 const challenge = Astro.props;
 
+//Obtener isDetail de la url para saber en donde estamos
+const isDetail = true;
 let colorCalendar = "";
 let imgTitle = challenge.data.activityType === "Cycling" ? cicle : run;
 let backgroundImage = "";
@@ -24,13 +27,13 @@ switch (challenge.data.activityType) {
   case "Cycling":
     backgroundImage =
       "/images/challenge-section-1-background-cycling-desktop.webp";
-      colorCalendar = "#FFC3F5"
-      
+    colorCalendar = "#FFC3F5";
+
     break;
   case "Running":
     backgroundImage =
       "/images/challenge-section-1-background-running-desktop.webp";
-      colorCalendar = "#B2E100"
+    colorCalendar = "#B2E100";
     break;
   default:
     backgroundImage =
@@ -84,7 +87,7 @@ switch (challenge.data.activityType) {
           <Image
             src={imgTitle}
             alt="title"
-            class="w-12 h-12 mr-3 hidden lg:block"
+            class="w-12 h-12 mr-3 hidden lg:block "
           />
           <h1
             class="text-center text-5xl font-['Poppins'] font-bold leading-[56px] text-white"
@@ -122,7 +125,17 @@ switch (challenge.data.activityType) {
         </div>
       </div>
     </section>
+  
+    <ChallengeDetailButtons IsDetails={isDetail}/>
 
-    <ChallengeDetail client:load />
+    <ChallengeDetail />
+
+    <section class="bg-black flex justify-center pt-16 pb-32">
+      <button
+        class="text-white font-semibold text-base font-poppins bg-[#0054ff] rounded-md pt-3 px-6 pb-2"
+      >
+        Participate in this challenge
+      </button>
+    </section>
   </main>
 </Layout>

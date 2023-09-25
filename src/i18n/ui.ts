@@ -19,6 +19,9 @@ export const ui = {
     "nav.sign-up": "Sign up",
     "nav.support": "Support",
     "nav.terms-of-use": "Terms of use",
+    "challenge-list-filter-all": "All races & challenges",
+    "challenge-list-filter-running": "Running",
+    "challenge-list-filter-cycling": "Cycling",
   },
   es: {
     "challenge-card.button": "Más información",
@@ -32,5 +35,8 @@ export const ui = {
     "nav.sign-up": "Crear cuenta",
     "nav.support": "Soporte",
     "nav.terms-of-use": "Términos de uso",
+    "challenge-list-filter-all": "Todas las carreras y retos",
+    "challenge-list-filter-running": "Correr",
+    "challenge-list-filter-cycling": "ciclismo",
   },
 } as const;
