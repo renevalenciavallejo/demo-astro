@@ -78,7 +78,7 @@ const translatePath = useTranslatedPath(lang);
         </button>
       </div>
       <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
+        <div class="-my-6">
           <div>
             <a
               href="https://app.swetro.com/account/login"
@@ -92,34 +92,34 @@ const translatePath = useTranslatedPath(lang);
             >
           </div>
           <div>
-            <!-- <a href={translatePath("/")} class="no-underline hover:underline"
-              >{t("nav.home")}</a
-            > -->
+            <!-- <a href={translatePath("/")}>{t("nav.home")}</a>
+            <a href={translatePath("/challenges")}>{t("nav.challenges")}</a>
+            <a href="#">{languages[lang]}</a> -->
+            <ul class="flex flex-col font-medium mt-4">
+              <li class="border-b">
+                <a
+                  href="#"
+                  class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  aria-current="page">Home</a
+                >
+              </li>
+              <li class="border-b">
+                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  >Services</a
+                >
+              </li>
+              <li class="border-b">
+                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  >Pricing</a
+                >
+              </li>
+              <li class="border-b">
+                <a href="#" class="block py-3 pr-4 rounded hover:bg-gray-100"
+                  >Contact</a
+                >
+              </li>
+            </ul>
           </div>
-          <!-- <div class="space-y-1 pt-6 pb-4">
-            <a
-              href={translatePath("/")}
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.home")}</a
-            >
-            <a
-              href={translatePath("/challenges")}
-              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.challenges")}</a
-            >
-          </div>
-          <div class="space-y-1 pt-3">
-            <a
-              href="https://app.swetro.com/account/register"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.sign-up")}</a
-            >
-            <a
-              href="https://app.swetro.com/account/login"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-shadow_gray_100"
-              >{t("nav.sign-in")}</a
-            >
-          </div> -->
         </div>
       </div>
     </div>
