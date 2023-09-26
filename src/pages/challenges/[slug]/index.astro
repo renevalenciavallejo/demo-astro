@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { Image } from "astro:assets";
-import run from "@assets/images/run.svg";
-import cicle from "@assets/images/cicle.svg";
 import ChallengeDetail from "@components/ChallengeDetail.astro";
 import ChallengeDetailButtons from "@components/ChallengeDetailButtons.astro";
+import ChallengeDetailHeader from "@components/ChallengeDetailHeader.astro";
+import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro"
+import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
@@ -15,126 +15,20 @@ export async function getStaticPaths() {
   }));
 }
 
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
 const challenge = Astro.props;
 
-//Obtener isDetail de la url para saber en donde estamos
-const isDetail = true;
-let colorCalendar = "";
-let imgTitle = challenge.data.activityType === "Cycling" ? cicle : run;
-let backgroundImage = "";
-switch (challenge.data.activityType) {
-  case "Cycling":
-    backgroundImage =
-      "/images/challenge-section-1-background-cycling-desktop.webp";
-    colorCalendar = "#FFC3F5";
-
-    break;
-  case "Running":
-    backgroundImage =
-      "/images/challenge-section-1-background-running-desktop.webp";
-    colorCalendar = "#B2E100";
-    break;
-  default:
-    backgroundImage =
-      "/images/challenge-section-1-background-default-desktop.webp";
-    break;
-}
 ---
 
 <Layout title={`${challenge.data.title} - Swetro`}>
   <main>
-    <section
-      class="h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-center sm:bg-[50%] md:bg-[75%] lg:bg-[100%]"
-      style={`background-image: url(${backgroundImage});`}
-    >
-      <div class="hidden sm:flex flex-row items-center justify-between pt-9">
-        <button
-          class="flex items-center bg-transparent White hover:underline text-sm font-['Poppins'] font-semibold leading-[24px] text-white w-min pr-1 pl-1 rounded-lg"
-        >
-          <svg
-            class="w-4 h-4 mr-2"
-            fill="White"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-          </svg>
-          <span>Volver</span>
-        </button>
-        <div class="flex flex-col">
-          <div
-            class="bg-white flex flex-row gap-1 h-6 shrink-0 items-center px-2 rounded-lg"
-          >
-            <img
-              src="https://file.rendit.io/n/KLV1qEP4C9QslCHotBIy.svg"
-              class="w-4 shrink-0"
-            />
-            <h4 class="font-['Poppins'] font-semibold text-[#161616]">
-              Duration: 5 days
-            </h4>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center justify-center pt-20 sm:pt-0">
-        <div class="flex flex-row items-center pt-24">
-          <Image
-            src={imgTitle}
-            alt="title"
-            class="w-12 h-12 mr-3 hidden lg:block"
-          />
-          <h1
-            class="text-center text-5xl font-['Poppins'] font-bold leading-[56px] text-white"
-          >
-            <span class="inline font-bold">
-              {challenge.data.title}
-            </span>
-          </h1>
-        </div>
-
-        <div class="flex flex-row items-center mt-3">
-          <svg
-            class="w-23 h-23 sm:w-5 sm:h-5 mr-2"
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.6154 42.9999C9.60513 42.9999 8.75 42.6499 8.05 41.9499C7.35 41.2499 7 40.3948 7 39.3845V12.6154C7 11.6052 7.35 10.75 8.05 10.05C8.75 9.35004 9.60513 9.00004 10.6154 9.00004H13.3847V6.30769C13.3847 5.86925 13.5315 5.50324 13.8251 5.20964C14.1186 4.91607 14.4846 4.76929 14.9231 4.76929C15.3615 4.76929 15.7276 4.91607 16.0212 5.20964C16.3147 5.50324 16.4615 5.86925 16.4615 6.30769V9.00004H31.6153V6.26924C31.6153 5.8436 31.7589 5.4872 32.0461 5.20004C32.3332 4.91287 32.6896 4.76929 33.1153 4.76929C33.5409 4.76929 33.8973 4.91287 34.1845 5.20004C34.4717 5.4872 34.6153 5.8436 34.6153 6.26924V9.00004H37.3845C38.3948 9.00004 39.2499 9.35004 39.9499 10.05C40.6499 10.75 40.9999 11.6052 40.9999 12.6154V39.3845C40.9999 40.3948 40.6499 41.2499 39.9499 41.9499C39.2499 42.6499 38.3948 42.9999 37.3845 42.9999H10.6154ZM10.6154 40H37.3845C37.5384 40 37.6794 39.9359 37.8076 39.8077C37.9359 39.6795 38 39.5384 38 39.3845V20.6154H9.99995V39.3845C9.99995 39.5384 10.064 39.6795 10.1922 39.8077C10.3205 39.9359 10.4615 40 10.6154 40ZM9.99995 17.6155H38V12.6154C38 12.4616 37.9359 12.3205 37.8076 12.1923C37.6794 12.0641 37.5384 12 37.3845 12H10.6154C10.4615 12 10.3205 12.0641 10.1922 12.1923C10.064 12.3205 9.99995 12.4616 9.99995 12.6154V17.6155ZM24 28.1538C23.5102 28.1538 23.0929 27.9814 22.7481 27.6365C22.4032 27.2917 22.2308 26.8744 22.2308 26.3846C22.2308 25.8949 22.4032 25.4776 22.7481 25.1327C23.0929 24.7879 23.5102 24.6154 24 24.6154C24.4897 24.6154 24.907 24.7879 25.2519 25.1327C25.5967 25.4776 25.7691 25.8949 25.7691 26.3846C25.7691 26.8744 25.5967 27.2917 25.2519 27.6365C24.907 27.9814 24.4897 28.1538 24 28.1538ZM16 28.1538C15.5102 28.1538 15.0929 27.9814 14.7481 27.6365C14.4032 27.2917 14.2308 26.8744 14.2308 26.3846C14.2308 25.8949 14.4032 25.4776 14.7481 25.1327C15.0929 24.7879 15.5102 24.6154 16 24.6154C16.4897 24.6154 16.907 24.7879 17.2519 25.1327C17.5967 25.4776 17.7692 25.8949 17.7692 26.3846C17.7692 26.8744 17.5967 27.2917 17.2519 27.6365C16.907 27.9814 16.4897 28.1538 16 28.1538ZM32 28.1538C31.5102 28.1538 31.0929 27.9814 30.7481 27.6365C30.4032 27.2917 30.2308 26.8744 30.2308 26.3846C30.2308 25.8949 30.4032 25.4776 30.7481 25.1327C31.0929 24.7879 31.5102 24.6154 32 24.6154C32.4897 24.6154 32.907 24.7879 33.2519 25.1327C33.5967 25.4776 33.7691 25.8949 33.7691 26.3846C33.7691 26.8744 33.5967 27.2917 33.2519 27.6365C32.907 27.9814 32.4897 28.1538 32 28.1538ZM24 36C23.5102 36 23.0929 35.8276 22.7481 35.4827C22.4032 35.1378 22.2308 34.7205 22.2308 34.2308C22.2308 33.7411 22.4032 33.3238 22.7481 32.9789C23.0929 32.634 23.5102 32.4615 24 32.4615C24.4897 32.4615 24.907 32.634 25.2519 32.9789C25.5967 33.3238 25.7691 33.7411 25.7691 34.2308C25.7691 34.7205 25.5967 35.1378 25.2519 35.4827C24.907 35.8276 24.4897 36 24 36ZM16 36C15.5102 36 15.0929 35.8276 14.7481 35.4827C14.4032 35.1378 14.2308 34.7205 14.2308 34.2308C14.2308 33.7411 14.4032 33.3238 14.7481 32.9789C15.0929 32.634 15.5102 32.4615 16 32.4615C16.4897 32.4615 16.907 32.634 17.2519 32.9789C17.5967 33.3238 17.7692 33.7411 17.7692 34.2308C17.7692 34.7205 17.5967 35.1378 17.2519 35.4827C16.907 35.8276 16.4897 36 16 36ZM32 36C31.5102 36 31.0929 35.8276 30.7481 35.4827C30.4032 35.1378 30.2308 34.7205 30.2308 34.2308C30.2308 33.7411 30.4032 33.3238 30.7481 32.9789C31.0929 32.634 31.5102 32.4615 32 32.4615C32.4897 32.4615 32.907 32.634 33.2519 32.9789C33.5967 33.3238 33.7691 33.7411 33.7691 34.2308C33.7691 34.7205 33.5967 35.1378 33.2519 35.4827C32.907 35.8276 32.4897 36 32 36Z"
-              fill={colorCalendar}></path>
-          </svg>
-
-          <div class="flex flex-col lg:flex-row">
-            <h3 class="text-white text-sm flex mr-7">
-              <span class="inline md:block font-bold pr-1">Start:</span>
-               February 07, 2024.
-            </h3>
-            <h3 class="text-white text-sm flex">
-              <span class="inline md:block font-bold pr-1">End:</span> February
-              07, 2024.
-            </h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <ChallengeDetailButtons IsDetails={isDetail} />
-
+    
+    <ChallengeDetailHeader challenge={challenge}/>
+    <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
     <ChallengeDetail />
-
-    <section class="bg-black flex justify-center pt-16 pb-32">
-      <button
-        class="text-white font-semibold text-base font-poppins bg-[#0054ff] rounded-md pt-3 px-6 pb-2"
-      >
-        Participate in this challenge
-      </button>
-    </section>
+    <ChallengeDetailButtonParticipate />
+  
   </main>
 </Layout>
