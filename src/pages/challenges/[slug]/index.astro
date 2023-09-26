@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import ChallengeDetail from "@components/ChallengeDetail.astro";
 import ChallengeDetailButtons from "@components/ChallengeDetailButtons.astro";
 import ChallengeDetailHeader from "@components/ChallengeDetailHeader.astro";
-import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro"
+import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro";
 import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 
 export async function getStaticPaths() {
@@ -19,16 +19,13 @@ const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
 const challenge = Astro.props;
-
 ---
 
 <Layout title={`${challenge.data.title} - Swetro`}>
   <main>
-    
-    <ChallengeDetailHeader challenge={challenge}/>
+    <ChallengeDetailHeader challenge={challenge} />
     <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
     <ChallengeDetail />
     <ChallengeDetailButtonParticipate />
-  
   </main>
 </Layout>

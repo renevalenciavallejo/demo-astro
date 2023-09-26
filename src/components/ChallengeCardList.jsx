@@ -1,14 +1,12 @@
 import ChallengeCard from "./ChallengeCard.jsx";
 import { useState } from "react";
 import { useTranslations } from "src/i18n/utils";
-import run from "@assets/images/run.svg"
-import cicle from "@assets/images/cicle.svg"
-import "src/utils/styles/ChangeCardList.css"
+import logoRunning from "@assets/images/logo-running.svg";
+import logoCycling from "@assets/images/logo-cycling.svg";
+import "src/utils/styles/ChangeCardList.css";
 
 function ChallengeCardList({ challenges, baseUrl, lang }) {
-
   let t = useTranslations(lang);
-
   const [selectedFilter, setSelectedFilter] = useState(
     "All races & challenges"
   );
@@ -33,8 +31,6 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
 
   return (
     <>
-      
-
       <section className="bg-black w-full overflow-x-auto sm:px-10">
         <div className="flex space-x-4 p-4 sm:pl-10 sm:justify-center lg:justify-start md:justify-center pt-0 pt:mt-0">
           <div className="flex-shrink-0">
@@ -45,7 +41,8 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
                   : "bg-black text-white"
               }`}
               onClick={() => {
-                filterChallenges("All races & challenges")}}
+                filterChallenges("All races & challenges");
+              }}
             >
               {t("challenge-list-filter-all")}
             </button>
@@ -55,14 +52,18 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
             <button
               className={`btn-list border border-gray-300 rounded-10 hover:text-black hover:bg-customYellow focus:bg-customYellow font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black ${
                 selectedFilter === "Running"
-                ? "bg-customYellow text-black" 
-                : "bg-black text-white"
+                  ? "bg-customYellow text-black"
+                  : "bg-black text-white"
               }`}
               onClick={() => filterChallenges("Running")}
             >
-              <img className={`w-6 h-6 pr-1 ${
-                selectedFilter === "Running" ? "icon-btn" : "" 
-              }`} src={run.src} alt="run" />
+              <img
+                className={`w-6 h-6 pr-1 ${
+                  selectedFilter === "Running" ? "icon-btn" : ""
+                }`}
+                src={logoRunning.src}
+                alt="run"
+              />
               {t("challenge-list-filter-running")}
             </button>
           </div>
@@ -71,14 +72,18 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
             <button
               className={`btn-list border border-gray-300 rounded-10 hover:text-black hover:bg-customPink focus:bg-customPink font-bold py-1 px-3 rounded-full inline-flex items-center focus:text-black ${
                 selectedFilter === "Cycling"
-                ? "bg-customPink text-black" 
-                : "bg-black text-white"
+                  ? "bg-customPink text-black"
+                  : "bg-black text-white"
               }`}
               onClick={() => filterChallenges("Cycling")}
             >
-              <img className={`w-6 h-6 pr-1 ${
-                selectedFilter === "Cycling" ? "icon-btn" : "" 
-              }`} src={cicle.src} alt="cycle" />
+              <img
+                className={`w-6 h-6 pr-1 ${
+                  selectedFilter === "Cycling" ? "icon-btn" : ""
+                }`}
+                src={logoCycling.src}
+                alt="cycle"
+              />
               {t("challenge-list-filter-cycling")}
             </button>
           </div>
