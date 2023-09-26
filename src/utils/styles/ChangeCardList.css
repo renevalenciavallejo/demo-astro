@@ -1,0 +1,24 @@
+.w-full.overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+
+  .w-full.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .btn-list > img{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(305deg) brightness(105%) contrast(103%);
+  }
+
+  .btn-list:hover > img{
+    filter:brightness(0) saturate(100%) invert(0%) sepia(6%) saturate(5821%) hue-rotate(5deg) brightness(97%) contrast(83%);
+  }
+
+  .btn-list:focus > img{
+    filter:brightness(0) saturate(100%) invert(0%) sepia(6%) saturate(5821%) hue-rotate(5deg) brightness(97%) contrast(83%);
+  }
+  
+  .icon-btn{
+    filter:brightness(0) saturate(100%) invert(0%) sepia(6%) saturate(5821%) hue-rotate(5deg) brightness(97%) contrast(83%) !important;
+  }
