@@ -1,17 +1,16 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import run from "../../assets/images/run.svg";
-import cicle from "../../assets/images/cicle.svg";
-import ChallengeDetail from "../../components/ChallengeDetail.astro";
-import ChallengeDetailButtons from "../../components/ChallengeDetailButtons.astro"
-
+import run from "@assets/images/run.svg";
+import cicle from "@assets/images/cicle.svg";
+import ChallengeDetail from "@components/ChallengeDetail.astro";
+import ChallengeDetailButtons from "@components/ChallengeDetailButtons.astro";
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
   return challenges.map((challenge) => ({
-    params: { slug: challenge.slug},
+    params: { slug: challenge.slug },
     props: challenge,
   }));
 }
@@ -87,7 +86,7 @@ switch (challenge.data.activityType) {
           <Image
             src={imgTitle}
             alt="title"
-            class="w-12 h-12 mr-3 hidden lg:block "
+            class="w-12 h-12 mr-3 hidden lg:block"
           />
           <h1
             class="text-center text-5xl font-['Poppins'] font-bold leading-[56px] text-white"
@@ -125,8 +124,8 @@ switch (challenge.data.activityType) {
         </div>
       </div>
     </section>
-  
-    <ChallengeDetailButtons IsDetails={isDetail}/>
+
+    <ChallengeDetailButtons IsDetails={isDetail} />
 
     <ChallengeDetail />
 

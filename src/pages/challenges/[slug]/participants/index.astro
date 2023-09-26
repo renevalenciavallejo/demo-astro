@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const challenges = await getCollection("challenges");
+  return challenges.map((challenge) => ({
+    params: { slug: challenge.slug },
+    props: challenge,
+  }));
+}
+
+const challenge = Astro.props;
+---
+
+<Layout title={`${challenge.data.title} - Swetro`}>
+  <main></main>
+</Layout>
