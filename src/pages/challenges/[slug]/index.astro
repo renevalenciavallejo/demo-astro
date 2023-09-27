@@ -16,10 +16,13 @@ export async function getStaticPaths() {
 const { challenge } = Astro.props;
 ---
 
-<Layout title={`${challenge.data.title} - Swetro`}>
+<Layout
+  title={`${challenge.data.title} - Swetro`}
+  description={challenge.data.description}
+>
   <main>
     <ChallengeDetailHeader challenge={challenge} />
-    <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
+    <!-- <ChallengeDetailButtons IsDetails={true} challenge={challenge} /> -->
     <ChallengeDetail challenge={challenge} />
     <ChallengeDetailButtonParticipate />
   </main>

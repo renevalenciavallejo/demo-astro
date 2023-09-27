@@ -16,10 +16,7 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
   };
 
   const sortByStartTimeAscending = (a, b) => {
-    const timeA = new Date(a.startTime).getTime();
-    const timeB = new Date(b.startTime).getTime();
-
-    return timeA - timeB;
+    a.data.startTime.valueOf() - b.data.startTime.valueOf();
   };
 
   const filteredChallenges =

@@ -6,12 +6,13 @@ const challengeCollection = defineCollection({
     id: z.number(),
     lang: z.string(),
     showOnHomePage: z.boolean(),
-    title: z.string(),
     activityType: z.string(),
+    title: z.string(),
+    description: z.string(),
     startTime: z.date(),
     endTime: z.date(),
-    description: z.string(),
-    participants: z.number(),
+    entryFee: z.number(),
+    pot: z.number().nullable(),
   }),
 });
 
