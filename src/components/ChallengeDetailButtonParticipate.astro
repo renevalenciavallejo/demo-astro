@@ -1,10 +1,22 @@
 ---
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "src/i18n/utils";
+
+const { challenge } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const t = useTranslations(lang);
 ---
 
 <section class="bg-black flex justify-center pt-16 pb-32">
-    <button
-      class="text-white font-semibold text-base font-poppins bg-[#0054ff] rounded-md pt-3 px-6 pb-2"
-    >
-      Participate in this challenge
-    </button>
-  </section>
+  <a
+    href={`https://app.swetro.com/account/register?challengeId=${challenge.data.id}`}
+    class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
+  >
+    {t("challenge-detail.button")}</a
+  >
+</section>
