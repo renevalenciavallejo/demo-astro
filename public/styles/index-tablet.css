@@ -1,0 +1,127 @@
+/******************************************************/
+
+/*
+1- Position
+2- Box model
+3- Typography
+4- Visual effects
+5- Others
+*/
+
+/******************************************************/
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .first-section {
+    padding: 0 0 0 32px;
+  }
+
+  .first-section__title {
+    width: 450px;
+    text-align: left;
+  }
+
+  .first-section__title h1 {
+    font-weight: 800;
+    font-size: 5.2rem;
+    line-height: 6rem;
+  }
+
+  .first-section__subtitle {
+    width: 380px;
+  }
+
+  .first-section__subtitle h2 {
+    font-size: 2.4rem;
+    line-height: 3rem;
+  }
+
+  .first-section__subtitle .emphasis {
+    font-weight: 800;
+    line-height: 4rem;
+  }
+
+  /******************************************************/
+
+  .second-section__title {
+    width: 426px;
+  }
+
+  .second-section__title h2 {
+    font-weight: 400;
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  /******************************************************/
+
+  .third-section__title {
+    width: 581px;
+  }
+
+  .third-section__title h2 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  .third-section__title h3 {
+    font-size: 2.4rem;
+    line-height: 4.8rem;
+  }
+
+  .third-section__card {
+    width: 368px;
+    height: 201px;
+    padding: 10px 30px;
+  }
+
+  /******************************************************/
+
+  .fourth-section {
+    align-items: center;
+    padding: 0 0 0 32px;
+    height: 304px;
+
+    background-image: url(/assets/index/fourth-section-background-desktop.jpg);
+    background-position: 100% 100%;
+  }
+
+  .fourth-section__image {
+    /* position: absolute;
+    top: 1450px;
+    right: 350px;
+    display: block;
+    width: 320px;
+    height: 509px; */
+    display: none;
+  }
+
+  .fourth-section__info {
+    margin-top: 0px;
+    margin-left: 20%;
+  }
+
+  .fourth-section__title {
+    width: 381px;
+  }
+
+  .fourth-section__title h2 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  /******************************************************/
+
+  .fifth-section__title {
+    width: 405px;
+  }
+
+  .fifth-section__title h2 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  .fifth-section__title h3 {
+    font-size: 2.4rem;
+    line-height: 4.8rem;
+  }
+}

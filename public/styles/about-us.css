@@ -1,0 +1,146 @@
+/******************************************************/
+
+/*
+1- Position
+2- Box model
+3- Typography
+4- Visual effects
+5- Others
+*/
+
+/******************************************************/
+
+.first-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 320px;
+  height: 822px;
+  padding: 35px 14px 24px 14px;
+  color: #ffffff;
+  background-color: black;
+
+  background-image: url(/assets/about-us/first-section-background.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+.first-section__image {
+  width: 255px;
+  height: 265px;
+}
+
+.first-section__info {
+  width: 100%;
+  min-width: 272px;
+  text-align: center;
+}
+
+.first-section__title h1 {
+  margin-top: 20px;
+  margin-bottom: 24px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 7.2rem;
+  line-height: 8rem;
+}
+
+.first-section__subtitle h2 {
+  margin-bottom: 24px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+
+.first-section__content p {
+  margin-bottom: 24px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+/******************************************************/
+
+.second-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 320px;
+  padding: 45px 14px 24px 14px;
+}
+
+.second-section__image {
+  width: 265px;
+  height: 460px;
+}
+
+.second-section__info {
+  width: 100%;
+  min-width: 272px;
+}
+
+.second-section__title h2 {
+  margin-top: 50px;
+  margin-bottom: 24px;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.second-section__content p {
+  margin-bottom: 24px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+/******************************************************/
+
+.third-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: 100%;
+  min-width: 320px;
+  padding: 45px 14px 24px 14px;
+  background-color: #ebf7ff;
+}
+
+.third-section__image {
+  width: 100%;
+  min-width: 272px;
+  height: 450px;
+
+  background-color: red;
+}
+
+.third-section__info {
+  width: 100%;
+  min-width: 272px;
+}
+
+.third-section__title h2 {
+  margin-top: 50px;
+  margin-bottom: 24px;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.third-section__content p {
+  margin-bottom: 24px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}

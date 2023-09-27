@@ -1,0 +1,25 @@
+/******************************************************/
+
+/*
+1- Position
+2- Box model
+3- Typography
+4- Visual effects
+5- Others
+*/
+
+/******************************************************/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .first-section {
+    height: 671px;
+
+    background-image: url(/assets/about-us/first-section-background-desktop.jpg);
+  }
+
+  /* .second-section__image {
+    width: 265px;
+    height: 460px;
+  } */
+}

@@ -1,0 +1,57 @@
+/******************************************************/
+
+/*
+1- Position
+2- Box model
+3- Typography
+4- Visual effects
+5- Others
+*/
+
+/******************************************************/
+
+.first-section {
+  width: 100%;
+  min-width: 320px;
+  padding: 25px 14px 0px 14px;
+}
+
+.first-section__info {
+  width: 100%;
+  min-width: 272px;
+}
+
+.first-section__title h1 {
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+
+.first-section__subtitle h2 {
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 4rem;
+}
+
+.first-section__content p {
+  margin-bottom: 14px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.first-section__content ul {
+  margin-bottom: 14px;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.first-section__content ul li {
+  margin-left: 16px;
+}

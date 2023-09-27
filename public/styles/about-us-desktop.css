@@ -1,0 +1,92 @@
+/******************************************************/
+
+/*
+1- Position
+2- Box model
+3- Typography
+4- Visual effects
+5- Others
+*/
+
+/******************************************************/
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .first-section {
+    flex-wrap: nowrap;
+
+    height: 571px;
+    padding: 50px 72px 24px 72px;
+  }
+
+  .first-section__image {
+    order: 2;
+    width: 30%;
+    height: 403px;
+  }
+
+  .first-section__info {
+    order: 1;
+    width: 70%;
+    text-align: left;
+  }
+
+  .first-section__title h1 {
+    margin-top: 100px;
+    width: 538px;
+  }
+
+  .first-section__subtitle h2 {
+    width: 538px;
+  }
+
+  .first-section__content p {
+    width: 538px;
+  }
+
+  /******************************************************/
+
+  .second-section {
+    padding: 50px 72px 50px 72px;
+  }
+
+  .second-section__image {
+    width: 40%;
+    height: 610px;
+  }
+
+  .second-section__info {
+    width: 60%;
+    padding-left: 80px;
+  }
+
+  .second-section__title h2 {
+    margin-top: 0;
+  }
+
+  /******************************************************/
+
+  .third-section {
+    flex-wrap: nowrap;
+
+    padding: 50px 72px 50px 72px;
+  }
+
+  .third-section__image {
+    order: 2;
+    width: 25%;
+    height: 415px;
+
+    background-color: red;
+  }
+
+  .third-section__info {
+    order: 1;
+    width: 75%;
+    padding-right: 80px;
+  }
+
+  .third-section__title h2 {
+    margin-top: 0;
+  }
+}
