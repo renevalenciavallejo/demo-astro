@@ -5,7 +5,7 @@ lang: "es"
 showOnHomePage: true
 activityType: "Running"
 title: "Media maratón y maratón Virtual de la Gran Manzana: 21K - 42K"
-description: 'Join us in the "Big Apple Virtual Half-Marathon and Marathon: 21K - 42K," a thrilling virtual race that tests your endurance and determination. With every kilometer, you move closer to the ultimate achievement—the half-marathon and marathon finish line.'
+description: 'Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación.'
 startTime: 2023-11-01 00:00:00.0790000 +00:00
 endTime: 2023-11-06 00:00:00.0790000 +00:00
 entryFee: 0
