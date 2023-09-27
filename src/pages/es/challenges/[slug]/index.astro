@@ -15,9 +15,6 @@ export async function getStaticPaths() {
   }));
 }
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
-
 const challenge = Astro.props;
 ---
 
@@ -25,7 +22,7 @@ const challenge = Astro.props;
   <main>
     <ChallengeDetailHeader challenge={challenge} />
     <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
-    <ChallengeDetail />
+    <ChallengeDetail challenge={challenge} />
     <ChallengeDetailButtonParticipate />
   </main>
 </Layout>

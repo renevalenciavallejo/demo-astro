@@ -10,6 +10,7 @@ const challengeCollection = defineCollection({
     activityType: z.string(),
     startTime: z.date(),
     endTime: z.date(),
+    description: z.string(),
     participants: z.number(),
   }),
 });

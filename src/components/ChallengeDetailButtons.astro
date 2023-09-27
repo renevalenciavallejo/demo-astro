@@ -23,7 +23,7 @@ if (IsDetails) {
 ---
 
 <section class="bg-black w-full overflow-x-auto pt-0 px-4 md:px-14">
-  <!-- <div
+  <div
     class="flex space-x-4 sm:justify-center lg:justify-start md:justify-center"
   >
     <div class="flex-shrink-0">
@@ -47,7 +47,10 @@ if (IsDetails) {
     </div>
 
     <div class="flex-shrink-0">
-      <a href=`/challenges/${challenge.slug}/participants` class={btnParticipants}>
+      <a
+        href=`/challenges/${challenge.slug}/participants`
+        class={btnParticipants}
+      >
         <svg
           class="group-632 w-5 h-5 ml-1 mr-1 transition-all duration-300 transform group-632-x"
           viewBox="0 0 26 20"
@@ -61,7 +64,7 @@ if (IsDetails) {
          Participants and times
       </a>
     </div>
-  </div> -->
+  </div>
 </section>
 
 <style>
