@@ -4,24 +4,26 @@ import Layout from "@layouts/Layout.astro";
 import ChallengeDetailButtons from "@components/ChallengeDetailButtons.astro";
 import ChallengeDetailHeader from "@components/ChallengeDetailHeader.astro";
 import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro";
-import ChallengeDetailTable from "@components/ChallengeDetailTable.astro";
+import ChallengeDetailTable from "@components/ChallengeDetailTable.jsx";
 
 export async function getStaticPaths() {
   const challenges = await getCollection("challenges");
   return challenges.map((challenge) => ({
     params: { slug: challenge.slug },
-    props: challenge,
+    props: { challenge },
   }));
 }
-
-const challenge = Astro.props;
+const { challenge } = Astro.props;
 ---
 
-<Layout title={`${challenge.data.title} - Swetro`}>
-  <main>
-    <ChallengeDetailHeader challenge={challenge}/>
+<Layout
+  title={`${challenge.data.title} - Swetro`}
+  description={challenge.data.description}
+>
+  <main class="bg-black">
+    <ChallengeDetailHeader challenge={challenge} />
     <ChallengeDetailButtons IsDetails={false} challenge={challenge} />
-    <ChallengeDetailTable/>
-    <ChallengeDetailButtonParticipate/>
+    <ChallengeDetailTable challenge={challenge} client:load />
+    <ChallengeDetailButtonParticipate challenge={challenge} />
   </main>
 </Layout>
