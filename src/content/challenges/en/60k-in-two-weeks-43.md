@@ -10,6 +10,7 @@ startTime: 2023-10-12 05:00:00.0790000 +00:00
 endTime: 2023-10-26 03:00:00.0790000 +00:00
 entryFee: 3
 pot: 0
+participants:
 ---
 
 ## Description
