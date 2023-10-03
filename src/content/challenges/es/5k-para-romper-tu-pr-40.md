@@ -9,7 +9,27 @@ description: "¿Estás listo para superar tus límites y batir tu mejor tiempo e
 startTime: 2023-10-14 05:00:00.0790000 +00:00
 endTime: 2023-10-15 03:00:00.0790000 +00:00
 entryFee: 0
-pot:
+pot: 0
+participants:
+  - Participant: "Daniel Zamora"
+    Distance: "11.5 Km."
+    Time: "5h 20m"
+    Pace: "20 /Km"
+    Elevation: "400.3 m"
+    Points: "60"
+    Country:
+      abbreviation: "CO"
+      name: "Colombia"
+  - Participant: "Roberto Martinez"
+    Distance: "11.5 Km."
+    Time: "1h 20m"
+    Pace: "4:59 /Km"
+    Elevation: "359.3 m"
+    Points: "50"
+    Country:
+      abbreviation: "MX"
+      name: "Mexico"
+
 ---
 
 ## Descripción

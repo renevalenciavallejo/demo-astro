@@ -1,0 +1,14 @@
+.table-container::-webkit-scrollbar {
+    width: 116px;
+    height: 14px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: var(--glory-green-400, #caff00); 
+    border-radius: 7px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: #161616;
+  }
+  
