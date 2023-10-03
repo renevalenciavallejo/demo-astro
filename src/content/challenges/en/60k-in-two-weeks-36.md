@@ -2,7 +2,7 @@
 id: 36
 slug: 60k-in-two-weeks-36
 lang: "en"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Running"
 title: "60K in two weeks"
 description: "Accumulate at least 60K of running from September 19th to October 2nd. Join this challenge and get your registration fee back by completing it."

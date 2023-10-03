@@ -2,7 +2,7 @@
 id: 37
 slug: 150k-in-two-weeks-37
 lang: "en"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Cycling"
 title: "150K in two weeks"
 description: "Ride with passion and complete 150 kilometers of cycling in just two weeks! Join this challenge and get your registration fee back by completing it."
