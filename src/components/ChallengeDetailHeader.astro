@@ -47,6 +47,7 @@ console.log(temp);
 const userTimeZone = temp.timeZone;
 const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
 const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
+const localTime = new Date();
 ---
 
 <section
@@ -111,7 +112,7 @@ const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
         {format(startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
-        {userTimeZone}-2
+        {userTimeZone}-2-{localTime}
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
