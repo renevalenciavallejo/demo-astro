@@ -2,7 +2,7 @@
 id: 37
 slug: 150k-en-dos-semanas-37
 lang: "es"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Cycling"
 title: "150K en dos semanas"
 description: "¡Monta con pasión y completa 150 kilómetros de ciclismo en tan solo dos semanas! Únete a este desafío y recupera tu tarifa de inscripción al completarlo."

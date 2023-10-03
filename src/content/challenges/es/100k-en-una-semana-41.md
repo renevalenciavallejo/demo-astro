@@ -1,0 +1,23 @@
+---
+id: 41
+slug: 100k-en-una-semana-41
+lang: "es"
+showOnHomePage: true
+activityType: "Cycling"
+title: "100K en una semana"
+description: "¡Monta con pasión y completa 100 kilómetros de ciclismo en tan solo una semana! Únete a este desafío y recupera tu tarifa de inscripción al completarlo. El premio se distribuirá entre aquellos que logren el objetivo."
+startTime: 2023-10-11 05:00:00.0790000 +00:00
+endTime: 2023-10-18 03:00:00.0790000 +00:00
+entryFee: 3
+pot: 0
+---
+
+## Descripción
+
+¡Monta con pasión y completa 100 kilómetros de ciclismo en tan solo una semana! Únete a este desafío y recupera tu tarifa de inscripción al completarlo. El premio se distribuirá entre aquellos que logren el objetivo.
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
