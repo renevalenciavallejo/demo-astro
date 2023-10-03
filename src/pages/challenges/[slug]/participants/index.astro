@@ -13,6 +13,7 @@ export async function getStaticPaths() {
     props: { challenge },
   }));
 }
+
 const { challenge } = Astro.props;
 ---
 
@@ -24,6 +25,6 @@ const { challenge } = Astro.props;
     <ChallengeDetailHeader challenge={challenge} />
     <ChallengeDetailButtons IsDetails={false} challenge={challenge} />
     <ChallengeDetailTable challenge={challenge} client:load />
-    <ChallengeDetailButtonParticipate challenge={challenge} />
+    <ChallengeDetailButtonParticipate challenge={challenge} /> -->
   </main>
 </Layout>

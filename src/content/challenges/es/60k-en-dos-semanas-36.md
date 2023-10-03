@@ -2,7 +2,7 @@
 id: 36
 slug: 60k-en-dos-semanas-36
 lang: "es"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Running"
 title: "60K en dos semanas"
 description: "Acumula por lo menos 60K de corrida desde el 19 de septiembre al 2 de octubre. Únete a este reto, recupera el valor de inscripción por completarlo."

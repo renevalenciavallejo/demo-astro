@@ -10,7 +10,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "src/i18n/utils";
-import { format } from "date-fns";
+import LocalDate from "./LocalDate";
 
 const { challenge } = Astro.props;
 
@@ -103,11 +103,11 @@ switch (challenge.data.activityType) {
       </div>
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
-        {format(challenge.data.startTime, " MMM d, yyyy h:mm:ss aa")}
+        <LocalDate dateUtc={challenge.data.startTime} client:load />
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
-        {format(challenge.data.endTime, " MMM d, yyyy h:mm:ss aa")}
+        <LocalDate dateUtc={challenge.data.endTime} client:load />
       </h2>
     </div>
   </div>

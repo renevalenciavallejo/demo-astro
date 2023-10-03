@@ -2,7 +2,7 @@
 id: 40
 slug: reto-5k-para-romper-tu-pr-40
 lang: "es"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Running"
 title: "Reto 5K para romper tu PR"
 description: "¿Estás listo para superar tus límites y batir tu mejor tiempo en una carrera de 5 kilómetros? Esta es tu oportunidad de hacerlo. Nuestro reto Rompe Récords 5K te desafía a correr más rápido que nunca y superarte a ti mismo."

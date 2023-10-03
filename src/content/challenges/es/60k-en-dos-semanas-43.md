@@ -1,0 +1,23 @@
+---
+id: 43
+slug: 60k-en-dos-semanas-43
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+title: "60K en dos semanas"
+description: "Acumula por lo menos 60K de corrida en dos semanas. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+startTime: 2023-10-12 05:00:00.0790000 +00:00
+endTime: 2023-10-26 03:00:00.0790000 +00:00
+entryFee: 3
+pot: 0
+---
+
+## Descripción
+
+Acumula por lo menos 60K de corrida en dos semanas. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
