@@ -24,7 +24,7 @@ const { challenge } = Astro.props;
   <main class="bg-black">
     <ChallengeDetailHeader challenge={challenge} />
     <ChallengeDetailButtons IsDetails={false} challenge={challenge} />
-    <ChallengeDetailTable challenge={challenge} client:load />
+    <!-- <ChallengeDetailTable challenge={challenge} client:load /> -->
     <ChallengeDetailButtonParticipate challenge={challenge} />
   </main>
 </Layout>

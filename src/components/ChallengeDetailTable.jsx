@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { rankItem } from "@tanstack/match-sorter-utils";
 import CountryFlag from "./CountryFlags.jsx";
 import personIcon from "@assets/images/person.svg";
-import kingIcon from "@assets/images/king.png"
+import kingIcon from "@assets/images/king.png";
 import { useTranslations } from "src/i18n/utils";
 import "src/utils/styles/ChallengeTable.css";
 
@@ -55,10 +55,11 @@ const DebouncedInput = ({ value: keyWord, onChange, ...props }) => {
   );
 };
 
-function ChallengeDetailTable({challenge}) {
-
+function ChallengeDetailTable({ challenge }) {
   let t = useTranslations(challenge.data.lang);
-  const defaultData = challenge.data.participants.sort((a, b) => b.Points - a.Points);
+  const defaultData = challenge.data.participants.sort(
+    (a, b) => b.Points - a.Points
+  );
 
   const [data, setData] = useState(defaultData);
   const [globalFilter, setGlobalFilter] = useState("");
@@ -71,7 +72,10 @@ function ChallengeDetailTable({challenge}) {
       cell: (info) => {
         return (
           <div className="flex items-center justify-start gap-2">
-            <img src={info.row.id == 0 ? kingIcon.src : personIcon.src} alt={t("table.title-participant")}/>
+            <img
+              src={info.row.id == 0 ? kingIcon.src : personIcon.src}
+              alt={t("table.title-participant")}
+            />
             <div>{info.getValue()}</div>
           </div>
         );
