@@ -112,7 +112,7 @@ const localTime = new Date();
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
         {format(startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
-        {userTimeZone}-2-{localTime}
+        {userTimeZone}-2-{localTime}-{new Date()}-{Date()}
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
