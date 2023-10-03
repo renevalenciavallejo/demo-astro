@@ -42,12 +42,12 @@ switch (challenge.data.activityType) {
     break;
 }
 
-const temp = new Intl.DateTimeFormat().resolvedOptions();
-console.log(temp);
-const userTimeZone = temp.timeZone;
-const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
-const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
-const localTime = new Date();
+// const temp = new Intl.DateTimeFormat().resolvedOptions();
+// console.log(temp);
+// const userTimeZone = temp.timeZone;
+// const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
+// const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
+const startTime = challenge.data.startTime.toLocaleString();
 ---
 
 <section
@@ -111,12 +111,12 @@ const localTime = new Date();
       </div>
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
-        {format(startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
-        {userTimeZone}-2-{localTime}-{new Date()}-{Date()}
+        {format(challenge.data.startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
+        {startTime}
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
-        {format(endTime, " MMM d, yyyy HH:mm:ss (zzz)")}
+        {format(challenge.data.endTime, " MMM d, yyyy HH:mm:ss (zzz)")}
       </h2>
     </div>
   </div>
