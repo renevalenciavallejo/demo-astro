@@ -12,6 +12,7 @@ import {
 } from "src/i18n/utils";
 import { format } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
+import LocalDate from "./LocalDate";
 
 const { challenge } = Astro.props;
 
@@ -41,18 +42,7 @@ switch (challenge.data.activityType) {
       "/images/challenge-section-1-background-default-desktop.webp";
     break;
 }
-
-// const temp = new Intl.DateTimeFormat().resolvedOptions();
-// console.log(temp);
-// const userTimeZone = temp.timeZone;
-// const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
-// const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
-const startTime = challenge.data.startTime.toLocaleString();
 ---
-
-<script>
-  alert(Date());
-</script>
 
 <section
   class="h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-center sm:bg-[50%] md:bg-[75%] lg:bg-[100%]"
@@ -115,12 +105,11 @@ const startTime = challenge.data.startTime.toLocaleString();
       </div>
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
-        {format(challenge.data.startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
-        {startTime}
+        <LocalDate dateUtc={challenge.data.startTime} client:load />
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
-        {format(challenge.data.endTime, " MMM d, yyyy HH:mm:ss (zzz)")}
+        <LocalDate dateUtc={challenge.data.endTime} client:load />
       </h2>
     </div>
   </div>
