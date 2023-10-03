@@ -42,7 +42,7 @@ switch (challenge.data.activityType) {
     break;
 }
 
-const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const userTimeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone;
 const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
 const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
 ---
