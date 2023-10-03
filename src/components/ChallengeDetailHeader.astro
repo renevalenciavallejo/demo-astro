@@ -11,6 +11,7 @@ import {
   useTranslations,
 } from "src/i18n/utils";
 import { format } from "date-fns";
+import { utcToZonedTime } from "date-fns-tz";
 
 const { challenge } = Astro.props;
 
@@ -40,6 +41,10 @@ switch (challenge.data.activityType) {
       "/images/challenge-section-1-background-default-desktop.webp";
     break;
 }
+
+const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const startTime = utcToZonedTime(challenge.data.startTime, userTimeZone);
+const endTime = utcToZonedTime(challenge.data.endTime, userTimeZone);
 ---
 
 <section
@@ -103,11 +108,11 @@ switch (challenge.data.activityType) {
       </div>
       <h2 class="text-sm text-white">
         <span class="font-bold">{t("challenge-detail.startTime")}:</span>
-        {format(challenge.data.startTime, " MMM d, yyyy h:mm:ss aa")}
+        {format(startTime, " MMM d, yyyy HH:mm:ss (zzz)")}
       </h2>
       <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
         <span class="font-bold">{t("challenge-detail.endTime")}:</span>
-        {format(challenge.data.endTime, " MMM d, yyyy h:mm:ss aa")}
+        {format(endTime, " MMM d, yyyy HH:mm:ss (zzz)")}
       </h2>
     </div>
   </div>
