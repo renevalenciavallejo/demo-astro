@@ -11,7 +11,7 @@ export const ui = {
     "challenge-card.button": "More info",
     "challenge-card.endTime": "End",
     "challenge-card.startTime": "Start",
-    "challenge-detail.button": "I want to participate",
+    "challenge-detail.button": "Join the challenge now!",
     "challenge-detail.description": "Description",
     "challenge-detail.duration": "Duration",
     "challenge-detail.endTime": "End",
@@ -43,13 +43,12 @@ export const ui = {
     "table.title-elevation": "Elevation",
     "table.title-points": "Points",
     "table.title-country": "Country",
-
   },
   es: {
     "challenge-card.button": "Más información",
     "challenge-card.endTime": "Finalización",
     "challenge-card.startTime": "Inicio",
-    "challenge-detail.button": "Quiero participar",
+    "challenge-detail.button": "¡Únete al reto ahora!",
     "challenge-detail.description": "Descripción",
     "challenge-detail.duration": "Duración",
     "challenge-detail.endTime": "Finalización",
