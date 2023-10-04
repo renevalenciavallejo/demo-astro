@@ -1,7 +1,5 @@
 ---
 import openGraphImageDefault from "@assets/images/open-graph-image.png";
-import openGraphImageCycling from "@assets/images/open-graph-image-cycling-challenges.png";
-import openGraphImageRunning from "@assets/images/open-graph-image-running-challenges.png";
 
 interface Props {
   title: string;
@@ -15,10 +13,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 let openGraphImage = "";
 switch (image) {
   case "open-graph-image-cycling-challenges":
-    openGraphImage = openGraphImageCycling.src;
+    openGraphImage = openGraphImageDefault.src;
     break;
   case "open-graph-image-running-challenges":
-    openGraphImage = openGraphImageRunning.src;
+    openGraphImage = openGraphImageDefault.src;
     break;
   default:
     openGraphImage = openGraphImageDefault.src;
