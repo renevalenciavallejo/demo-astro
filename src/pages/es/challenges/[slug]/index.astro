@@ -8,8 +8,13 @@ import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonP
 import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 
 export async function getStaticPaths() {
-  const challenges = await getCollection("challenges");
-  return challenges.map((challenge) => ({
+  const spanishChallenges = await getCollection(
+    "active-challenges",
+    ({ id, data }) => {
+      return id.startsWith("es/") && data.showOnHomePage === true;
+    }
+  );
+  return spanishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: challenge,
   }));

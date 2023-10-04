@@ -7,8 +7,8 @@ import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
-const challenges = await getCollection("challenges", ({ data }) => {
-  return data.lang === lang;
+const englishChallenges = await getCollection("active-challenges", ({ id }) => {
+  return id.startsWith("en/");
 });
 ---
 
@@ -32,7 +32,7 @@ const challenges = await getCollection("challenges", ({ data }) => {
       </h1>
     </section>
     <ChallengeCardList
-      challenges={challenges}
+      challenges={englishChallenges}
       baseUrl={translatePath("/challenges")}
       lang={lang}
       client:load

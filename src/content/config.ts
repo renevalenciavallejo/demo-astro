@@ -34,5 +34,5 @@ const challengeCollection = defineCollection({
 });
 
 export const collections = {
-  challenges: challengeCollection,
+  "active-challenges": challengeCollection,
 };

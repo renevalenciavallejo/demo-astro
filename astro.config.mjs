@@ -7,5 +7,12 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://swetro.com",
-  integrations: [tailwind(), mdx(), sitemap(), react()],
+  integrations: [
+    tailwind(),
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes("/participants/"),
+    }),
+    react(),
+  ],
 });

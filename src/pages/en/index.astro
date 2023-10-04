@@ -19,45 +19,45 @@ import email from "@assets/images/section-8-email.svg";
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 
-const spanishChallenges = await getCollection(
+const englishChallenges = await getCollection(
   "active-challenges",
   ({ id, data }) => {
-    return id.startsWith("es/") && data.showOnHomePage === true;
+    return id.startsWith("en/") && data.showOnHomePage === true;
   }
 );
 ---
 
 <Layout
-  title="Swetro: Únete a carreras virtuales de running y ciclismo para ganar recompensas"
-  description="Únete a las carreras y retos virtuales de Swetro. Gana recompensas por tu actividad física."
+  title="Swetro: Join Virtual Running and Cycling Races to Win Rewards"
+  ,
+  description="Join Swetro's virtual running and cycling races and challenges. Earn rewards for your physical activity."
   image=""
 >
   <main>
     <section
       class="flex items-center h-[35.6875rem] px-4 md:px-14 bg-cobalt_blue_600 bg-[url(/images/section-1-background.webp)] min-[640px]:bg-[url(/images/section-1-background-desktop.webp)] bg-right min-[640px]:bg-center"
     >
-      <div class="w-[16.5625rem] min-[480px]:w-[27.8125rem] lg:w-[44.125rem]">
+      <div class="w-[16.5625rem] min-[560px]:w-[27.8125rem] lg:w-[44.125rem]">
         <h1
           class="text-[2.5rem] lg:text-[4rem] leading-[3rem] lg:leading-[5rem] font-bold text-white"
         >
-          Carreras virtuales <span class="block min-[500px]:inline"
-            >y fantasy league</span
-          >
+          Virtual race platform and fantasy league
         </h1>
         <h2
-          class="mt-2 text-[1.5rem] leading-[1.75rem] min-[480px]:leading-[2rem] font-normal text-white italic"
+          class="mt-2 text-[1.5rem] leading-[1.75rem] min-[560px]:leading-[2rem] font-normal text-white italic"
         >
-          para actividades físicas
-          <span class="font-medium min-[480px]:font-normal text-glory_green_400"
-            >reales</span
+          <span
+            class="font-medium min-[560px]:font-normal text-glory_green_400 block min-[560px]:inline"
+            >for real-life</span
           >
+           physical activities.
         </h2>
         <div class="mt-[3.4375rem]">
           <a
             href="https://app.swetro.com/account/register"
             class="px-7 py-2.5 text-base font-semibold rounded-md bg-glory_green_400 text-gray-800"
           >
-            Únete ahora</a
+            Join now</a
           >
         </div>
       </div>
@@ -79,16 +79,15 @@ const spanishChallenges = await getCollection(
         <p
           class="text-2xl md:text-[1.5rem] leading-[1.875rem] md:leading-[1.75rem]"
         >
-          Competir no se trata de <span class="text-glory_green_400 italic">
-            ganar o perder.</span
+          Competition is not about <span class="text-glory_green_400 italic">
+            winning or losing.</span
           >
         </p>
         <p
-          class="text-[1.5rem] md:text-[2rem] leading-[2rem] md:leading-[2.5rem] font-medium mt-4"
+          class="text-[2rem] md:text-[2.5rem] leading-[2.5rem] md:leading-[3rem] font-medium mt-4"
         >
-          Se trata de impulsarnos a
-          <span class="block font-bold"
-            >ser la mejor versión de nosotros mismos.</span
+          It's about pushing ourselves <span class="block font-bold"
+            >to be the best we can be.</span
           >
         </p>
       </div>
@@ -99,7 +98,7 @@ const spanishChallenges = await getCollection(
       />
     </section>
     <section
-      class="flex flex-col md:flex-row items-center md:justify-center h-[37.0625rem] min-[360px]:h-[38.9375rem] md:h-[19.125rem] px-4 md:px-14 md:mt-2 bg-white"
+      class="flex flex-col md:flex-row items-center md:justify-center h-[33.125rem] min-[360px]:h-[37.0625rem] md:h-[19.125rem] px-4 md:px-14 md:mt-2 bg-white"
     >
       <div class="relative top-[-24px] md:top-[-12px] block m-0 p-0">
         <Image src={watch} alt="Fitness device" />
@@ -108,10 +107,10 @@ const spanishChallenges = await getCollection(
         <h2
           class="text-[2rem] md:text-[2.5rem] leading-[2.5rem] md:leading-[3rem] font-bold"
         >
-          Sincroniza tu dispositivo <span
+          Sync your device <span
             class="block font-medium md:font-normal italic"
           >
-            y comienza a competir</span
+            and go!</span
           >
         </h2>
         <div class="mt-[2.8125rem]">
@@ -119,7 +118,7 @@ const spanishChallenges = await getCollection(
             href="https://app.swetro.com/account/register"
             class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
           >
-            Ingresa ya</a
+            Join now</a
           >
         </div>
       </div>
@@ -130,9 +129,9 @@ const spanishChallenges = await getCollection(
       <h3
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
       >
-        Únete a <span class="font-bold">Swetro</span>
+        Connect to <span class="font-bold">Swetro</span>
         <span class="block text-[1.5rem] leading-[3rem] font-normal md:mt-2">
-          en 3 sencillos pasos</span
+          in 3 simple steps</span
         >
       </h3>
       <div class="flex flex-row flex-wrap items-center justify-center mt-8">
@@ -141,10 +140,10 @@ const spanishChallenges = await getCollection(
         >
           <div class="flex items-center">
             <Image src={check} alt="Step 1" />
-            <h4 class="ml-2.5 text-2xl font-medium">Paso 1</h4>
+            <h4 class="ml-2.5 text-2xl font-medium">Step 1</h4>
           </div>
           <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
-            Crea tu perfil en Swetro y sincroniza tu dispositivo.
+            Create your Swetro profile and sync your fitness tracker.
           </p>
         </article>
 
@@ -153,10 +152,10 @@ const spanishChallenges = await getCollection(
         >
           <div class="flex items-center">
             <Image src={check} alt="Check" />
-            <h4 class="ml-2.5 text-2xl font-medium">Paso 2</h4>
+            <h4 class="ml-2.5 text-2xl font-medium">Step 2</h4>
           </div>
           <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
-            Únete a un reto, ponte una meta y comienza a entrenar.
+            Join a challenge, commit to a goal, and start working out.
           </p>
         </article>
 
@@ -165,10 +164,10 @@ const spanishChallenges = await getCollection(
         >
           <div class="flex items-center">
             <Image src={check} alt="Check" />
-            <h4 class="ml-2.5 text-2xl font-medium">Paso 3</h4>
+            <h4 class="ml-2.5 text-2xl font-medium">Step 3</h4>
           </div>
           <p class="mt-2.5 text-sm leading-6 font-normal text-shadow_gray_500">
-            Gana premios y recompensas por completar el reto.
+            Earn cash rewards by completing the challenge.
           </p>
         </article>
       </div>
@@ -177,7 +176,7 @@ const spanishChallenges = await getCollection(
           href="https://app.swetro.com/account/register"
           class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
         >
-          Crea una cuenta</a
+          Join now</a
         >
       </div>
     </section>
@@ -187,8 +186,9 @@ const spanishChallenges = await getCollection(
       <div class="flex flex-row flex-wrap justify-center">
         <Image src={money} alt="Reward" />
         <h4 class="text-[2.5rem] leading-[3rem] font-normal text-white">
-          Gana premios
-          <span class="block font-bold italic">por entrenar</span>
+          Get rewarded <span class="block font-bold italic"
+            >for getting fit</span
+          >
         </h4>
       </div>
       <div class="hidden min-[858px]:block relative top-[-36px]">
@@ -201,7 +201,7 @@ const spanishChallenges = await getCollection(
       <h3
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
       >
-        Dispositivos compatibles
+        Compatible devices
       </h3>
       <div class="mt-8">
         <div
@@ -220,7 +220,7 @@ const spanishChallenges = await getCollection(
           href="https://app.swetro.com/account/register"
           class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
         >
-          Ingresa ya</a
+          Join now</a
         >
       </div>
     </section>
@@ -230,16 +230,17 @@ const spanishChallenges = await getCollection(
       <h3
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
       >
-        Motívate y comienza a cumplir <span class="inline md:block"
-          >tus objetivos de <span class="font-bold italic"
-            >actividad física</span
+        Get motivated and start <span class="inline md:block"
+          >achieving your <span class="font-bold italic">fitness goals</span
           ></span
         >
       </h3>
-      <h4 class="mt-7 text-2xl leading-[3rem] font-normal">Únete a un reto:</h4>
+      <h4 class="mt-7 text-2xl leading-[3rem] font-normal">
+        Join a challenge:
+      </h4>
       <div class="flex flex-row flex-wrap items-center justify-center my-8">
         {
-          spanishChallenges
+          englishChallenges
             .sort(
               (a, b) => a.data.startTime.valueOf() - b.data.startTime.valueOf()
             )
@@ -258,7 +259,7 @@ const spanishChallenges = await getCollection(
       <h4 class="text-glory_green_400">
         <a
           href={translatePath("/challenges")}
-          class="no-underline hover:underline">Más retos y carreras</a
+          class="no-underline hover:underline">More races & challenges</a
         >
       </h4>
     </section>
@@ -268,7 +269,7 @@ const spanishChallenges = await getCollection(
       <h4
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center"
       >
-        Contáctanos
+        Contact us
       </h4>
       <div class="mt-8">
         <div
@@ -276,8 +277,7 @@ const spanishChallenges = await getCollection(
         >
           <Image src={email} alt="Email" class="mr-2" />
           <div>
-            ¿Necesitas ayuda? <span
-              class="font-semibold block min-[640px]:inline"
+            Need help? <span class="font-semibold block min-[640px]:inline"
               >hello@swetro.com</span
             >
           </div>
