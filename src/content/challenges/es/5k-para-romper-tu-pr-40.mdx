@@ -29,9 +29,15 @@ participants:
     Country:
       abbreviation: "MX"
       name: "Mexico"
-
 ---
+
+import LocalDate from "@components/LocalDate.tsx";
 
 ## Descripción
 
 ¿Estás listo para superar tus límites y batir tu mejor tiempo en una carrera de 5 kilómetros? Esta es tu oportunidad de hacerlo. Nuestro reto Rompe Récords 5K te desafía a correr más rápido que nunca y superarte a ti mismo.
+
+## Fecha
+
+- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />

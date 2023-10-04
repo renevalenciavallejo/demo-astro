@@ -139,9 +139,16 @@ participants:
       name: "Mexico"
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Description
 
 Ride with passion and complete 150 kilometers of cycling in just two weeks! Join this challenge and get your registration fee back by completing it.
+
+## Date
+
+- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Pot
 

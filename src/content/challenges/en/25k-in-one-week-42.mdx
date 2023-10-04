@@ -13,9 +13,16 @@ pot: 0
 participants:
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Description
 
 Accumulate at least 25K of running in a week. Join this challenge and get your registration fee back by completing it. The prize pool will be distributed among those who achieve the goal
+
+## Date
+
+- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Pot
 

@@ -1,11 +1,11 @@
 ---
-id: 37
-slug: 150k-en-dos-semanas-37
+id: 36
+slug: 60k-en-dos-semanas-36
 lang: "es"
 showOnHomePage: false
-activityType: "Cycling"
-title: "150K en dos semanas"
-description: "¡Monta con pasión y completa 150 kilómetros de ciclismo en tan solo dos semanas! Únete a este desafío y recupera tu tarifa de inscripción al completarlo."
+activityType: "Running"
+title: "60K en dos semanas"
+description: "Acumula por lo menos 60K de corrida desde el 19 de septiembre al 2 de octubre. Únete a este reto, recupera el valor de inscripción por completarlo."
 startTime: 2023-09-19 05:00:00.0790000 +00:00
 endTime: 2023-10-03 03:00:00.0790000 +00:00
 entryFee: 3
@@ -31,9 +31,16 @@ participants:
       name: "Mexico"
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Descripción
 
-¡Monta con pasión y completa 150 kilómetros de ciclismo en tan solo dos semanas! Únete a este desafío y recupera tu tarifa de inscripción al completarlo.
+Acumula por lo menos 60K de corrida desde el 19 de septiembre al 2 de octubre. Únete a este reto, recupera el valor de inscripción por completarlo.
+
+## Fecha
+
+- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Bolsa de premios
 

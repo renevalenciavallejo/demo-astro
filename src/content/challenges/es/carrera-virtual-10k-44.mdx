@@ -13,6 +13,13 @@ pot: 100
 participants:
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Descripción
 
 ¡Únete GRATIS a la carrera virtual de 10K de Swetro y compite contra corredores de todo el mundo para tener la oportunidad de ganar parte del premio de USD $100! Corre desde cualquier lugar del mundo. El objetivo es completar al menos 10K (solo actividades al aire libre) a tu propio ritmo y tiempo. ¡Regístrate ahora y prepárate para correr hacia la victoria!
+
+## Fecha
+
+- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />

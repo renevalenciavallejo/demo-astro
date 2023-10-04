@@ -31,9 +31,16 @@ participants:
       name: "Mexico"
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Description
 
 Accumulate at least 60K of running from September 19th to October 2nd. Join this challenge and get your registration fee back by completing it.
+
+## Date
+
+- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Pot
 

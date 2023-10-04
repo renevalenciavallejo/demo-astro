@@ -4,7 +4,7 @@ slug: media-maraton-y-maraton-de-la-gran-manzana-34
 lang: "es"
 showOnHomePage: true
 activityType: "Running"
-title: "Media maratón y maratón Virtual de la Gran Manzana: 21K - 42K"
+title: "Media maratón y maratón Virtual de la Gran Manzana"
 description: 'Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación.'
 startTime: 2023-11-01 00:00:00.0790000 +00:00
 endTime: 2023-11-06 00:00:00.0790000 +00:00
@@ -31,9 +31,16 @@ participants:
       name: "Mexico"
 ---
 
+import LocalDate from "@components/LocalDate.tsx";
+
 ## Descripción
 
 Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación. Con cada kilómetro, te acercas al logro definitivo: la línea de meta de la media maratón y la maratón. Esta carrera te permite correr desde cualquier lugar del mundo, e incluso tienes la oportunidad de ganar parte del premio de $200. ¡Ven y sé parte de esta emocionante carrera virtual!
+
+## Fecha
+
+- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Premios
 
