@@ -21,6 +21,7 @@ const challenge = Astro.props;
 <Layout
   title={`${challenge.data.title} - Swetro`}
   description={challenge.data.description}
+  image={challenge.data.image}
 >
   <main>
     <ChallengeDetailHeader challenge={challenge} />

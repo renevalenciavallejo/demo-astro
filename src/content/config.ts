@@ -8,6 +8,7 @@ const challengeCollection = defineCollection({
     showOnHomePage: z.boolean(),
     activityType: z.string(),
     title: z.string(),
+    image: z.string().optional(),
     description: z.string(),
     startTime: z.date(),
     endTime: z.date(),
