@@ -4,7 +4,6 @@ const challengeCollection = defineCollection({
   type: "content",
   schema: z.object({
     id: z.number(),
-    lang: z.string(),
     showOnHomePage: z.boolean(),
     activityType: z.string(),
     title: z.string(),
