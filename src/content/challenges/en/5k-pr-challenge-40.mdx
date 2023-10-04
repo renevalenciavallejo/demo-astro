@@ -9,9 +9,35 @@ description: "Are you ready to push your limits and beat your best time in a 5-k
 startTime: 2023-10-14 05:00:00.0790000 +00:00
 endTime: 2023-10-15 03:00:00.0790000 +00:00
 entryFee: 0
-pot:
+pot: 0
+participants:
+  - Participant: "Daniel Zamora"
+    Distance: "11.5 Km."
+    Time: "5h 20m"
+    Pace: "20 /Km"
+    Elevation: "400.3 m"
+    Points: "60"
+    Country:
+      abbreviation: "CO"
+      name: "Colombia"
+  - Participant: "Roberto Martinez"
+    Distance: "11.5 Km."
+    Time: "1h 20m"
+    Pace: "4:59 /Km"
+    Elevation: "359.3 m"
+    Points: "50"
+    Country:
+      abbreviation: "MX"
+      name: "Mexico"
 ---
+
+import LocalDate from "@components/LocalDate.tsx";
 
 ## Description
 
 Are you ready to push your limits and beat your best time in a 5-kilometer race? This is your chance to do it. Our Break Records 5K Race challenges you to run faster than ever and surpass yourself.
+
+## Date
+
+- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- End: <LocalDate dateUtc={frontmatter.endTime} client:load />

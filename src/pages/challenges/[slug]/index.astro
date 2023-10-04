@@ -20,9 +20,9 @@ const { challenge } = Astro.props;
   title={`${challenge.data.title} - Swetro`}
   description={challenge.data.description}
 >
-  <main>
+  <main class="bg-black">
     <ChallengeDetailHeader challenge={challenge} />
-    <!-- <ChallengeDetailButtons IsDetails={true} challenge={challenge} /> -->
+    <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
     <ChallengeDetail challenge={challenge} />
     <ChallengeDetailButtonParticipate challenge={challenge} />
   </main>

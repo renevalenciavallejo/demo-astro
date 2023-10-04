@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import { format } from "date-fns";
+import LocalDate from "./LocalDate";
 
 export interface Props {
   title: string;
@@ -43,11 +43,11 @@ const t = useTranslations(lang);
     <ul>
       <li class="my-1 text-xs font-medium">
         <span class="font-bold">{t("challenge-card.startTime")}:</span>
-        {format(startTime, " MMM d, yyyy h:mm:ss aa")}
+        <LocalDate dateUtc={startTime} client:load />
       </li>
       <li class="my-1 text-xs font-medium">
         <span class="font-bold">{t("challenge-card.endTime")}:</span>
-        {format(endTime, " MMM d, yyyy h:mm:ss aa")}
+        <LocalDate dateUtc={endTime} client:load />
       </li>
     </ul>
   </div>

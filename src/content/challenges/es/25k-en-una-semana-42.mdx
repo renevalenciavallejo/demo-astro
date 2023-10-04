@@ -10,11 +10,19 @@ startTime: 2023-10-07 05:00:00.0790000 +00:00
 endTime: 2023-10-14 03:00:00.0790000 +00:00
 entryFee: 3
 pot: 0
+participants:
 ---
+
+import LocalDate from "@components/LocalDate.tsx";
 
 ## Descripción
 
 Acumula por lo menos 25K de corrida en una semana. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+## Fecha
+
+- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Bolsa de premios
 

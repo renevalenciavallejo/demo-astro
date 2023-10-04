@@ -4,17 +4,43 @@ slug: big-apple-half-marathon-and-marathon-34
 lang: "en"
 showOnHomePage: true
 activityType: "Running"
-title: "Big Apple Virtual Half-Marathon and Marathon: 21K - 42K"
+title: "Big Apple Virtual Half-Marathon and Marathon"
 description: 'Join us in the "Big Apple Virtual Half-Marathon and Marathon: 21K - 42K," a thrilling virtual race that tests your endurance and determination.'
 startTime: 2023-11-01 00:00:00.0790000 +00:00
 endTime: 2023-11-06 00:00:00.0790000 +00:00
 entryFee: 0
 pot: 200
+participants:
+  - Participant: "Daniel Zamora"
+    Distance: "11.5 Km."
+    Time: "5h 20m"
+    Pace: "20 /Km"
+    Elevation: "400.3 m"
+    Points: "60"
+    Country:
+      abbreviation: "CO"
+      name: "Colombia"
+  - Participant: "Roberto Martinez"
+    Distance: "11.5 Km."
+    Time: "1h 20m"
+    Pace: "4:59 /Km"
+    Elevation: "359.3 m"
+    Points: "50"
+    Country:
+      abbreviation: "MX"
+      name: "Mexico"
 ---
+
+import LocalDate from "@components/LocalDate.tsx";
 
 ## Description
 
 Join us in the "Big Apple Virtual Half-Marathon and Marathon: 21K - 42K," a thrilling virtual race that tests your endurance and determination. With every kilometer, you move closer to the ultimate achievement—the half-marathon and marathon finish line. This race allows you to run from anywhere in the world, and you even have the chance to win a share of the $200 prize pool. Come be a part of this exciting virtual race!
+
+## Date
+
+- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
+- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
 
 ## Rewards
 
