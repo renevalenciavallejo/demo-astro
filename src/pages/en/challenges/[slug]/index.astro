@@ -7,18 +7,25 @@ import ChallengeDetailHeader from "@components/ChallengeDetailHeader.astro";
 import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro";
 
 export async function getStaticPaths() {
-  const challenges = await getCollection("challenges");
-  return challenges.map((challenge) => ({
+  const englishChallenges = await getCollection(
+    "active-challenges",
+    ({ id, data }) => {
+      return id.startsWith("en/") && data.showOnHomePage === true;
+    }
+  );
+  return englishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },
   }));
 }
+
 const { challenge } = Astro.props;
 ---
 
 <Layout
   title={`${challenge.data.title} - Swetro`}
   description={challenge.data.description}
+  image={challenge.data.image}
 >
   <main class="bg-black">
     <ChallengeDetailHeader challenge={challenge} />

@@ -7,7 +7,7 @@ import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonP
 import ChallengeDetailTable from "@components/ChallengeDetailTable.jsx";
 
 export async function getStaticPaths() {
-  const challenges = await getCollection("challenges");
+  const challenges = await getCollection("active-challenges");
   return challenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },
@@ -20,6 +20,7 @@ const { challenge } = Astro.props;
 <Layout
   title={`${challenge.data.title} - Swetro`}
   description={challenge.data.description}
+  image=""
 >
   <main class="bg-black">
     <ChallengeDetailHeader challenge={challenge} />

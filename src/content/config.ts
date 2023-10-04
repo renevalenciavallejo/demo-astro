@@ -4,10 +4,10 @@ const challengeCollection = defineCollection({
   type: "content",
   schema: z.object({
     id: z.number(),
-    lang: z.string(),
     showOnHomePage: z.boolean(),
     activityType: z.string(),
     title: z.string(),
+    image: z.string().optional(),
     description: z.string(),
     startTime: z.date(),
     endTime: z.date(),
@@ -33,5 +33,5 @@ const challengeCollection = defineCollection({
 });
 
 export const collections = {
-  challenges: challengeCollection,
+  "active-challenges": challengeCollection,
 };
