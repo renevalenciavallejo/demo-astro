@@ -2,15 +2,14 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ChallengeDetail from "@components/ChallengeDetail.astro";
-import ChallengeDetailButtons from "@components/ChallengeDetailButtons.astro";
-import ChallengeDetailHeader from "@components/ChallengeDetailHeader.astro";
-import ChallengeDetailButtonParticipate from "@components/ChallengeDetailButtonParticipate.astro";
+
+const { challenge } = Astro.props;
 
 export async function getStaticPaths() {
   const englishChallenges = await getCollection(
     "active-challenges",
-    ({ id, data }) => {
-      return id.startsWith("en/") && data.showOnHomePage === true;
+    ({ id }) => {
+      return id.startsWith("en/");
     }
   );
   return englishChallenges.map((challenge) => ({
@@ -19,7 +18,21 @@ export async function getStaticPaths() {
   }));
 }
 
-const { challenge } = Astro.props;
+let backgroundImage = "";
+switch (challenge.data.activityType) {
+  case "Cycling":
+    backgroundImage =
+      "/images/challenge-section-1-background-cycling-desktop.webp";
+    break;
+  case "Running":
+    backgroundImage =
+      "/images/challenge-section-1-background-running-desktop.webp";
+    break;
+  default:
+    backgroundImage =
+      "/images/challenge-section-1-background-default-desktop.webp";
+    break;
+}
 ---
 
 <Layout
@@ -27,10 +40,10 @@ const { challenge } = Astro.props;
   description={challenge.data.description}
   image={challenge.data.image}
 >
-  <main class="bg-black">
-    <ChallengeDetailHeader challenge={challenge} />
-    <ChallengeDetailButtons IsDetails={true} challenge={challenge} />
+  <main
+    class="pb-16 bg-top bg-no-repeat bg-black"
+    style={`background-image: url(${backgroundImage});`}
+  >
     <ChallengeDetail challenge={challenge} />
-    <ChallengeDetailButtonParticipate challenge={challenge} />
   </main>
 </Layout>
