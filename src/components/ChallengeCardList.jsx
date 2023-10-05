@@ -6,6 +6,11 @@ import logoCycling from "@assets/images/logo-cycling.svg";
 import "src/utils/styles/ChangeCardList.css";
 
 function ChallengeCardList({ challenges, baseUrl, lang }) {
+  const currentDate = new Date();
+  const challengesInitials = challenges.filter(
+    (challenge) => new Date(challenge.data.endTime) >= currentDate
+  );
+
   let t = useTranslations(lang);
   const [selectedFilter, setSelectedFilter] = useState(
     "All races & challenges"
@@ -15,16 +20,22 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
     setSelectedFilter(type);
   };
 
-  const sortByStartTimeAscending = (a, b) => {
-    a.data.startTime.valueOf() - b.data.startTime.valueOf();
+  const sortByStarTimeChallenges = (a, b) => {
+    const dateA = new Date(a.data.startTime);
+    const dateB = new Date(b.data.startTime);
+
+    if (dateA < dateB) return -1;
+    if (dateA > dateB) return 1;
+    return 0;
   };
 
-  const filteredChallenges =
+  const filteredChallenges = (
     selectedFilter === "All races & challenges"
-      ? challenges
-      : challenges.filter(
+      ? challengesInitials
+      : challengesInitials.filter(
           (challenge) => challenge.data.activityType === selectedFilter
-        );
+        )
+  ).sort(sortByStarTimeChallenges);
 
   return (
     <>
@@ -88,7 +99,7 @@ function ChallengeCardList({ challenges, baseUrl, lang }) {
       </section>
 
       <section className="bg-black flex justify-center flex-row flex-wrap pb-4 sm:px-16 lg:justify-start">
-        {filteredChallenges.sort(sortByStartTimeAscending).map((challenge) => (
+        {filteredChallenges.map((challenge) => (
           <ChallengeCard
             key={challenge.id}
             challenge={challenge}
