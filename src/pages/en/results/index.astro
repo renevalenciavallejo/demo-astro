@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import ChallengeGrid from "@components/ChallengeGrid.jsx";
+import { getLangFromUrl } from "src/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+("/images/challenge-section-1-background-default-desktop.webp");
+
+const englishChallenges = await getCollection(
+  "completed-challenges",
+  ({ id }) => {
+    return id.startsWith("en/");
+  }
+);
+---
+
+<Layout
+  title="Race and challenge results - Swetro"
+  description="Race and challenge results: Discover who finished each competition on our platform!"
+  image=""
+>
+  <main>
+    <section
+      class="flex flex-row items-center justify-center h-[26.75rem] md:h-[23.4375rem] px-4 md:px-14 bg-black bg-[url(/images/challenges-section-1-background-desktop.webp)] bg-no-repeat"
+    >
+      <h1
+        class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center text-white"
+      >
+        Race and challenge results <span
+          class="inline md:block font-normal md:font-bold"></span>
+      </h1>
+    </section>
+    <section>
+      <ChallengeGrid
+        challenges={englishChallenges.map((item) => item.data)}
+        lang={lang}
+        client:load
+      />
+    </section>
+  </main>
+</Layout>

@@ -23,10 +23,7 @@ const challengeCollection = defineCollection({
           Pace: z.string(),
           Elevation: z.string(),
           Points: z.string(),
-          Country: z.object({
-            abbreviation: z.string(),
-            name: z.string(),
-          }),
+          Country: z.string(),
         })
       )
       .nullable(),
@@ -35,4 +32,5 @@ const challengeCollection = defineCollection({
 
 export const collections = {
   "active-challenges": challengeCollection,
+  "completed-challenges": challengeCollection,
 };
