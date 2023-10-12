@@ -13,20 +13,24 @@ const challengeCollection = defineCollection({
     startTime: z.date(),
     endTime: z.date(),
     entryFee: z.number(),
-    pot: z.number().nullable(),
+    pot: z.number().optional(),
     participants: z
       .array(
         z.object({
-          Participant: z.string(),
-          Distance: z.string(),
-          Time: z.string(),
-          Pace: z.string(),
-          Elevation: z.string(),
-          Points: z.string(),
-          Country: z.string(),
+          id: z.number(),
+          name: z.string(),
+          countryCode: z.string(),
+          duration: z.number(),
+          distance: z.number(),
+          speed: z.number(),
+          pace: z.number(),
+          elevation: z.number(),
+          totalPoints: z.number(),
+          isCompleted: z.boolean(),
         })
       )
-      .nullable(),
+      .nullable()
+      .optional(),
   }),
 });
 

@@ -11,14 +11,14 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 export async function getStaticPaths({ paginate }) {
-  const englishChallenges = await getCollection(
+  const spanishChallenges = await getCollection(
     "completed-challenges",
     ({ id }) => {
-      return id.startsWith("en/");
+      return id.startsWith("es/");
     }
   );
 
-  const sortedChallenges = englishChallenges.sort(
+  const sortedChallenges = spanishChallenges.sort(
     (a, b) => b.data.startTime.valueOf() - a.data.startTime.valueOf()
   );
 
@@ -29,8 +29,8 @@ const { page } = Astro.props;
 ---
 
 <Layout
-  title="Race and challenge results - Swetro"
-  description="Race and challenge results: Discover who finished each competition on our platform!"
+  title="Resultados de carreras y retos - Swetro"
+  description="Resultados de carreras y retos: ¡Descubre quién terminó cada competencia en nuestra plataforma!"
   image=""
 >
   <main>
@@ -40,7 +40,7 @@ const { page } = Astro.props;
       <h1
         class="text-[2rem] md:text-[2.5rem] leading-[3rem] font-normal text-center text-white"
       >
-        Race and challenge results <span
+        Resultados de carreras y retos <span
           class="inline md:block font-normal md:font-bold"></span>
       </h1>
     </section>
