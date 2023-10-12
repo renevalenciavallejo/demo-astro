@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { rankItem } from "@tanstack/match-sorter-utils";
-import CountryFlag from "./CountryFlags.jsx";
-import personIcon from "@assets/images/person.svg";
-import kingIcon from "@assets/images/king.png";
 import notFoundSearch from "@assets/images/icon-not-found-search.svg";
 import { useTranslations } from "src/i18n/utils";
 import "src/utils/styles/ChallengeTable.css";
+import { format } from "date-fns";
 
 import {
   MagnifyingGlassIcon,
@@ -56,15 +54,11 @@ const DebouncedInput = ({ value: keyWord, onChange, ...props }) => {
   );
 };
 
-function ChallengeDetailTable({ challenge }) {
-  const containParticipants = challenge.data.participants != null;
-  let t = useTranslations(challenge.data.lang);
+function ChallengeGrid({ challenges, lang }) {
+  let t = useTranslations(lang);
   let defaultData = [];
-
-  if (containParticipants) {
-    defaultData = challenge.data.participants.sort(
-      (a, b) => b.Points - a.Points
-    );
+  if (challenges) {
+    defaultData = challenges.sort((a, b) => b.startTime - a.startTime);
   }
 
   const [data, setData] = useState(defaultData);
@@ -73,51 +67,35 @@ function ChallengeDetailTable({ challenge }) {
 
   const columns = [
     {
-      accessorKey: "Participant",
-      header: () => <span>{t("table.title-participant")}</span>,
+      accessorKey: "title",
+      header: () => <span>{t("challenge-grid.header.title")}</span>,
+      enableGlobalFilter: true,
+      // cell: (info) => {
+      //   return (
+      //     <div className="flex items-center justify-start gap-2">
+      //       <img
+      //         src={info.row.id == 0 ? kingIcon.src : personIcon.src}
+      //         alt={t("table.title-participant")}
+      //       />
+      //       <div>{info.getValue()}</div>
+      //     </div>
+      //   );
+      // },
+    },
+    {
+      accessorKey: "activityType",
+      header: () => <span>{t("challenge-grid.header.activityType")}</span>,
+      enableGlobalFilter: true,
+    },
+    {
+      accessorKey: "startTime",
+      header: () => <span>{t("challenge-grid.header.startTime")}</span>,
       cell: (info) => {
         return (
-          <div className="flex items-center justify-start gap-2">
-            <img
-              src={info.row.id == 0 ? kingIcon.src : personIcon.src}
-              alt={t("table.title-participant")}
-            />
-            <div>{info.getValue()}</div>
-          </div>
+          <span>{format(info.getValue(), " MMM d, yyyy HH:mm:ss (zzzz)")}</span>
         );
       },
-    },
-    {
-      accessorKey: "Distance",
-      header: () => <span>{t("table.title-distance")}</span>,
       enableGlobalFilter: false,
-    },
-    {
-      accessorKey: "Time",
-      header: () => <span>{t("table.title-time")}</span>,
-      enableGlobalFilter: false,
-    },
-    {
-      accessorKey: "Pace",
-      header: () => <span>{t("table.title-pace")}</span>,
-      enableGlobalFilter: false,
-    },
-    {
-      accessorKey: "Elevation",
-      header: () => <span>{t("table.title-elevation")}</span>,
-      enableGlobalFilter: false,
-    },
-    {
-      accessorKey: "Points",
-      header: () => <span>{t("table.title-points")}</span>,
-    },
-    {
-      accessorKey: "Country",
-      header: () => <span>{t("table.title-country")}</span>,
-      enableGlobalFilter: true,
-      cell: (info) => {
-        return <CountryFlag countryName={info.getValue()} />;
-      },
     },
   ];
 
@@ -146,7 +124,7 @@ function ChallengeDetailTable({ challenge }) {
     },
     initialState: {
       pagination: {
-        pageSize: 10,
+        pageSize: 5,
       },
     },
     getCoreRowModel: getCoreRowModel(),
@@ -177,13 +155,10 @@ function ChallengeDetailTable({ challenge }) {
             {table.getHeaderGroups().map((headerGroup) => (
               <tr
                 key={headerGroup.id}
-                className="border-b border-opacity-25 border-white text-xl font-['Poppins'] font-bold leading-[32px] text-white"
+                className="border-b border-opacity-25 border-white text-lg font-bold leading-[32px] text-white"
               >
                 {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    className="py-2 px-4 text-left capitalize"
-                  >
+                  <th key={header.id} className="py-2 px-4 text-left">
                     {header.isPlaceholder ? null : (
                       <div
                         className={classNames({
@@ -214,23 +189,24 @@ function ChallengeDetailTable({ challenge }) {
           <tbody>
             {table.getRowModel().rows == 0 ? (
               <tr>
-                <td colSpan="7">
+                <td colSpan="3">
                   <div className="flex flex-col items-center justify-center py-[100px]">
                     <img
                       src={notFoundSearch.src}
-                      alt={t("table.result-not-results")}
+                      alt={t("grid.message.no-results-found")}
                     />
-                    <h2 className="text-center text-2xl font-['Poppins'] font-medium text-[#414141] w-[220px]">
-                      {containParticipants
-                        ? t("table.result-not-found-search")
-                        : t("table.result-not-participant")}
+                    <h2 className="text-center text-xl font-medium text-[#414141] w-[220px]">
+                      {t("grid.message.no-results-found")}
                     </h2>
                   </div>
                 </td>
               </tr>
             ) : (
               table.getRowModel().rows.map((row) => (
-                <tr key={row.id} className="text-white hover:bg-[#222222]">
+                <tr
+                  key={row.id}
+                  className="text-white text-sm hover:bg-[#222222]"
+                >
                   {row.getVisibleCells().map((cell) => (
                     <td key={cell.id} className="py-4 px-4">
                       {flexRender(
@@ -245,7 +221,8 @@ function ChallengeDetailTable({ challenge }) {
           </tbody>
         </table>
       </div>
-      <div className="mt-4 flex items-center justify-center flex-col-reverse">
+
+      <div className="mt-4 pb-8 flex items-center justify-center flex-col-reverse">
         <div className="flex items-center gap-2">
           <button
             className="text-slate-50 bg-black py-0.5 px-1 rounded border border-white
@@ -296,28 +273,15 @@ function ChallengeDetailTable({ challenge }) {
           </button>
         </div>
 
-        <div className="text-gray-600 font-semibold">
-          Mostrando de {getStateTable().firstIndex}&nbsp; a{" "}
-          {getStateTable().lastIndex}&nbsp; del total de{" "}
-          {getStateTable().totalRows} registros
+        <div className="text-gray-600 font-semibold mb-4">
+          {t("grid.message.pagination-showing")} {getStateTable().firstIndex}
+          {t("grid.message.pagination-to")} {getStateTable().lastIndex}
+          {t("grid.message.pagination-of-total")} {getStateTable().totalRows}{" "}
+          {t("grid.message.pagination-records")}
         </div>
-        {/*
-        <select
-          className="text-gray-600 border border-gray-300 rounded outline-indigo-700 py-2"
-          onChange={(e) => {
-            table.setPageSize(Number(e.target.value));
-          }}
-        >
-          <option value="5">5 pág.</option>
-          <option value="10">10 pág.</option>
-          <option value="20">20 pág.</option>
-          <option value="25">25 pág.</option>
-          <option value="50">50 pág.</option>
-        </select>
-        */}
       </div>
     </div>
   );
 }
 
-export default ChallengeDetailTable;
+export default ChallengeGrid;
