@@ -12,6 +12,7 @@ export async function getStaticPaths() {
       return id.startsWith("en/");
     }
   );
+
   return englishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },

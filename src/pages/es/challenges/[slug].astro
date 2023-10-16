@@ -6,13 +6,14 @@ import ChallengeDetail from "@components/ChallengeDetail.astro";
 const { challenge } = Astro.props;
 
 export async function getStaticPaths() {
-  const englishChallenges = await getCollection(
+  const spanishChallenges = await getCollection(
     "active-challenges",
     ({ id }) => {
       return id.startsWith("es/");
     }
   );
-  return englishChallenges.map((challenge) => ({
+
+  return spanishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },
   }));
