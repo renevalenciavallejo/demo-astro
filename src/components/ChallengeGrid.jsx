@@ -68,7 +68,7 @@ function ChallengeGrid({ challenges, lang }) {
   const columns = [
     {
       accessorKey: "title",
-      header: () => <span>{t("challenge-grid.header.title")}</span>,
+      header: () => <span>{t("challenge-results-grid.header.title")}</span>,
       enableGlobalFilter: true,
       // cell: (info) => {
       //   return (
@@ -84,12 +84,14 @@ function ChallengeGrid({ challenges, lang }) {
     },
     {
       accessorKey: "activityType",
-      header: () => <span>{t("challenge-grid.header.activityType")}</span>,
+      header: () => (
+        <span>{t("challenge-results-grid.header.activityType")}</span>
+      ),
       enableGlobalFilter: true,
     },
     {
       accessorKey: "startTime",
-      header: () => <span>{t("challenge-grid.header.startTime")}</span>,
+      header: () => <span>{t("challenge-results-grid.header.startTime")}</span>,
       cell: (info) => {
         return (
           <span>{format(info.getValue(), " MMM d, yyyy HH:mm:ss (zzzz)")}</span>
