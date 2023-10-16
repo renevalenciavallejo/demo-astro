@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import ChallengeDetail from "@components/ChallengeDetail.astro";
+
+const { challenge } = Astro.props;
+
+export async function getStaticPaths() {
+  const englishChallenges = await getCollection(
+    "active-challenges",
+    ({ id }) => {
+      return id.startsWith("en/");
+    }
+  );
+
+  return englishChallenges.map((challenge) => ({
+    params: { slug: challenge.slug },
+    props: { challenge },
+  }));
+}
+
+let backgroundImage = "";
+switch (challenge.data.activityType) {
+  case "Cycling":
+    backgroundImage =
+      "/images/challenge-section-1-background-cycling-desktop.webp";
+    break;
+  case "Running":
+    backgroundImage =
+      "/images/challenge-section-1-background-running-desktop.webp";
+    break;
+  default:
+    backgroundImage =
+      "/images/challenge-section-1-background-default-desktop.webp";
+    break;
+}
+---
+
+<Layout
+  title={`${challenge.data.title} - Swetro`}
+  description={challenge.data.description}
+  image={challenge.data.image}
+>
+  <main
+    class="pb-16 bg-top bg-no-repeat bg-black"
+    style={`background-image: url(${backgroundImage});`}
+  >
+    <ChallengeDetail challenge={challenge} />
+  </main>
+</Layout>

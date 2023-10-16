@@ -6,13 +6,14 @@ import ChallengeDetail from "@components/ChallengeDetail.astro";
 const { challenge } = Astro.props;
 
 export async function getStaticPaths() {
-  const englishChallenges = await getCollection(
-    "active-challenges",
+  const spanishChallenges = await getCollection(
+    "completed-challenges",
     ({ id }) => {
-      return id.startsWith("en/");
+      return id.startsWith("es/");
     }
   );
-  return englishChallenges.map((challenge) => ({
+
+  return spanishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },
   }));
@@ -33,6 +34,7 @@ switch (challenge.data.activityType) {
       "/images/challenge-section-1-background-default-desktop.webp";
     break;
 }
+console.log(challenge.data.participants);
 ---
 
 <Layout

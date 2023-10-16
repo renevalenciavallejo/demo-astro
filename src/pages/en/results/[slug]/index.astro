@@ -7,11 +7,12 @@ const { challenge } = Astro.props;
 
 export async function getStaticPaths() {
   const englishChallenges = await getCollection(
-    "active-challenges",
+    "completed-challenges",
     ({ id }) => {
-      return id.startsWith("es/");
+      return id.startsWith("en/");
     }
   );
+
   return englishChallenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: { challenge },
@@ -33,6 +34,7 @@ switch (challenge.data.activityType) {
       "/images/challenge-section-1-background-default-desktop.webp";
     break;
 }
+console.log(challenge.data.participants);
 ---
 
 <Layout

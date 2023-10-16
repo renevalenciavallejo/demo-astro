@@ -4,11 +4,16 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import cycling from "@assets/images/logo-cycling.svg";
 import running from "@assets/images/logo-running.svg";
-import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "src/i18n/utils";
 import { format } from "date-fns";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 export async function getStaticPaths({ paginate }) {
   const spanishChallenges = await getCollection(
@@ -54,7 +59,7 @@ const { page } = Astro.props;
             class="text-lg font-bold leading-8 border-b border-opacity-25 border-white"
           >
             <tr>
-              <th scope="col" class="px-6 py-3"
+              <th scope="col" class="px-6 py-3 w-1/3"
                 >{t("challenge-grid.header.title")}</th
               >
               <th scope="col" class="px-6 py-3"
@@ -68,10 +73,13 @@ const { page } = Astro.props;
           </thead>
           <tbody>
             {
-              page.data.map(({ data }) => (
+              page.data.map(({ data, slug }) => (
                 <tr class="hover:bg-[#222222]">
-                  <td class="px-6 py-3">
-                    <a href="" class="no-underline hover:underline">
+                  <td class="px-6 py-3 w-1/3">
+                    <a
+                      href={translatePath(`/results/${slug}`)}
+                      class="no-underline hover:underline"
+                    >
                       <span class="flex items-center">
                         {() => {
                           switch (data.activityType) {
@@ -109,7 +117,14 @@ const { page } = Astro.props;
                     {format(data.startTime, " MMM d, yyyy")}
                   </td>
                   <td class="px-6 py-3">{data.activityType}</td>
-                  <td class="px-6 py-3" />
+                  <td class="px-6 py-3">
+                    <a
+                      href={translatePath(`/results/${slug}`)}
+                      class="no-underline hover:underline text-cobalt_blue_600"
+                    >
+                      {t("challenge-grid.header.viewResults")}
+                    </a>
+                  </td>
                 </tr>
               ))
             }
