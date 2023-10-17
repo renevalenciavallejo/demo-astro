@@ -20,6 +20,7 @@ const challengeCollection = defineCollection({
           id: z.number(),
           name: z.string(),
           countryCode: z.string(),
+          country: z.string(),
           duration: z.number(),
           distance: z.number(),
           speed: z.number(),
