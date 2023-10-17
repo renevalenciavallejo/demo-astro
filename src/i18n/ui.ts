@@ -74,7 +74,7 @@ export const ui = {
     "challenge-detail.startTime": "Inicio",
     "challenge-list-filter-all": "Todas las carreras y retos",
     "challenge-list-filter-running": "Correr",
-    "challenge-list-filter-cycling": "ciclismo",
+    "challenge-list-filter-cycling": "Ciclismo",
     "challenge-participants-grid.header.country": "País",
     "challenge-participants-grid.header.distance": "Distancia",
     "challenge-participants-grid.header.duration": "Tiempo",
