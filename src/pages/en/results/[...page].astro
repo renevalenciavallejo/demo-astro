@@ -15,7 +15,7 @@ export async function getStaticPaths({ paginate }) {
     (a, b) => b.data.startTime.valueOf() - a.data.startTime.valueOf()
   );
 
-  return paginate(sortedChallenges, { pageSize: 10 });
+  return paginate(sortedChallenges, { pageSize: 20 });
 }
 
 const { page } = Astro.props;

@@ -4,6 +4,7 @@ import { rankItem } from "@tanstack/match-sorter-utils";
 import notFoundSearch from "@assets/images/icon-not-found-search.svg";
 import kingIcon from "@assets/images/king.png";
 import { useTranslations } from "src/i18n/utils";
+import CountryFlag from "@components/CountryFlag";
 
 import {
   MagnifyingGlassIcon,
@@ -135,13 +136,14 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
       cell: (info) => {
         return (
           <div className="flex items-center justify-start gap-2">
+            <CountryFlag countryCode={info.row.original.countryCode} />
+            {info.getValue()}
             {info.row.original.isCompleted === true && (
               <img
                 src={kingIcon.src}
                 alt={t("challenge-participants-grid.header.winner")}
               />
             )}
-            {info.getValue()}
           </div>
         );
       },
@@ -200,6 +202,13 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
       ),
       enableGlobalFilter: false,
     },
+    {
+      accessorKey: "country",
+      header: () => (
+        <span>{t("challenge-participants-grid.header.country")}</span>
+      ),
+      enableGlobalFilter: true,
+    },
   ];
 
   const getStateTable = () => {
@@ -240,14 +249,14 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
 
   return (
     <div>
-      <div className="mt-2 mb-8 flex justify-end">
-        <div className="relative">
+      <div className="pb-4 flex justify-end">
+        <div className="relative mt-1">
           <DebouncedInput
             type="text"
             value={globalFilter ?? ""}
             onChange={(value) => setGlobalFilter(String(value))}
-            className="px-12 py-2 bg-[#161616] text-white border border-[#161616] focus:border-white rounded-full outline-none"
-            placeholder=""
+            className="px-12 py-2 bg-[#161616] text-white border border-[#161616] focus:border-white rounded-full outline-none w-[17.5rem] md:w-[25rem]"
+            placeholder={t("challenge-participants-grid.search.placeholder")}
           />
           <MagnifyingGlassIcon className="w-5 h-5 mx-2 absolute top-3 left-1 text-[#777777]" />
         </div>
@@ -346,7 +355,7 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
                   onClick={() => {
                     if (table.getCanPreviousPage()) table.previousPage();
                   }}
-                  className="flex items-center justify-center px-4 h-10 ml-0 leading-tight rounded-l-lg bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white"
+                  className="flex items-center justify-center px-4 h-10 ml-0 leading-tight rounded-l-lg bg-[#161616] border-[#222222] text-gray-400 hover:bg-[#222222] hover:text-white cursor-pointer"
                 >
                   <span className="sr-only">Previous</span>
                   <svg
@@ -372,8 +381,8 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
                     onClick={() => table.setPageIndex(value)}
                     className={
                       value === table.getState().pagination.pageIndex
-                        ? "z-10 flex items-center justify-center px-4 h-10 leading-tight border hover:bg-blue-100 hover:text-blue-700 border-gray-700 bg-gray-700 text-white"
-                        : "flex items-center justify-center px-4 h-10 leading-tight bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white"
+                        ? "z-10 flex items-center justify-center px-4 h-10 leading-tight border bg-[#222222] border-[#222222] text-white"
+                        : "flex items-center justify-center px-4 h-10 leading-tight bg-[#161616] border-[#222222] text-gray-400 hover:bg-[#222222] hover:text-white cursor-pointer"
                     }
                   >
                     {value + 1}
@@ -385,7 +394,7 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
                   onClick={() => {
                     if (table.getCanNextPage()) table.nextPage();
                   }}
-                  className="flex items-center justify-center px-4 h-10 leading-tight rounded-r-lg bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white"
+                  className="flex items-center justify-center px-4 h-10 leading-tight rounded-r-lg bg-[#161616] border-[#222222] text-gray-400 hover:bg-[#222222] hover:text-white cursor-pointer"
                 >
                   <span className="sr-only">Next</span>
                   <svg

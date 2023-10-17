@@ -137,6 +137,14 @@ switch (challenge.data.activityType) {
             <LocalDate dateUtc={challenge.data.endTime} client:load />
           </h2>
         </div>
+        <div class="mt-12">
+          <a
+            href={translatePath("/challenges")}
+            class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
+          >
+            {t("challenge-results.button")}</a
+          >
+        </div>
       </div>
     </section>
     <section class="px-4 md:px-14">
@@ -146,6 +154,16 @@ switch (challenge.data.activityType) {
         lang={lang}
         client:load
       />
+    </section>
+    <section class="px-4 md:px-14">
+      <div class="mt-12 text-center">
+        <a
+          href={translatePath("/challenges")}
+          class="px-7 py-2.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white"
+        >
+          {t("challenge-results.button")}</a
+        >
+      </div>
     </section>
   </main>
 </Layout>
