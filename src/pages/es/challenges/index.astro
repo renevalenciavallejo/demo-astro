@@ -3,9 +3,13 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ChallengeCardList from "@components/ChallengeCardList.jsx";
 import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
+const currentDate = new Date();
+const formattedDate = format(currentDate, "MMMM yyyy", { locale: es });
 
 const spanishChallenges = await getCollection("active-challenges", ({ id }) => {
   return id.startsWith("es/");
@@ -13,8 +17,9 @@ const spanishChallenges = await getCollection("active-challenges", ({ id }) => {
 ---
 
 <Layout
-  title="Carreras y retos - Swetro"
-  description="Únete a las carreras y desafíos virtuales de Swetro. Gana recompensas por tu actividad física."
+  pageTitle={`Calendario de carreras y retos - ${formattedDate} - Swetro`}
+  seoTitle={`Calendario de carreras de running y ciclismo - ${formattedDate}`}
+  seoDescription="Desde principiantes hasta atletas experimentados, nuestros retos de running y ciclismo son para todos. Encuentra el tuyo y compite desde cualquier lugar."
   image=""
 >
   <main>
