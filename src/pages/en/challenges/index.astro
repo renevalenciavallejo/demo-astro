@@ -3,9 +3,12 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ChallengeCardList from "@components/ChallengeCardList.jsx";
 import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
+import { format } from "date-fns";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
+const currentDate = new Date();
+const formattedDate = format(currentDate, "MMMM yyyy");
 
 const englishChallenges = await getCollection("active-challenges", ({ id }) => {
   return id.startsWith("en/");
@@ -13,9 +16,9 @@ const englishChallenges = await getCollection("active-challenges", ({ id }) => {
 ---
 
 <Layout
-  title="Races & challenges - Swetro"
-  ,
-  description="Join Swetro's virtual running and cycling races and challenges. Earn rewards for your physical activity."
+  pageTitle={`Race and challenge calendar - ${formattedDate} - Swetro`}
+  seoTitle={`Calendar of running and cycling races - ${formattedDate}`}
+  seoDescription="From beginners to experienced athletes, our running and cycling challenges are for everyone. Find yours and compete from anywhere."
   image=""
 >
   <main>
