@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import ChallengeCardList from "@components/ChallengeCardList.jsx";
 import { getLangFromUrl, useTranslatedPath } from "src/i18n/utils";
 import { format } from "date-fns";
-import { es } from "date-fns/locale";
+import { es } from "date-fns/locale/index.js";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
