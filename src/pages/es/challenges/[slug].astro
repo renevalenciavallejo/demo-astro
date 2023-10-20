@@ -34,12 +34,21 @@ switch (challenge.data.activityType) {
       "/images/challenge-section-1-background-default-desktop.webp";
     break;
 }
+
+const title =
+  challenge.data.seoTitle.length === 0
+    ? challenge.data.title
+    : challenge.data.seoTitle;
+const description =
+  challenge.data.seoDescription.length === 0
+    ? challenge.data.description
+    : challenge.data.seoDescription;
 ---
 
 <Layout
-  pageTitle={`${challenge.data.title} - Swetro`}
-  seoTitle={challenge.data.title}
-  seoDescription={challenge.data.description}
+  pageTitle={`${title} - Swetro`}
+  seoTitle={title}
+  seoDescription={description}
   image={challenge.data.image}
 >
   <main

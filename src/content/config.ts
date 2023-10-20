@@ -10,6 +10,8 @@ const challengeCollection = defineCollection({
     title: z.string(),
     image: z.string().optional(),
     description: z.string(),
+    seoTitle: z.string(),
+    seoDescription: z.string(),
     startTime: z.date(),
     endTime: z.date(),
     entryFee: z.number(),
