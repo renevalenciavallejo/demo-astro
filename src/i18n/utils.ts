@@ -62,3 +62,39 @@ export function calculateDaysHoursMinutes(
 
   return result.trim();
 }
+
+export function mapChallengesToPaths(challenges: any) {
+  const englishChallenges = challenges.filter(({ id }) => {
+    return id.startsWith("en/");
+  });
+
+  const spanishChallenges = challenges.filter(({ id }) => {
+    return id.startsWith("es/");
+  });
+
+  const contentPathNames = new Map();
+
+  englishChallenges.forEach((item: any) => {
+    contentPathNames.set(item.data.id, {
+      id: item.data.id,
+      en: item.slug,
+      es: "",
+    });
+  });
+
+  spanishChallenges.forEach((item: any) => {
+    if (contentPathNames.has(item.data.id)) {
+      const existingChallenge = contentPathNames.get(item.data.id);
+      existingChallenge.es = item.slug;
+    } else {
+      contentPathNames.set(item.data.id, {
+        id: item.data.id,
+        en: "",
+        es: item.slug,
+      });
+    }
+  });
+
+  const resultArray = Array.from(contentPathNames.values());
+  return resultArray;
+}

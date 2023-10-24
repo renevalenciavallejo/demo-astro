@@ -1,5 +1,7 @@
 ---
+import { getCollection } from "astro:content";
 import openGraphImageDefault from "@assets/images/open-graph-image.png";
+import { getLangFromUrl, mapChallengesToPaths } from "src/i18n/utils";
 
 interface Props {
   pageTitle: string;
@@ -8,8 +10,51 @@ interface Props {
   image: string;
 }
 
+const activeChallenges = await getCollection("active-challenges");
+const completedChallenges = await getCollection("completed-challenges");
+const contentPathNames = mapChallengesToPaths([
+  ...activeChallenges,
+  ...completedChallenges,
+]);
+
 const { pageTitle, seoTitle, seoDescription, image } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const lang = getLangFromUrl(Astro.url);
+
+let alternateUrlEn = null;
+let alternateUrlEs = null;
+
+const currentPathName = Astro.url.pathname.substring(
+  Astro.url.pathname.lastIndexOf("/") + 1
+);
+
+const contentPathName = contentPathNames.find(
+  (page) => page.en === currentPathName || page.es === currentPathName
+);
+
+if (contentPathName) {
+  alternateUrlEn = new URL(
+    Astro.url.pathname
+      .replace(`/${lang}/`, "/en/")
+      .replace(currentPathName, contentPathName.en),
+    Astro.site
+  );
+  alternateUrlEs = new URL(
+    Astro.url.pathname
+      .replace(`/${lang}/`, "/es/")
+      .replace(currentPathName, contentPathName.es),
+    Astro.site
+  );
+} else {
+  alternateUrlEn = new URL(
+    Astro.url.pathname.replace(`/${lang}/`, "/en/"),
+    Astro.site
+  );
+  alternateUrlEs = new URL(
+    Astro.url.pathname.replace(`/${lang}/`, "/es/"),
+    Astro.site
+  );
+}
 
 let openGraphImage = "";
 switch (image) {
@@ -29,7 +74,6 @@ switch (image) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
   <!-- Google Tag Manager -->
   <script>
     (function (w, d, s, l, i) {
@@ -50,6 +94,22 @@ switch (image) {
   <meta name="title" content={seoTitle} />
   <meta name="description" content={seoDescription} />
   <link rel="canonical" href={canonicalUrl} />
+  {
+    alternateUrlEn && (
+      <>
+        <link rel="alternate" href={alternateUrlEn} hreflang="en" />
+        <link rel="alternate" href={alternateUrlEn} hreflang="x-default" />
+      </>
+    )
+  }
+
+  {
+    alternateUrlEs && (
+      <>
+        <link rel="alternate" href={alternateUrlEs} hreflang="es" />
+      </>
+    )
+  }
 
   <!-- Open Graph / Facebook -->
   <meta property="og:locale" content="es_ES" />
