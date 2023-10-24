@@ -36,23 +36,29 @@ export function calculateDaysHoursMinutes(
   endDate: Date,
   lang: keyof typeof ui
 ) {
-  const days = differenceInDays(endDate, startDate);
   const t = useTranslations(lang);
 
-  if (days === 0) {
-    const hours = differenceInHours(endDate, startDate);
+  const daysDifference = differenceInDays(endDate, startDate);
+  const hoursDifference = differenceInHours(endDate, startDate) % 24;
+  const minutesDifference = differenceInMinutes(endDate, startDate) % 60;
 
-    if (hours === 0) {
-      const minutes = differenceInMinutes(endDate, startDate);
-      return `${minutes} ${t("common-minutes")}`;
-    }
+  let result = "";
 
-    return hours === 1
-      ? `${hours} ${t("common-hour")}`
-      : `${hours} ${t("common-hours")}`;
+  if (daysDifference > 0) {
+    result += `${daysDifference} ${
+      daysDifference !== 1 ? t("common-days") : t("common-day")
+    } `;
   }
 
-  return days === 1
-    ? `${days} ${t("common-day")}`
-    : `${days} ${t("common-days")}`;
+  if (hoursDifference > 0) {
+    result += `${hoursDifference} ${
+      hoursDifference !== 1 ? t("common-hours") : t("common-hour")
+    } `;
+  }
+
+  if (minutesDifference > 0) {
+    result += `${minutesDifference} ${t("common-minutes")} `;
+  }
+
+  return result.trim();
 }
