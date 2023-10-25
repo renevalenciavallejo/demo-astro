@@ -98,8 +98,7 @@ switch (image) {
   {
     alternateUrlEn && (
       <>
-        <link rel="alternate" href={alternateUrlEn} hreflang="en" />
-        <link rel="alternate" href={alternateUrlEn} hreflang="x-default" />
+        <link rel="alternate" hreflang="en" href={alternateUrlEn} />
       </>
     )
   }
@@ -107,7 +106,7 @@ switch (image) {
   {
     alternateUrlEs && (
       <>
-        <link rel="alternate" href={alternateUrlEs} hreflang="es" />
+        <link rel="alternate" hreflang="es" href={alternateUrlEs} />
       </>
     )
   }
