@@ -20,8 +20,10 @@ const challengesPathNames = mapChallengesToPaths([
   ...completedChallenges,
 ]);
 
-const t2 = Astro.url.pathname.slice(0, -1);
-const currentPathName = t2.substring(t2.lastIndexOf("/") + 1);
+const temp = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname.slice(0, -1)
+  : Astro.url.pathname;
+const currentPathName = temp.substring(temp.lastIndexOf("/") + 1);
 
 const challengePathName = challengesPathNames.find(
   (item) => item.en === currentPathName || item.es === currentPathName
@@ -93,12 +95,25 @@ switch (image) {
   <title>{pageTitle}</title>
   <meta name="title" content={seoTitle} />
   <meta name="description" content={seoDescription} />
-  <link rel="canonical" href={canonicalUrl} />
+  <link
+    rel="canonical"
+    href={canonicalUrl.href.endsWith("/")
+      ? canonicalUrl.href.slice(0, -1)
+      : canonicalUrl.href}
+  />
 
   {
     alternateUrlEn && (
       <>
-        <link rel="alternate" hreflang="en" href={alternateUrlEn} />
+        <link
+          rel="alternate"
+          hreflang="en"
+          href={
+            alternateUrlEn.href.endsWith("/")
+              ? alternateUrlEn.href.slice(0, -1)
+              : alternateUrlEn.href
+          }
+        />
       </>
     )
   }
@@ -106,7 +121,15 @@ switch (image) {
   {
     alternateUrlEs && (
       <>
-        <link rel="alternate" hreflang="es" href={alternateUrlEs} />
+        <link
+          rel="alternate"
+          hreflang="es"
+          href={
+            alternateUrlEs.href.endsWith("/")
+              ? alternateUrlEs.href.slice(0, -1)
+              : alternateUrlEs.href
+          }
+        />
       </>
     )
   }
