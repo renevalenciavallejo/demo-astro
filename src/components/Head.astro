@@ -10,39 +10,39 @@ interface Props {
   image: string;
 }
 
+const { pageTitle, seoTitle, seoDescription, image } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
 const activeChallenges = await getCollection("active-challenges");
 const completedChallenges = await getCollection("completed-challenges");
-const contentPathNames = mapChallengesToPaths([
+const challengesPathNames = mapChallengesToPaths([
   ...activeChallenges,
   ...completedChallenges,
 ]);
 
-const { pageTitle, seoTitle, seoDescription, image } = Astro.props;
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
-const lang = getLangFromUrl(Astro.url);
+const t2 = Astro.url.pathname.slice(0, -1);
+const currentPathName = t2.substring(t2.lastIndexOf("/") + 1);
 
+const challengePathName = challengesPathNames.find(
+  (item) => item.en === currentPathName || item.es === currentPathName
+);
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 let alternateUrlEn = null;
 let alternateUrlEs = null;
 
-const currentPathName = Astro.url.pathname.substring(
-  Astro.url.pathname.lastIndexOf("/") + 1
-);
-
-const contentPathName = contentPathNames.find(
-  (page) => page.en === currentPathName || page.es === currentPathName
-);
-
-if (contentPathName) {
+if (challengePathName) {
   alternateUrlEn = new URL(
     Astro.url.pathname
       .replace(`/${lang}/`, "/en/")
-      .replace(currentPathName, contentPathName.en),
+      .replace(currentPathName, challengePathName.en),
     Astro.site
   );
+
   alternateUrlEs = new URL(
     Astro.url.pathname
       .replace(`/${lang}/`, "/es/")
-      .replace(currentPathName, contentPathName.es),
+      .replace(currentPathName, challengePathName.es),
     Astro.site
   );
 } else {
@@ -94,6 +94,7 @@ switch (image) {
   <meta name="title" content={seoTitle} />
   <meta name="description" content={seoDescription} />
   <link rel="canonical" href={canonicalUrl} />
+
   {
     alternateUrlEn && (
       <>
