@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }) {
   );
 
   const sortedChallenges = spanishChallenges.sort(
-    (a, b) => b.data.startTime.valueOf() - a.data.startTime.valueOf()
+    (a, b) => b.data.endTime.valueOf() - a.data.endTime.valueOf()
   );
 
   return paginate(sortedChallenges, { pageSize: 20 });

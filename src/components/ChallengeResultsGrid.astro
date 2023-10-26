@@ -81,7 +81,8 @@ const { page } = Astro.props;
                 </a>
               </td>
               <td class="px-6 py-3">
-                {format(data.startTime, " MMM d, yyyy")}
+                {format(data.startTime, " MMM d, yyyy")} -{" "}
+                {format(data.endTime, " MMM d, yyyy")}
               </td>
               <td class="px-6 py-3">{data.activityType}</td>
               <td class="px-6 py-3">
