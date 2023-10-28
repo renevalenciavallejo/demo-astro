@@ -81,12 +81,14 @@ function ChallengeCard({ challenge, baseUrl }) {
                 <span className="font-bold">{t("challenge-card.date")}:</span>
                 <ChallengeDate date={startTime} lang={lang} client:load />
               </li>
-              <li class="my-1 text-xs font-medium">
-                <span class="font-bold">{t("challenge-card.entryFee")}:</span>
+              <li className="my-1 text-xs font-medium">
+                <span className="font-bold">
+                  {t("challenge-card.entryFee")}:
+                </span>
                 {entryFeeString}
               </li>
-              <li class="my-1 text-xs font-medium">
-                <span class="font-bold">{t("challenge-card.pot")}:</span>
+              <li className="my-1 text-xs font-medium">
+                <span className="font-bold">{t("challenge-card.pot")}:</span>
                 {potString}
               </li>
             </ul>
