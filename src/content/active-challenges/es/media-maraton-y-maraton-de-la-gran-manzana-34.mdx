@@ -9,23 +9,23 @@ title: "Media maratón y maratón Virtual de la Gran Manzana"
 description: 'Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación.'
 seoTitle: "Reto de running en homenaje a NY: Media maratón y maratón"
 seoDescription: "Únete a nuestro reto en honor a la Maratón de Nueva York. Corre una media maratón o un maratón completo, del 31 de octubre al 5 de noviembre. La inscripción es totalmente gratuita."
-startTime: 2023-11-01 00:00:00.0790000 +00:00
-endTime: 2023-11-06 00:00:00.0790000 +00:00
+startTime: 2023-11-01 00:00:00.0000000 +00:00
+endTime: 2023-11-05 23:59:59.0000000 +00:00
 entryFee: 0
 pot: 200
 participants:
 ---
 
-import LocalDate from "@components/LocalDate.tsx";
+import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Descripción
 
 Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación. Con cada kilómetro, te acercas al logro definitivo: la línea de meta de la media maratón y la maratón. Esta carrera te permite correr desde cualquier lugar del mundo, e incluso tienes la oportunidad de ganar parte del premio de $200. ¡Ven y sé parte de esta emocionante carrera virtual!
 
-## Fecha
-
-- Inicio: <LocalDate dateUtc={frontmatter.startTime} client:load />
-- Finalización: <LocalDate dateUtc={frontmatter.endTime} client:load />
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Premios
 

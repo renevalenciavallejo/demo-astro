@@ -8,12 +8,12 @@ import running from "@assets/images/logo-running.svg";
 import clock from "@assets/images/icon-clock.svg";
 import arrow from "@assets/images/icon-arrow-white-left.svg";
 import {
-  calculateDaysHoursMinutes,
   getLangFromUrl,
   useTranslatedPath,
   useTranslations,
 } from "src/i18n/utils";
-import LocalDate from "@components/LocalDate";
+import ChallengeDate from "@components/ChallengeDate";
+import ChallengeDuration from "@components/ChallengeDuration";
 
 const { challenge } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
@@ -97,10 +97,13 @@ const description =
             <Image src={clock} alt="Clock" />
             <span class="pl-1 text-sm font-semibold leading-[1.5rem]"
               >{t("challenge-detail.duration")}: {
-                calculateDaysHoursMinutes(
-                  challenge.data.startTime,
-                  challenge.data.endTime,
-                  lang
+                (
+                  <ChallengeDuration
+                    startTime={challenge.data.startTime}
+                    endTime={challenge.data.endTime}
+                    lang={lang}
+                    client:load
+                  />
                 )
               }</span
             >
@@ -140,11 +143,21 @@ const description =
           </div>
           <h2 class="text-sm text-white">
             <span class="font-bold">{t("challenge-detail.startTime")}:</span>
-            <LocalDate dateUtc={challenge.data.startTime} client:load />
+            <ChallengeDate
+              date={challenge.data.startTime}
+              lang={lang}
+              showTime={false}
+              client:load
+            />
           </h2>
           <h2 class="text-sm mt-1 md:mt-0 md:ml-4 text-white">
             <span class="font-bold">{t("challenge-detail.endTime")}:</span>
-            <LocalDate dateUtc={challenge.data.endTime} client:load />
+            <ChallengeDate
+              date={challenge.data.endTime}
+              lang={lang}
+              showTime={false}
+              client:load
+            />
           </h2>
         </div>
         <div class="mt-12">

@@ -9,23 +9,23 @@ title: "November 10K Race"
 description: "Participate for FREE in the exciting November 10K virtual race! Take on a challenge with runners from various countries and compete for USD $100 in prizes. Run 10K outdoors at your own pace and in your preferred location. Register and run towards victory today!"
 seoTitle: "10K Race: Run on November 19 from anywhere!"
 seoDescription: "Join runners from all over the world in our 10K virtual race. Ideal for runners of any level. Free registration. Don't miss out!"
-startTime: 2023-11-19 05:00:00.0790000 +00:00
-endTime: 2023-11-20 03:00:00.0790000 +00:00
+startTime: 2023-11-19 00:00:00.0000000 +00:00
+endTime: 2023-11-19 23:59:59.0000000 +00:00
 entryFee: 0
 pot: 100
 participants:
 ---
 
-import LocalDate from "@components/LocalDate.tsx";
+import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Description
 
 Participate for FREE in the exciting November 10K virtual race! Take on a challenge with runners from various countries and compete for USD $100 in prizes. Run 10K outdoors at your own pace and in your preferred location. Register and run towards victory today!
 
-## Date
-
-- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
-- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Rewards
 

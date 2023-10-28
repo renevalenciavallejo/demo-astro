@@ -1,7 +1,7 @@
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
-import { format } from "date-fns";
 import { useTranslations } from "src/i18n/utils";
+import ChallengeDate from "@components/ChallengeDate";
 
 function ImgChallenge({ activiteChallenge }) {
   if (activiteChallenge === "Running") {
@@ -43,7 +43,7 @@ function ImgChallenge({ activiteChallenge }) {
 function ChallengeCard({ challenge, baseUrl }) {
   const maxLength = 28;
 
-  const { title, lang, activityType, startTime, endTime, participants } =
+  const { title, lang, activityType, startTime, entryFee, pot } =
     challenge.data;
 
   const { slug } = challenge;
@@ -57,6 +57,13 @@ function ChallengeCard({ challenge, baseUrl }) {
   }
 
   const t = useTranslations(lang);
+  const entryFeeString =
+    entryFee > 0 ? ` $${entryFee} USD` : ` ${t("challenge-card.entryFeeFree")}`;
+
+  const potString =
+    pot !== null && pot > 0
+      ? ` $${pot} USD`
+      : ` ${t("challenge-card.potDynamic")}`;
 
   return (
     <>
@@ -71,16 +78,16 @@ function ChallengeCard({ challenge, baseUrl }) {
           <div>
             <ul>
               <li className="my-1 text-xs font-medium">
-                <span className="font-bold">
-                  {t("challenge-card.startTime")}:
-                </span>
-                {format(startTime, "  MMM d, yyyy HH:mm:ss (zzzz)")}
+                <span className="font-bold">{t("challenge-card.date")}:</span>
+                <ChallengeDate date={startTime} lang={lang} client:load />
               </li>
-              <li className="my-1 text-xs font-medium">
-                <span className="font-bold">
-                  {t("challenge-card.endTime")}:
-                </span>
-                {format(endTime, "  MMM d, yyyy HH:mm:ss (zzzz)")}
+              <li class="my-1 text-xs font-medium">
+                <span class="font-bold">{t("challenge-card.entryFee")}:</span>
+                {entryFeeString}
+              </li>
+              <li class="my-1 text-xs font-medium">
+                <span class="font-bold">{t("challenge-card.pot")}:</span>
+                {potString}
               </li>
             </ul>
           </div>

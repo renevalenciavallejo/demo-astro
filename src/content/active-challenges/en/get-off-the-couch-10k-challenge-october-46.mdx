@@ -9,23 +9,23 @@ title: "Get off the couch 10K Challenge, October"
 description: "Accumulate at least 10K of outdoor running in one week. Join this challenge and get your registration fee back upon completion. The prize pool will be distributed among those who achieve the goal."
 seoTitle: "Running challenge for beginners: Run 10K in a week"
 seoDescription: "If you're new to running, join our 10K challenge in one week. From October 25 to 31. Register and achieve your sports goals!"
-startTime: 2023-10-25 05:00:00.0790000 +00:00
-endTime: 2023-11-01 03:00:00.0790000 +00:00
+startTime: 2023-10-25 00:00:00.0000000 +00:00
+endTime: 2023-10-31 23:59:59.0000000 +00:00
 entryFee: 3
 pot: 0
 participants:
 ---
 
-import LocalDate from "@components/LocalDate.tsx";
+import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Description
 
 Accumulate at least 10K of outdoor running in one week. Join this challenge and get your registration fee back upon completion. The prize pool will be distributed among those who achieve the goal.
 
-## Date
-
-- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
-- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Pot
 

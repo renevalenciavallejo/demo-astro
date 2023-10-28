@@ -9,7 +9,12 @@ export const showDefaultLang = true;
 export const ui = {
   en: {
     "challenge-card.button": "More info",
+    "challenge-card.date": "Date",
     "challenge-card.endTime": "End",
+    "challenge-card.entryFee": "Entry fee",
+    "challenge-card.entryFeeFree": "Free",
+    "challenge-card.pot": "Pot",
+    "challenge-card.potDynamic": "Dynamic",
     "challenge-card.startTime": "Start",
     "challenge-detail.button": "Join the challenge now!",
     "challenge-detail.description": "Description",
@@ -63,7 +68,12 @@ export const ui = {
   },
   es: {
     "challenge-card.button": "Más información",
+    "challenge-card.date": "Fecha",
     "challenge-card.endTime": "Finalización",
+    "challenge-card.entryFee": "Valor inscripción",
+    "challenge-card.entryFeeFree": "Gratuito",
+    "challenge-card.pot": "Bolsa de premios",
+    "challenge-card.potDynamic": "Dinámica",
     "challenge-card.startTime": "Inicio",
     "challenge-detail.button": "¡Únete al reto ahora!",
     "challenge-detail.description": "Descripción",
