@@ -3,17 +3,18 @@ import { Image } from "astro:assets";
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import LocalDate from "./LocalDate";
+import ChallengeDate from "./ChallengeDate";
 
 export interface Props {
   title: string;
   activityType: string;
   startTime: Date;
-  endTime: Date;
+  entryFee: number;
+  pot: number | undefined;
   url: string;
 }
 
-const { title, activityType, startTime, endTime, url } = Astro.props;
+const { title, activityType, startTime, entryFee, pot, url } = Astro.props;
 const maxLength = 28;
 
 const truncatedTitle =
@@ -26,6 +27,14 @@ if (activityType === "Running") {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const entryFeeString =
+  entryFee > 0 ? ` $${entryFee} USD` : ` ${t("challenge-card.entryFeeFree")}`;
+
+const potString =
+  pot !== null && pot > 0
+    ? ` $${pot} USD`
+    : ` ${t("challenge-card.potDynamic")}`;
 ---
 
 <article
@@ -42,12 +51,21 @@ const t = useTranslations(lang);
   <div>
     <ul>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">{t("challenge-card.startTime")}:</span>
-        <LocalDate dateUtc={startTime} client:load />
+        <span class="font-bold">{t("challenge-card.date")}:</span>
+        <ChallengeDate
+          date={startTime}
+          lang={lang}
+          showTime={false}
+          client:load
+        />
       </li>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">{t("challenge-card.endTime")}:</span>
-        <LocalDate dateUtc={endTime} client:load />
+        <span class="font-bold">{t("challenge-card.entryFee")}:</span>
+        {entryFeeString}
+      </li>
+      <li class="my-1 text-xs font-medium">
+        <span class="font-bold">{t("challenge-card.pot")}:</span>
+        {potString}
       </li>
     </ul>
   </div>

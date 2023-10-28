@@ -9,23 +9,23 @@ title: "Pedal power 150K Challenge, October"
 description: "Accumulate at least 150K of outdoor cycling in one week. Join this challenge and get your registration fee back upon completion. The prize pool will be distributed among those who achieve the goal."
 seoTitle: "Cycling challenge: Conquer 150K in one week!"
 seoDescription: "Join the cycling community in our 150K challenge in one week, connect with cyclists from all over the world and enjoy the route. Sign up today!"
-startTime: 2023-10-31 05:00:00.0790000 +00:00
-endTime: 2023-11-07 03:00:00.0790000 +00:00
+startTime: 2023-10-31 00:00:00.0000000 +00:00
+endTime: 2023-11-06 23:59:59.0000000 +00:00
 entryFee: 3
 pot: 0
 participants:
 ---
 
-import LocalDate from "@components/LocalDate.tsx";
+import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Description
 
 Accumulate at least 150K of outdoor cycling in one week. Join this challenge and get your registration fee back upon completion. The prize pool will be distributed among those who achieve the goal.
 
-## Date
-
-- Start: <LocalDate dateUtc={frontmatter.startTime} client:load />
-- End: <LocalDate dateUtc={frontmatter.endTime} client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Pot
 
