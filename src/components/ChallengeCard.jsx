@@ -1,7 +1,7 @@
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
 import { useTranslations } from "src/i18n/utils";
-import ChallengeDate from "@components/ChallengeDate";
+import ChallengeDate, { ChallengeDateFormat } from "@components/ChallengeDate";
 
 function ImgChallenge({ activiteChallenge }) {
   if (activiteChallenge === "Running") {
@@ -43,7 +43,7 @@ function ImgChallenge({ activiteChallenge }) {
 function ChallengeCard({ challenge, baseUrl }) {
   const maxLength = 28;
 
-  const { title, lang, activityType, startTime, entryFee, pot } =
+  const { title, lang, activityType, startTime, endTime, entryFee, pot } =
     challenge.data;
 
   const { slug } = challenge;
@@ -78,8 +78,22 @@ function ChallengeCard({ challenge, baseUrl }) {
           <div>
             <ul>
               <li className="my-1 text-xs font-medium">
-                <span className="font-bold">{t("challenge-card.date")}:</span>
-                <ChallengeDate date={startTime} lang={lang} client:load />
+                <span className="font-bold">
+                  {`${t("challenge-card.date")}: `}
+                </span>
+                <ChallengeDate
+                  date={startTime}
+                  lang={lang}
+                  dateFormat={ChallengeDateFormat.Basic}
+                  client:load
+                />
+                {` - `}
+                <ChallengeDate
+                  date={endTime}
+                  lang={lang}
+                  dateFormat={ChallengeDateFormat.Basic}
+                  client:load
+                />
               </li>
               <li className="my-1 text-xs font-medium">
                 <span className="font-bold">

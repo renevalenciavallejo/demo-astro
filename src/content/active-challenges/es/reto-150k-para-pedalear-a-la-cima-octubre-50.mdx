@@ -16,15 +16,17 @@ pot: 0
 participants:
 ---
 
-import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
 import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Descripción
 
 Acumula por lo menos 150K de ciclismo al aire libre en una semana. Únete a este reto y recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
 
-- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
-- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
 - Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Bolsa de premios

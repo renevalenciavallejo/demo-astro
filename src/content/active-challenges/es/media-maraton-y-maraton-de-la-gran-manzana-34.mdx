@@ -16,15 +16,17 @@ pot: 200
 participants:
 ---
 
-import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
 import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Descripción
 
 Únete a la "Media maratón y maratón virtual de la Gran Manzana: 21K - 42K", una emocionante carrera virtual que pone a prueba tu resistencia y determinación. Con cada kilómetro, te acercas al logro definitivo: la línea de meta de la media maratón y la maratón. Esta carrera te permite correr desde cualquier lugar del mundo, e incluso tienes la oportunidad de ganar parte del premio de $200. ¡Ven y sé parte de esta emocionante carrera virtual!
 
-- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
-- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
 - Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Premios
