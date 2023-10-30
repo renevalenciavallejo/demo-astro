@@ -16,15 +16,17 @@ pot: 200
 participants:
 ---
 
-import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
 import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Description
 
 Join us in the "Big Apple Virtual Half-Marathon and Marathon: 21K - 42K," a thrilling virtual race that tests your endurance and determination. With every kilometer, you move closer to the ultimate achievement—the half-marathon and marathon finish line. This race allows you to run from anywhere in the world, and you even have the chance to win a share of the $200 prize pool. Come be a part of this exciting virtual race!
 
-- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
-- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
 - Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Rewards

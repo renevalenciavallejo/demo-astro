@@ -3,18 +3,20 @@ import { Image } from "astro:assets";
 import running from "../assets/images/challenge-card-running.png";
 import cycling from "../assets/images/challenge-card-cycling.png";
 import { getLangFromUrl, useTranslations } from "src/i18n/utils";
-import ChallengeDate from "./ChallengeDate";
+import ChallengeDate, { ChallengeDateFormat } from "./ChallengeDate";
 
 export interface Props {
   title: string;
   activityType: string;
   startTime: Date;
+  endTime: Date;
   entryFee: number;
   pot: number | undefined;
   url: string;
 }
 
-const { title, activityType, startTime, entryFee, pot, url } = Astro.props;
+const { title, activityType, startTime, endTime, entryFee, pot, url } =
+  Astro.props;
 const maxLength = 28;
 
 const truncatedTitle =
@@ -51,11 +53,18 @@ const potString =
   <div>
     <ul>
       <li class="my-1 text-xs font-medium">
-        <span class="font-bold">{t("challenge-card.date")}:</span>
+        <span class="font-bold">{`${t("challenge-card.date")}: `}</span>
         <ChallengeDate
           date={startTime}
           lang={lang}
-          showTime={false}
+          dateFormat={ChallengeDateFormat.Basic}
+          client:load
+        />
+         -
+        <ChallengeDate
+          date={endTime}
+          lang={lang}
+          dateFormat={ChallengeDateFormat.Basic}
           client:load
         />
       </li>

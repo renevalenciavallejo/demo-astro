@@ -16,15 +16,17 @@ pot: 100
 participants:
 ---
 
-import ChallengeDate from "@components/ChallengeDate.tsx";
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
 import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ## Descripción
 
 ¡Participa GRATIS en la emocionante carrera virtual de 10K del 19 noviembre! Enfrenta un desafío con corredores de varios países y compite por USD $100 en premios. Corre 10K al aire libre a tu propio ritmo y en tu ubicación preferida. ¡Regístrate y corre hacia la victoria hoy mismo!
 
-- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} showTime="true" client:load />
-- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} showTime="true" client:load />
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
 - Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Premios

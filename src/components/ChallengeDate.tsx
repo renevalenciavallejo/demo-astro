@@ -1,10 +1,17 @@
 import { format } from "date-fns";
-import { enUS, es } from "date-fns/locale/index.js";
+import enUS from "date-fns/locale/en-US/index.js";
+import es from "date-fns/locale/es/index.js";
+
+export enum ChallengeDateFormat {
+  Basic = "PP",
+  Short = "PPP",
+  Long = "PPPPp",
+}
 
 interface Props {
   date: Date;
   lang: string;
-  showTime: boolean;
+  dateFormat: ChallengeDateFormat;
 }
 
 const locales: Record<string, Locale> = {
@@ -12,7 +19,7 @@ const locales: Record<string, Locale> = {
   es: es,
 };
 
-const ChallengeDate = ({ date, lang, showTime = false }: Props) => {
+const ChallengeDate = ({ date, lang, dateFormat }: Props) => {
   date = new Date(date);
   const localDate = new Date(
     date.getUTCFullYear(),
@@ -24,7 +31,6 @@ const ChallengeDate = ({ date, lang, showTime = false }: Props) => {
   );
 
   const locale = locales[lang] || enUS;
-  const dateFormat = showTime ? " PPPPp" : " PPP";
   return format(localDate, dateFormat, { locale });
 };
 
