@@ -44,6 +44,7 @@ const { page } = Astro.props;
             <tr class="hover:bg-[#222222]">
               <td class="px-6 py-3 w-1/3">
                 <a
+                  id="btn-result-results-title"
                   href={translatePath(`/results/${slug}`)}
                   class="no-underline hover:underline"
                 >
@@ -87,6 +88,7 @@ const { page } = Astro.props;
               <td class="px-6 py-3">{data.activityType}</td>
               <td class="px-6 py-3">
                 <a
+                  id="btn-result-results-link"
                   href={translatePath(`/results/${slug}`)}
                   class="no-underline hover:underline text-cobalt_blue_600"
                 >

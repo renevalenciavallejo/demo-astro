@@ -19,7 +19,7 @@ const translatePath = useTranslatedPath(lang);
   class="flex flex-wrap items-center justify-between h-12 px-4 md:px-14 font-open_sans text-sm text-shadow_gray_500 bg-white"
 >
   <div>
-    <a href={translatePath("/")}>
+    <a id="img-home-menu-desktop" href={translatePath("/")}>
       <span class="sr-only">Swetro</span>
       <Image src={logo} alt="Swetro logo" />
     </a>
@@ -52,7 +52,7 @@ const translatePath = useTranslatedPath(lang);
       class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white py-4 px-4 md:px-14"
     >
       <div class="flex justify-between">
-        <a href={translatePath("/")}>
+        <a id="img-home-menu-mobile" href={translatePath("/")}>
           <span class="sr-only">Swetro</span>
           <Image src={logo} alt="Swetro logo" class="-mt-[3px]" />
         </a>
@@ -81,11 +81,13 @@ const translatePath = useTranslatedPath(lang);
         <div class="-my-6">
           <div>
             <a
+              id="btn-sign-in-menu-mobile"
               href="https://app.swetro.com/account/login"
               class="block px-5 py-2.5 mt-5 mb-3 text-sm text-center font-semibold text-shadow_gray_800 bg-white border border-gray-300 focus:outline-none hover:bg-shadow_gray_100 focus:ring-4 focus:ring-gray-200 rounded-lg"
               >{t("nav.sign-in")}</a
             >
             <a
+              id="btn-sign-up-menu-mobile"
               href="https://app.swetro.com/account/register"
               class="block px-5 py-2.5 text-sm text-center font-semibold text-white bg-blue-700 border focus:outline-none hover:bg-blue-800 focus:ring-4 focus:ring-gray-200 rounded-lg"
               >{t("nav.sign-up")}</a
@@ -95,6 +97,7 @@ const translatePath = useTranslatedPath(lang);
             <ul class="flex flex-col font-medium mt-4">
               <li class="border-b">
                 <a
+                  id="btn-home-menu-mobile"
                   href={translatePath("/")}
                   class="block py-3 pr-4 rounded hover:bg-gray-100"
                   aria-current="page">{t("nav.home")}</a
@@ -110,6 +113,7 @@ const translatePath = useTranslatedPath(lang);
               </li>
               <li class="border-b">
                 <a
+                  id="btn-results-menu-mobile"
                   href={translatePath("/results")}
                   class="block py-3 pr-4 rounded hover:bg-gray-100"
                   >{t("nav.results")}</a
@@ -185,8 +189,10 @@ const translatePath = useTranslatedPath(lang);
               ? "py-2 px-4 rounded-lg font-semibold bg-shadow_gray_100 text-shadow_gray_800"
               : "py-2"}
           >
-            <a href={translatePath("/")} class="no-underline hover:underline"
-              >{t("nav.home")}</a
+            <a
+              id="btn-home-menu-desktop"
+              href={translatePath("/")}
+              class="no-underline hover:underline">{t("nav.home")}</a
             >
           </li>
           <li
@@ -206,6 +212,7 @@ const translatePath = useTranslatedPath(lang);
               : "py-2"}
           >
             <a
+              id="btn-results-menu-desktop"
               href={translatePath("/results")}
               class="no-underline hover:underline">{t("nav.results")}</a
             >
@@ -256,12 +263,14 @@ const translatePath = useTranslatedPath(lang);
           </li>
           <li class="py-2">
             <a
+              id="btn-sign-in-menu-desktop"
               href="https://app.swetro.com/account/login"
               class="no-underline hover:underline">{t("nav.sign-in")}</a
             >
           </li>
           <li class="py-2">
             <a
+              id="btn-sign-up-menu-desktop"
               href="https://app.swetro.com/account/register"
               class="no-underline hover:underline font-bold"
               >{t("nav.sign-up")}</a

@@ -109,6 +109,7 @@ function ChallengeCard({ challenge, baseUrl }) {
           </div>
           <div>
             <a
+              id="btn-challenge-detail-challenge-card"
               href={`${baseUrl}/${slug}`}
               className="block px-7 py-1.5 text-base font-semibold rounded-md bg-cobalt_blue_600 text-white text-center"
             >
