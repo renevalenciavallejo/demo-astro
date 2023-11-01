@@ -250,7 +250,7 @@ function ChallengeParticipantsGrid({ participants, activityType, lang }) {
   return (
     <div>
       <div className="pb-4 flex justify-end">
-        <div className="relative mt-1">
+        <div className="participants-filter relative mt-1">
           <DebouncedInput
             type="text"
             value={globalFilter ?? ""}
