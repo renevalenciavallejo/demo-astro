@@ -1,0 +1,146 @@
+---
+id: 46
+slug: reto-10k-para-pararte-del-sofa-octubre-46
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Reto 10K para pararte del sofá, octubre"
+description: "Acumula por lo menos 10K de corrida al aire libre en una semana. Únete a este reto y recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+seoTitle: "Reto de running para principiantes: Corre 10K en una semana"
+seoDescription: "Si eres nuevo en el running, únete a nuestro reto de 10K en una semana. Del 25 al 31 de octubre. ¡Regístrate y alcanza tus objetivos deportivos!"
+startTime: 2023-10-25 00:00:00.0000000 +00:00
+endTime: 2023-10-31 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 0
+participants:
+  - id: 2235
+    name: "Daniel Restrepo"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 28792
+    distance: 92770.8
+    speed: 3.1128571428571425
+    pace: 5.372399778571428
+    elevation: 394.842778
+    totalPoints: 113
+    isCompleted: True
+  - id: 2223
+    name: "RODRIGO SPINEL"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 14298
+    distance: 48527.38999999999
+    speed: 3.3695
+    pace: 4.9577633
+    elevation: 687.25069
+    totalPoints: 70
+    isCompleted: True
+  - id: 2197
+    name: "Wilfrido  Antonio Mendoza  alvarado"
+    countryCode: "EC"
+    country: "Ecuador"
+    duration: 12877
+    distance: 45696.939999999995
+    speed: 3.800333333333334
+    pace: 4.481374866666667
+    elevation: 408.46448900000007
+    totalPoints: 65
+    isCompleted: True
+  - id: 2245
+    name: "Alejandro Ordóñez"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 12241
+    distance: 36502.31
+    speed: 3.00625
+    pace: 5.57497985
+    elevation: 320.524175
+    totalPoints: 51
+    isCompleted: True
+  - id: 2230
+    name: "Blacida Ortega"
+    countryCode: "AR"
+    country: "Argentina"
+    duration: 8699
+    distance: 27125.56
+    speed: 3.1694999999999998
+    pace: 5.3516055
+    elevation: 675.273753
+    totalPoints: 48
+    isCompleted: True
+  - id: 2320
+    name: "Ivan Duque Escobar"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 8527
+    distance: 24734.25
+    speed: 2.49675
+    pace: 7.58009385
+    elevation: 955.365708
+    totalPoints: 48
+    isCompleted: True
+  - id: 2253
+    name: "Jose Martínez Aguilera"
+    countryCode: "CL"
+    country: "Chile"
+    duration: 8515
+    distance: 29324.07
+    speed: 3.4546666666666668
+    pace: 4.8737138
+    elevation: 138
+    totalPoints: 39
+    isCompleted: True
+  - id: 2261
+    name: "José Andrés Zavala León"
+    countryCode: "EC"
+    country: "Ecuador"
+    duration: 10203
+    distance: 27060.289999999997
+    speed: 2.67075
+    pace: 6.467154024999999
+    elevation: 161.22001289999997
+    totalPoints: 36
+    isCompleted: True
+  - id: 2199
+    name: "Dayhana Perez Quitián"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 6020
+    distance: 16782.629999999997
+    speed: 2.8355
+    pace: 5.8874583000000005
+    elevation: 167.290773
+    totalPoints: 24
+    isCompleted: True
+  - id: 2236
+    name: "Carlos Martin Rossi"
+    countryCode: "AR"
+    country: "Argentina"
+    duration: 0
+    distance: 0
+    speed: 0
+    pace: 0
+    elevation: 0
+    totalPoints: 0
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Acumula por lo menos 10K de corrida al aire libre en una semana. Únete a este reto y recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
