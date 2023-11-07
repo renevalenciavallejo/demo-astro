@@ -1,0 +1,36 @@
+---
+id: 52
+slug: corre-16k-en-una-semana-52
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Corre 16K en una semana"
+description: "Acumula por lo menos 16K de corrida desde el 13 al 19 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+seoTitle: "Reto de running 16K en una semana: Del 13 al 19 de noviembre"
+seoDescription: "¡Aprovecha noviembre para superarte! Únete a nuestro reto de running de 16K del 13 al 19 de noviembre. Ideal para corredores principiantes. Regístrate y corre hacia la meta."
+startTime: 2023-11-13 00:00:00.0000000 +00:00
+endTime: 2023-11-19 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 0
+participants:
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Acumula por lo menos 16K de corrida desde el 13 al 19 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
