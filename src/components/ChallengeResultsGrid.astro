@@ -8,6 +8,7 @@ import {
   useTranslations,
 } from "src/i18n/utils";
 import { format } from "date-fns";
+import ChallengeDate, { ChallengeDateFormat } from "./ChallengeDate";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -82,8 +83,19 @@ const { page } = Astro.props;
                 </a>
               </td>
               <td class="px-6 py-3">
-                {format(data.startTime, " MMM d, yyyy")} -{" "}
-                {format(data.endTime, " MMM d, yyyy")}
+                <ChallengeDate
+                  date={data.startTime}
+                  lang={lang}
+                  dateFormat={ChallengeDateFormat.Basic}
+                  client:load
+                />
+                {` - `}
+                <ChallengeDate
+                  date={data.endTime}
+                  lang={lang}
+                  dateFormat={ChallengeDateFormat.Basic}
+                  client:load
+                />
               </td>
               <td class="px-6 py-3">{data.activityType}</td>
               <td class="px-6 py-3">
