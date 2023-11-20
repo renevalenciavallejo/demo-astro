@@ -1,0 +1,102 @@
+---
+id: 53
+slug: corre-30k-en-una-semana-53
+lang: "es"
+showOnHomePage: true
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Corre 30K en una semana"
+description: "Acumula por lo menos 30K de corrida desde el 12 al 18 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+seoTitle: "Resultados: Corre 30K en una semana - noviembre 2023"
+seoDescription: "Consulta la clasificación completa del reto 'Corre 30K en una semana'. Un evento de running que se realizó del 12 al 18 de noviembre de 2023."
+startTime: 2023-11-12 00:00:00.0000000 +00:00
+endTime: 2023-11-18 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 0
+participants:
+  - id: 2436
+    name: "Ivan Duque Escobar"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 26844
+    distance: 91054.40000000001
+    speed: 3.3904285714285716
+    pace: 4.916665442857143
+    elevation: 793.803947
+    totalPoints: 123
+    isCompleted: True
+  - id: 2470
+    name: "Daniel Restrepo"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 30428
+    distance: 84215.78
+    speed: 2.6074615384615387
+    pace: 40.27705664615385
+    elevation: 792.7914996
+    totalPoints: 82
+    isCompleted: True
+  - id: 2449
+    name: "Luciana Panizoni"
+    countryCode: "AR"
+    country: "Argentina"
+    duration: 16336
+    distance: 39850.39000000001
+    speed: 2.311833333333334
+    pace: 9.533813958333335
+    elevation: 587
+    totalPoints: 58
+    isCompleted: True
+  - id: 2468
+    name: "Jose Martínez Aguilera"
+    countryCode: "CL"
+    country: "Chile"
+    duration: 9687
+    distance: 35651.48
+    speed: 3.473333333333333
+    pace: 5.097887833333334
+    elevation: 86
+    totalPoints: 44
+    isCompleted: True
+  - id: 2445
+    name: "Yessica Catheryne  Mancipe Cepeda "
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 10254
+    distance: 26476.72
+    speed: 2.598
+    pace: 6.425729700000001
+    elevation: 544.3464230000001
+    totalPoints: 42
+    isCompleted: False
+  - id: 2534
+    name: "Andrés Ramón Rodríguez Gómez"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 9771
+    distance: 22057.19
+    speed: 2.289
+    pace: 7.3091735
+    elevation: 109.14999999999999
+    totalPoints: 30
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Acumula por lo menos 30K de corrida desde el 12 al 18 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
