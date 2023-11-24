@@ -1,0 +1,39 @@
+---
+id: 59
+slug: pedalea-hacia-el-año-nuevo-350k-en-un-mes-59
+lang: "es"
+showOnHomePage: true
+activityType: "Cycling"
+image: "open-graph-image-cycling-challenges"
+title: "Pedalea hacia el Año Nuevo: 350K en un mes."
+description: "Únete a este desafío GRATUITO de ciclismo del 16 de diciembre de 2023 al 21 de enero de 2024. Recorre por lo menos 350K al aire libre a tu ritmo, comparte usando #SwetroNewYear350K y participa para ganar parte del premio de $120. Aprovecha las festividades, arranca el nuevo año con bienestar y celebra tus logros en el ciclismo"
+seoTitle: "Pedalea hacia el Año Nuevo: Reto Ciclismo 350Kms"
+seoDescription: "¡Participa en nuestro reto gratuito de ciclismo global! Completa 350Kms entre el 23 de diciembre y el 21 de enero para ganar tu parte de $120 en premios."
+startTime: 2023-12-23 00:00:00.0000000 +00:00
+endTime: 2024-01-21 23:59:59.0000000 +00:00
+entryFee: 0
+pot: 120
+participants:
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Únete a este desafío GRATUITO de ciclismo del 16 de diciembre de 2023 al 21 de enero de 2024. Recorre por lo menos 350K al aire libre a tu ritmo, comparte usando #SwetroNewYear350K y participa para ganar parte del premio de $120. Aprovecha las festividades, arranca el nuevo año con bienestar y celebra tus logros en el ciclismo.
+
+- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Premios
+
+- Mayor distancia recorrida por hombre y mujer en la categoría de 36 a 45 años: 10 USD cada uno.
+- Mayor distancia recorrida por hombre y mujer en la categoría de 18 a 35 años: 10 USD cada uno.
+- Mayor distancia recorrida por hombre y mujer en la categoría de más de 45 años: 10 USD cada uno.
+- Mayor altura ganada por hombre y mujer en la categoría de 18 a 35 años: 10 USD cada uno.
+- Mayor altura ganada por hombre y mujer en la categoría de 36 a 45 años: 10 USD cada uno.
+- Mayor altura ganada por hombre y mujer en la categoría de más de 45 años: 10 USD cada uno.
