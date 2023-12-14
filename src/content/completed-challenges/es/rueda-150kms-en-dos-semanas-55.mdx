@@ -2,18 +2,29 @@
 id: 55
 slug: rueda-150kms-en-dos-semanas-55
 lang: "es"
-showOnHomePage: true
+showOnHomePage: false
 activityType: "Cycling"
 image: "open-graph-image-cycling-challenges"
 title: "Rueda 150kms en dos semanas"
 description: "¡Monta con pasión y completa 150 kilómetros de ciclismo del 11 al 24 de noviembre! Únete a este desafío y recupera tu tarifa de inscripción al completarlo. El premio se distribuirá entre aquellos que logren el objetivo."
-seoTitle: "Reto de ciclismo 150K: Desafío internacional en noviembre"
-seoDescription: "Participa en nuestro reto de ciclismo de 150K del 11 al 24 de noviembre desde cualquier lugar del mundo. ¡Regístrate y prepárate para el desafío en dos ruedas!"
+seoTitle: "Resultados: Rueda 150kms en dos semanas - Noviembre 11 al 24 de 2023"
+seoDescription: "Consulta la clasificación completa del reto 'Rueda 150kms en dos semanas'. Un evento de running que se realizó del 11 al 24 de noviembre de 2023."
 startTime: 2023-11-11 00:00:00.0000000 +00:00
 endTime: 2023-11-24 23:59:59.0000000 +00:00
 entryFee: 3
-pot: 0
+pot: 3
 participants:
+  - id: 2432
+    name: "Maristela Fontalvo navarro"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 105283
+    distance: 854353.6
+    speed: 8.246454545454545
+    pace: 2.0496918999999996
+    elevation: 5054.81808
+    totalPoints: 301
+    isCompleted: True
 ---
 
 import ChallengeDate, {
@@ -25,12 +36,11 @@ import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 ¡Monta con pasión y completa 150 kilómetros de ciclismo del 11 al 24 de noviembre! Únete a este desafío y recupera tu tarifa de inscripción al completarlo. El premio se distribuirá entre aquellos que logren el objetivo.
 
-- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
-- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
-- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Bolsa de premios
 
 La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
-
 Entre más participantes haya en un reto, mayor será el premio.

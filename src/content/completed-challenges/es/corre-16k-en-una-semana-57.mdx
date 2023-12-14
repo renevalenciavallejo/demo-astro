@@ -1,0 +1,68 @@
+---
+id: 57
+slug: corre-16k-en-una-semana-57
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Corre 16K en una semana"
+description: "Acumula por lo menos 16K de corrida desde el 24 al 30 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+seoTitle: "Resultados: Corre 16K en una semana - Noviembre 24 al 30 de 2023"
+seoDescription: "Consulta la clasificación completa del reto 'Corre 16K en una semana'. Un evento de running que se realizó del 24 al 30 de noviembre de 2023."
+startTime: 2023-11-24 00:00:00.0000000 +00:00
+endTime: 2023-11-30 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 9
+participants:
+  - id: 2700
+    name: "Luciana Panizoni"
+    countryCode: "AR"
+    country: "Argentina"
+    duration: 21507
+    distance: 58180.71000000001
+    speed: 2.7025
+    pace: 6.179613733333333
+    elevation: 1208
+    totalPoints: 94
+    isCompleted: True
+  - id: 2697
+    name: "Johnny alexander Peña"
+    countryCode: "DO"
+    country: "República Dominicana"
+    duration: 8694
+    distance: 34903.15
+    speed: 3.6477500000000003
+    pace: 4.653135875
+    elevation: 159.13465639999998
+    totalPoints: 45
+    isCompleted: True
+  - id: 2702
+    name: "Alejandro Ordóñez"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 3489
+    distance: 9590.63
+    speed: 2.749
+    pace: 6.0628104
+    elevation: 53.40747
+    totalPoints: 13
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Acumula por lo menos 16K de corrida desde el 24 al 30 de noviembre. Únete a este reto, recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+Entre más participantes haya en un reto, mayor será el premio.
