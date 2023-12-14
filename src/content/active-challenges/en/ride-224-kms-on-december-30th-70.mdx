@@ -1,0 +1,45 @@
+---
+id: 70
+slug: ride-224-kms-on-december-30th-70
+lang: "en"
+showOnHomePage: true
+activityType: "Cycling"
+image: "open-graph-image-cycling-challenges"
+title: "Ride 224 kms on December 30th"
+description: "Count down to 2024 on two wheels! Join the global 224KMS cycling challenge on Dec 30. Free entry, $100 in prizes. Cyclists worldwide, let's ride!"
+seoTitle: "Epic Farewell Ride: 224 KMS Cycling Challenge to Welcome 2024"
+seoDescription: "Count down to 2024 on two wheels! Join the global 224K challenge on Dec 30. Free entry, $100 in prizes. Cyclists worldwide, let's ride!"
+startTime: 2023-12-30 00:00:00.0000000 +00:00
+endTime: 2023-12-30 23:59:59.0000000 +00:00
+entryFee: 0
+pot: 100
+participants:
+  - id: 3251
+    name: "Wilson Zuluaga Giraldo"
+    countryCode: "CR"
+    country: "Costa Rica"
+    duration: 0
+    distance: 0
+    speed: 0
+    pace: 0
+    elevation: 0
+    totalPoints: 0
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Description
+
+Count down to 2024 on two wheels! Join the global 224KMS cycling challenge on Dec 30. Free entry, $100 in prizes. Cyclists worldwide, let's ride!
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Rewards
+
+- The first 20 people who complete the challenge will each win US$5.

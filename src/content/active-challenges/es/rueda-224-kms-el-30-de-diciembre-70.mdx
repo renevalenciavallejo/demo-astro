@@ -1,0 +1,45 @@
+---
+id: 70
+slug: rueda-224-kms-el-30-de-diciembre-70
+lang: "es"
+showOnHomePage: true
+activityType: "Cycling"
+image: "open-graph-image-cycling-challenges"
+title: "Rueda 224 Kms el 30 de diciembre"
+description: "Completa 224 KMS de ciclismo al aire libre el 30 de diciembre. Compite desde cualquier lugar y podrás ganar parte de la bolsa de premios de US$100. ¡Únete ya!"
+seoTitle: "Reto de ciclismo: 224 kms para recibir el 2024 con fuerza"
+seoDescription: "Completa 224 KMS de ciclismo al aire libre el 30 de diciembre. Compite desde cualquier lugar y podrás ganar parte de la bolsa de premios de US$100. ¡Únete ya!"
+startTime: 2023-12-30 00:00:00.0000000 +00:00
+endTime: 2023-12-30 23:59:59.0000000 +00:00
+entryFee: 0
+pot: 100
+participants:
+  - id: 3251
+    name: "Wilson Zuluaga Giraldo"
+    countryCode: "CR"
+    country: "Costa Rica"
+    duration: 0
+    distance: 0
+    speed: 0
+    pace: 0
+    elevation: 0
+    totalPoints: 0
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Completa 224 KMS de ciclismo al aire libre el 30 de diciembre. Compite desde cualquier lugar y podrás ganar parte de la bolsa de premios de US$100. ¡Únete ya!
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Premios
+
+- Las primeras 20 personas que completen el reto ganarán US$5 cada una.

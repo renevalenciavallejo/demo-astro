@@ -1,0 +1,36 @@
+---
+id: 67
+slug: corre-30k-en-una-semana-67
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Corre 30K en una semana"
+description: "¡Corre al menos 30 kilómetros en una o varias actividades acumuladas entre el 6 y el 12 de enero para completar este reto y recuperar el valor de inscripción! ¡La bolsa de premios se repartirá entre todos los participantes que logren el objetivo!"
+seoTitle: "Reto de correr 30K en una semana. Enero de 2024"
+seoDescription: "Desafía tus límites con nuestro reto de running de 30K. Del 6 al 12 de enero, corre a tu propio ritmo. ¡Ideal para corredores intermedios de cualquier ciudad! Regístrate y supera tus marcas."
+startTime: 2024-01-06 00:00:00.0000000 +00:00
+endTime: 2024-01-12 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 0
+participants:
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+¡Corre al menos 30 kilómetros en una o varias actividades acumuladas entre el 6 y el 12 de enero para completar este reto y recuperar el valor de inscripción! ¡La bolsa de premios se repartirá entre todos los participantes que logren el objetivo!
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.

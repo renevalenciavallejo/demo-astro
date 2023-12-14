@@ -1,0 +1,36 @@
+---
+id: 68
+slug: corre-50k-en-dos-semanas-68
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "Corre 50K en dos semanas"
+description: "¡Corre al menos 50 kilómetros en una o varias actividades acumuladas entre el 1 y el 14 de enero para completar este reto y recuperar el valor de inscripción! ¡La bolsa de premios se repartirá entre todos los participantes que logren el objetivo!"
+seoTitle: "Comienza 2024 con fuerza: Desafío global de 50K en la primera quincena de enero"
+seoDescription: "¡Inicia el año con paso firme! Únete a nuestro desafío global de 50K del 1 al 14 de enero. Corre, conecta y alcanza metas. ¡Abierto a todos, participa desde cualquier lugar del mundo!"
+startTime: 2024-01-01 00:00:00.0000000 +00:00
+endTime: 2024-01-14 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 0
+participants:
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+¡Corre al menos 50 kilómetros en una o varias actividades acumuladas entre el 1 y el 14 de enero para completar este reto y recuperar el valor de inscripción! ¡La bolsa de premios se repartirá entre todos los participantes que logren el objetivo!
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+
+Entre más participantes haya en un reto, mayor será el premio.
