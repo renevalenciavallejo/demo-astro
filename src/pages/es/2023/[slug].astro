@@ -10,19 +10,37 @@ export async function getStaticPaths() {
   const summaries = await getCollection("2023");
 
   return summaries.map((summary) => ({
-    params: { slug: summary.id },
+    params: { slug: summary.slug },
     props: { summary },
   }));
 }
+
+const seoTitle =
+  summary.data.running && summary.data.cycling
+    ? "Tus logros de running y ciclismo en Swetro en 2023"
+    : summary.data.running
+      ? "Tus logros de running en Swetro en 2023"
+      : summary.data.cycling
+        ? "Tus logros de ciclismo en Swetro en 2023"
+        : "";
+
+const seoDescription =
+  summary.data.running && summary.data.cycling
+    ? "Celebra tus logros de running y ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
+    : summary.data.running
+      ? "Celebra tus logros de running en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
+      : summary.data.cycling
+        ? "Celebra tus logros de ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
+        : "";
 ---
 
 <Layout
   pageTitle="Mi 2023 con Swetro"
-  seoTitle="Swetro: Join Virtual Running and Cycling Races to Win Rewards"
-  seoDescription="Join Swetro's virtual running and cycling races and challenges. Earn rewards for your physical activity."
+  seoTitle={seoTitle}
+  seoDescription={seoDescription}
   image=""
 >
-  <main class="flex flex-col justify-center items-center m-5">
+  <main class="flex flex-col justify-center items-center md:m-5">
     <section>
       {
         summary.data.running && (
@@ -30,7 +48,7 @@ export async function getStaticPaths() {
             <div>
               <Image
                 src={images[summary.data.runningImagePathEs]()}
-                alt="skdfhsk"
+                alt="Running an"
               />
             </div>
             <div class="flex flex-row justify-around my-[2.1875rem]">
