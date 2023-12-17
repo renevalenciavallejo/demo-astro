@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /*/privacy-policy
 Disallow: /*/terms-of-use
+Disallow: /*/2023
 
 Sitemap: https://swetro.com/sitemap-index.xml
