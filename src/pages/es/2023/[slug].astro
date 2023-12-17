@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const { summary } = Astro.props;
-const images = import.meta.glob("/src/assets/2023/es/*.{jpeg,jpg,png,gif}");
 
 export async function getStaticPaths() {
   const summaries = await getCollection("2023");
@@ -15,77 +14,35 @@ export async function getStaticPaths() {
   }));
 }
 
-const seoTitle =
-  summary.data.running && summary.data.cycling
-    ? "Tus logros de running y ciclismo en Swetro en 2023"
-    : summary.data.running
-      ? "Tus logros de running en Swetro en 2023"
-      : summary.data.cycling
-        ? "Tus logros de ciclismo en Swetro en 2023"
-        : "";
+const seoTitle = summary.data.running && summary.data.cycling
+  ? "Tus logros de running y ciclismo en Swetro durante el 2023"
+  : summary.data.running
+    ? "Tus logros de running en Swetro durante el 2023"
+    : summary.data.cycling
+      ? "Tus logros de ciclismo en Swetro durante el 2023"
+      : "";
 
-const seoDescription =
-  summary.data.running && summary.data.cycling
-    ? "Celebra tus logros de running y ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
-    : summary.data.running
-      ? "Celebra tus logros de running en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
-      : summary.data.cycling
-        ? "Celebra tus logros de ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!"
-        : "";
+const seoDescription = summary.data.running && summary.data.cycling 
+  ? "Celebra tus logros de running en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
+  : summary.data.running 
+    ? "Celebra tus logros de running en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
+    : summary.data.cycling ? "Celebra tus logros de ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
+    : "";
 ---
 
 <Layout
   pageTitle="Mi 2023 con Swetro"
   seoTitle={seoTitle}
   seoDescription={seoDescription}
-  image=""
+  image="open-graph-image-2023-es"
 >
   <main class="flex flex-col justify-center items-center md:m-5">
     <section>
       {
         summary.data.running && (
           <>
-            <div>
-              <Image
-                src={images[summary.data.runningImagePathEs]()}
-                alt="Running an"
-              />
-            </div>
-            <div class="flex flex-row justify-around my-[2.1875rem]">
-              <a
-                href=""
-                id="home-lnk-sign-up-section-3"
-                class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-cobalt_blue_600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
-                </svg>
-                Compartir
-              </a>
-              <a
-                href=""
-                id="home-lnk-sign-up-section-3"
-                class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-              >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Quiero registrarme
-              </a>
+            <div class="mb-5">
+              <Image src={summary.data.runningImagePathEs} alt="Running summary" width=430 height=932 />
             </div>
           </>
         )
@@ -95,51 +52,51 @@ const seoDescription =
       {
         summary.data.cycling && (
           <>
-            <div>
-              <Image
-                src={images[summary.data.cyclingImagePathEs]()}
-                alt="skdfhsk"
-              />
+            <div class="mb-5">
+              <Image src={summary.data.cyclingImagePathEs} alt="Cycling summary" width=430 height=932 />
             </div>
-            <div class="flex flex-row justify-around my-[2.1875rem]">
-              <a
-                href=""
-                id="home-lnk-sign-up-section-3"
-                class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-cobalt_blue_600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
-                </svg>
-                Compartir
-              </a>
-              <a
-                href=""
-                id="home-lnk-sign-up-section-3"
-                class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-              >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                Quiero registrarme
-              </a>
-            </div>
+            
           </>
         )
       }
+    </section>
+    <section>
+      <div class="flex flex-row justify-center">
+        <a
+          href=""
+          id="home-lnk-sign-up-section-3"
+          class="mx-1 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-cobalt_blue_600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+          </svg>
+          Compartir
+        </a>
+        <a
+          href=""
+          id="home-lnk-sign-up-section-3"
+          class="mx-1 px-3 py-2 text-sm font-medium text-center inline-flex items-center text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700  focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        >
+          <svg
+            class="w-5 h-5 mr-2"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Nuevos retos
+        </a>
+      </div>
     </section>
   </main>
 </Layout>

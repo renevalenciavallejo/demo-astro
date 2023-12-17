@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import openGraphImageDefault from "@assets/images/open-graph-image.png";
+import openGraphImage2023En from "@assets/images/open-graph-image-2023-en.png";
+import openGraphImage2023Es from "@assets/images/open-graph-image-2023-es.png";
 import { getLangFromUrl, mapChallengesToPaths } from "src/i18n/utils";
 
 interface Props {
@@ -65,6 +67,12 @@ switch (image) {
     break;
   case "open-graph-image-running-challenges":
     openGraphImage = openGraphImageDefault.src;
+    break;
+  case "open-graph-image-2023-en":
+    openGraphImage = openGraphImage2023En.src;
+    break;
+  case "open-graph-image-2023-es":
+    openGraphImage = openGraphImage2023Es.src;
     break;
   default:
     openGraphImage = openGraphImageDefault.src;
