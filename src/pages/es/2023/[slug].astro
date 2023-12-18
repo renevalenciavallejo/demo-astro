@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const { summary } = Astro.props;
+const date = new Date();
 
 export async function getStaticPaths() {
   const summaries = await getCollection("2023");
@@ -60,7 +61,7 @@ const seoDescription = summary.data.running && summary.data.cycling
         )
       }
     </section>
-    <section class="sticky bottom-0">
+    <section class="sticky bottom-2">
       <div class="flex flex-row justify-center">
         <a
           href=""
@@ -98,5 +99,10 @@ const seoDescription = summary.data.running && summary.data.cycling
         </a>
       </div>
     </section>
+    <footer>
+      <p class="mt-5 text-xs leading-[1.25rem] font-normal text-white">
+        Copyright {date.getFullYear()} Swetro. All rights reserved.
+      </p>
+    </footer>
   </main>
 </Layout>
