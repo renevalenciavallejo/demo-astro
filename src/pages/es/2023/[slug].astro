@@ -41,7 +41,7 @@ const seoDescription = summary.data.running && summary.data.cycling
       {
         summary.data.running && (
           <>
-            <div class="mb-5">
+            <div class="mb-2">
               <Image src={summary.data.runningImagePathEs} alt="Running summary" width=430 height=932 />
             </div>
           </>
@@ -52,7 +52,7 @@ const seoDescription = summary.data.running && summary.data.cycling
       {
         summary.data.cycling && (
           <>
-            <div class="mb-5">
+            <div class="mb-2">
               <Image src={summary.data.cyclingImagePathEs} alt="Cycling summary" width=430 height=932 />
             </div>
             
@@ -60,7 +60,7 @@ const seoDescription = summary.data.running && summary.data.cycling
         )
       }
     </section>
-    <section>
+    <section class="sticky bottom-0">
       <div class="flex flex-row justify-center">
         <a
           href=""
