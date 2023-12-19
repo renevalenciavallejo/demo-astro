@@ -16,23 +16,23 @@ export async function getStaticPaths() {
 }
 
 const seoTitle = summary.data.running && summary.data.cycling
-  ? "Tus logros de running y ciclismo en Swetro durante el 2023"
+  ? "Your running and cycling achievements in Swetro during 2023"
   : summary.data.running
-    ? "Tus logros de running en Swetro durante el 2023"
+    ? "Your running achievements in Swetro during 2023"
     : summary.data.cycling
-      ? "Tus logros de ciclismo en Swetro durante el 2023"
+      ? "Your cycling achievements in Swetro during 2023"
       : "";
 
 const seoDescription = summary.data.running && summary.data.cycling 
-  ? "Celebra tus logros de running y ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
+  ? "Celebrate your running and cycling achievements in Swetro during 2023. Check out our annual summary to see how far you've come!" 
   : summary.data.running 
-    ? "Celebra tus logros de running en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
-    : summary.data.cycling ? "Celebra tus logros de ciclismo en Swetro durante el 2023. ¡Consulta nuestro resumen anual para ver cuánto has avanzado!" 
+    ? "Celebrate your running achievements in Swetro during 2023. Check out our annual summary to see how far you've come!" 
+    : summary.data.cycling ? "Celebrate your cycling achievements in Swetro during 2023. Check out our annual summary to see how far you've come!" 
     : ""; 
 ---
 
 <Layout
-  pageTitle="Mi 2023 con Swetro"
+  pageTitle="My 2023 with Swetro"
   seoTitle={seoTitle}
   seoDescription={seoDescription}
   image="open-graph-image-2023-es"
@@ -43,10 +43,10 @@ const seoDescription = summary.data.running && summary.data.cycling
         summary.data.running && (
           <>
             <div class="flex flex-col justify-center items-center mb-2">
-              <Image src={summary.data.runningImagePathEs} alt="Running summary" width=430 height=932 />
+              <Image src={summary.data.runningImagePathEn} alt="Running summary" width=430 height=932 />
               <div class="mt-3 w-[320px] text-center text-sm text-white hover:underline">
-                <a href={summary.data.runningImagePathEs} id="2023-lnk-download-running">
-                  Descarga tu resumen y compártelo con tus amigos y seguidores
+                <a href={summary.data.runningImagePathEn} id="2023-lnk-download-running">
+                  Download your summary and share it with your friends and followers
                 </a>
               </div>
             </div>
@@ -59,10 +59,10 @@ const seoDescription = summary.data.running && summary.data.cycling
         summary.data.cycling && (
           <>
             <div class="flex flex-col justify-center items-center mb-2">
-              <Image src={summary.data.cyclingImagePathEs} alt="Cycling summary" width=430 height=932 />
+              <Image src={summary.data.cyclingImagePathEn} alt="Cycling summary" width=430 height=932 />
               <div class="mt-3 w-[320px] text-center text-sm text-white hover:underline">
-                <a href={summary.data.runningImagePathEs} id="2023-lnk-download-cycling">
-                  Descarga tu resumen y compártelo con tus amigos y seguidores
+                <a href={summary.data.runningImagePathEn} id="2023-lnk-download-cycling">
+                  Download your summary and share it with your friends and followers
                 </a>
               </div>
             </div>
