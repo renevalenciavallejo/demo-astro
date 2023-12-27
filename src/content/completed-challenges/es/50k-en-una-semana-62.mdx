@@ -1,0 +1,68 @@
+---
+id: 62
+slug: 50k-en-una-semana-62
+lang: "es"
+showOnHomePage: false
+activityType: "Running"
+image: "open-graph-image-running-challenges"
+title: "50K en una semana"
+description: "Acumula por lo menos 50K de corrida al aire libre en una semana. Únete a este reto y recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo."
+seoTitle: "Resultados: 50K en una semana - diciembre 2023"
+seoDescription: "Consulta la clasificación completa del reto: 50K en una semana. Un evento de running que se realizó del 7 al 13 de diciembre de 2023."
+startTime: 2023-12-07 00:00:00.0000000 +00:00
+endTime: 2023-12-13 23:59:59.0000000 +00:00
+entryFee: 3
+pot: 9
+participants:
+  - id: 2731
+    name: "Ivan Duque Escobar"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 27481
+    distance: 95050.87
+    speed: 3.4538571428571427
+    pace: 4.8293116
+    elevation: 990.9340639999999
+    totalPoints: 131
+    isCompleted: True
+  - id: 2785
+    name: "Angie Ximena Restrepo Remolina"
+    countryCode: "CO"
+    country: "Colombia"
+    duration: 14855
+    distance: 43874.369999999995
+    speed: 2.9281999999999995
+    pace: 5.80407476
+    elevation: 594.423336
+    totalPoints: 63
+    isCompleted: False
+  - id: 3195
+    name: "Johnny alexander Peña"
+    countryCode: "DO"
+    country: "República Dominicana"
+    duration: 0
+    distance: 0
+    speed: 0
+    pace: 0
+    elevation: 0
+    totalPoints: 0
+    isCompleted: False
+---
+
+import ChallengeDate, {
+  ChallengeDateFormat,
+} from "@components/ChallengeDate.tsx";
+import ChallengeDuration from "@components/ChallengeDuration.tsx";
+
+## Descripción
+
+Acumula por lo menos 50K de corrida al aire libre en una semana. Únete a este reto y recupera el valor de inscripción por completarlo. La bolsa de premios se repartirá entre aquellas personas que logren el objetivo.
+
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+
+## Bolsa de premios
+
+La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
+Entre más participantes haya en un reto, mayor será el premio.
