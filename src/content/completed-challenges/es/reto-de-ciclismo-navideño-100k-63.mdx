@@ -7,13 +7,24 @@ activityType: "Cycling"
 image: "open-graph-image-cycling-challenges"
 title: "Reto de ciclismo navideño 100K"
 description: "Sin importar tu ubicación, este desafío es para ti. Participa en nuestro reto de ciclismo de 100K del 16 al 24 de diciembre desde cualquier lugar del mundo. ¡Regístrate y prepárate para el desafío en dos ruedas!"
-seoTitle: "100K en Bicicleta: Desafío Navideño Global"
-seoDescription: "Celebra la Navidad pedaleando. Únete al desafío global de 100K del 16 al 24 de diciembre. Pedalea y podrás ganar dinero por alcanzar el objetivo desde cualquier parte del mundo."
+seoTitle: "Resultados: Reto de ciclismo navideño 100K - Diciembre 16 al 24 de 2023"
+seoDescription: "Consulta la clasificación completa del reto 'Reto de ciclismo navideño 100K'. Un evento de ciclismo que se realizó del 16 al 24 de diciembre de 2023."
 startTime: 2023-12-16 00:00:00.0000000 +00:00
 endTime: 2023-12-24 23:59:59.0000000 +00:00
 entryFee: 3
-pot: 0
+pot: 3
 participants:
+  - id: 3036
+    name: "Christian Alejandro Venegas cerezo"
+    countryCode: "MX"
+    country: "México"
+    duration: 23287
+    distance: 129492.19
+    speed: 6.017
+    pace: 2.7877528750000002
+    elevation: 1461
+    totalPoints: 59
+    isCompleted: True
 ---
 
 import ChallengeDate, {
@@ -25,12 +36,11 @@ import ChallengeDuration from "@components/ChallengeDuration.tsx";
 
 Sin importar tu ubicación, este desafío es para ti. Participa en nuestro reto de ciclismo de 100K del 16 al 24 de diciembre desde cualquier lugar del mundo. ¡Regístrate y prepárate para el desafío en dos ruedas!
 
-- Inicio: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
-- Finalización: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
-- Duración: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
+- Start: <ChallengeDate date={frontmatter.startTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- End: <ChallengeDate date={frontmatter.endTime} lang={frontmatter.lang} dateFormat={ChallengeDateFormat.Long} client:load />
+- Duration: <ChallengeDuration startTime={frontmatter.startTime} endTime={frontmatter.endTime} lang={frontmatter.lang} client:load />
 
 ## Bolsa de premios
 
 La bolsa de premios se obtiene de la suma del valor de inscripción pagado por cada participante. Se reparte por partes iguales entre aquellas personas que logran el objetivo del reto, Swetro retiene el 20% de la bolsa de premios antes de repartirla.
-
 Entre más participantes haya en un reto, mayor será el premio.
