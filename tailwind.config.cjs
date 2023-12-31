@@ -12,6 +12,7 @@ module.exports = {
         open_sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        cobalt_blue_700: "#0044ee",
         cobalt_blue_600: "#0054ff",
         cobalt_blue_500: "#3e7dff",
         cobalt_blue_400: "#518aff",
